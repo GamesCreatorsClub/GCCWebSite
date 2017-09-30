@@ -149,6 +149,11 @@ h2 {
 
 
 /* articles */
+article {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 35px;
+}
+
 article > header span > a {
     color: #333;
 }
