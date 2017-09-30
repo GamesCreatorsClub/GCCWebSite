@@ -5,4 +5,4 @@ Author: Daniel Sendula
 
 # RaspberryPilot.com
 
-Site is almost back up and running!
+Our site [RaspberryPilot.com](http://RaspberryPilot.com) is almost back up and running!
