@@ -1,9 +1,7 @@
-.. title: RaspberryPilot.com Site
-.. tags: Home
-.. slug: site-back-up-and-running
-.. date: 30 September 2013 12:03
-.. author: Daniel Sendula
-
+Title: RaspberryPilot.com Site
+Tags: Home
+Date: 2017-09-30 12:03
+Author: Daniel Sendula
 
 # RaspberryPilot.com
 
