@@ -19,6 +19,10 @@ h2 {
     color: #333;
 }
 
+.title-blog {
+    line-height: 0.6;
+}
+
 /* header */
 .header-panel {
     z-index: 3;
