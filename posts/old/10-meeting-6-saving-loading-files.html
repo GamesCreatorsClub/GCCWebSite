@@ -1,0 +1,66 @@
+.. tags: Meetings
+.. slug: 10-meeting-6-saving-loading-files
+.. title: Meeting 6–Saving &amp; Loading Files
+.. date: 04 March 2013 13:03
+.. author: Edward Powell
+
+	<h2>
+					<a href="http://raspberrypilot.com/index.php/meetings/10-meeting-6-saving-loading-files">
+			Meeting 6–Saving &amp; Loading Files</a>
+			</h2>
+
+
+
+
+
+<p>In this session we looked at file loading and saving. In the last 
+meeting before half-term we had the bare-bones of a game, but we were 
+creating the background by ‘hardwiring’ the positions of our bush and 
+tree images in code. In this meeting we want to see how we can load in 
+the layout of our background map using a simple text file. Then we will 
+be able to edit or add completely new levels to our game without modify 
+any code.</p>  <h3>Defining our map</h3>  <p>Our starting point is do 
+think of our map level as a grid. At each point in the grid we can have a
+ number that will indicate a type of image to use for that location – 1 
+is grass, 2 is concrete, 3 is a wall, etc.</p>  <div>   <table cellspacing="0" cellpadding="0" border="1" width="195"><tbody>       <tr height="50">         <td width="50">1</td>          <td width="52">1</td>          <td width="45">1</td>          <td width="46">1</td>       </tr>        <tr height="50">         <td width="50">1</td>          <td width="52">2</td>          <td width="45">2</td>          <td width="46">1</td>       </tr>        <tr height="50">         <td width="50">1</td>          <td width="52">2</td>          <td width="45">2</td>          <td width="46">1</td>       </tr>        <tr height="50">         <td width="50">1</td>          <td width="53">3</td>          <td width="47">2</td>          <td width="48">1</td>       </tr>     </tbody></table> </div>  <p>We’ll
+ call the images ‘tiles’ because building our map will be a bit like 
+tiling a floor – we’ll look at map for each location, pick the 
+appropriate tile image and then render it in that location. The images 
+we used were from the python-games directory:</p>  <p><a href="http://www.raspberrypilot.com/images/wall_block_tall_2.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="Wall_Block_Tall" alt="Wall_Block_Tall" src="../../../images/old/wall_block_tall_thumb.png" border="0" height="89" width="54"></a><a href="http://www.raspberrypilot.com/images/grass_block_2.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Grass_Block" alt="Grass_Block" src="../../../images/old/grass_block_thumb.png" border="0" height="89" width="54"></a><a href="http://www.raspberrypilot.com/images/plain_block_2.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="Plain_Block" alt="Plain_Block" src="../../../images/old/plain_block_thumb.png" border="0" height="89" width="54"></a><a href="http://www.raspberrypilot.com/images/wood_block_tall_2.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="Wood_Block_Tall" alt="Wood_Block_Tall" src="../../../images/old/wood_block_tall_thumb.png" border="0" height="89" width="54"></a></p>        <p>These
+ images are slightly more complicated than the most basic form of tile, 
+because they will give the impression of a 3D world when overlaid with 
+one another. Because of this they are not actually square. If you want 
+to create your own map tiles, I would recommend using simple 64 pixel 
+square images instead – but we needed to use existing images in the 
+club.</p>  <p>We can load our images into a List of images like this:</p>  <p><font face="Courier New">tile_image_list = [     <br>&nbsp;&nbsp;&nbsp; pygame.image.load(<font color="#008000">'Wall_Block_Tall.png'</font>),      <br>&nbsp;&nbsp;&nbsp; pygame.image.load(<font color="#008000">'Grass_Block.png'</font>),      <br>&nbsp;&nbsp;&nbsp; pygame.image.load(<font color="#008000">'Plain_Block.png'</font>),&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; pygame.image.load(<font color="#008000">'Wood_Block_Tall.png'</font>)      <br>&nbsp;&nbsp;&nbsp; ]</font></p>  <h3>Files with miles of tiles…</h3>  <p>So
+ we know that our map will be a grid, but how can we store a grid in a 
+file? Well, we used a simple text file where each line of the file is a 
+row in our grid. On each line we write the number of the image tile and 
+separate each one with a ‘,’. So the file will look like this:</p>  <p>1,1,1,1</p>  <p>1,2,2,1</p>  <p>1,2,2,1</p>  <p>1,3,2,1</p>  <p>Four
+ lines, and each line has four (comma separated) numbers.To read a text 
+file like this we need to import the os module (which includes all the 
+Operating System-related commands). Then use the Open function to create
+ a file object. Then we can read each line from the file object. Split 
+the line on commas to get the list of individual tile numbers:</p>  <p><font face="Courier New"><font color="#f79646">def</font> <font color="#0000ff">LoadLevelMap</font>(filename):      <br>&nbsp;&nbsp;&nbsp; file = open(filename)      <br>&nbsp;&nbsp;&nbsp; <font color="#f79646">for</font> line <font color="#f79646">in</font> file:      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tiles = line.split(<font color="#008000">","</font>)      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; level_map.append(tiles)      <br>&nbsp;&nbsp;&nbsp; file.close()</font></p>  <p>Don’t
+ forget to close the file when you have finished with it, or you will 
+leave it locked and inaccessible to your own and other programs.</p>  <h3>Maps in memory</h3>  <p>When
+ we load this file we need to store the map in the computer’s memory so 
+we can read it during the draw function and blit the tile with the 
+matching index number. To do this we use a python List of rows, and each
+ row will also be List of tiles – a List of Lists! But if you think 
+about this for a moment it is not as complicated as it first appears and
+ it is a common construction in programming that is often called 
+‘nesting’. To read back this data, we’ll also use a For Loop that is 
+nested inside another For Loop too. The outer For Loop will go through 
+the rows and then run the inner For Loop to read each tile number from 
+the row.</p>      <p><font face="Courier New"><font color="#f79646">def</font> <font color="#0000ff">DrawLevelMap</font>():      <br>&nbsp;&nbsp;&nbsp; x_pos = 0      <br>&nbsp;&nbsp;&nbsp; y_pos = 0      <br>&nbsp;&nbsp;&nbsp; <font color="#f79646">for</font> line <font color="#f79646">in</font> level_map:      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#f79646">for</font> tile <font color="#f79646">in</font> line:      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; screen.blit(tile_image_list[int(tile)], (x_pos, y_pos))      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x_pos += 50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x_pos = 0      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; y_pos += 40</font></p>  <p>Because
+ we’ve wrapped up the key bits of code into functions we can now just 
+call them at the appropriate stages in our game set-up and game loop to 
+do their funky stuff. Also we can easily re-use this code again in 
+different projects because it is (quite) self-contained.</p>  <p>All the
+ code for a quick demo is here, assuming you have saved your level file 
+as “GCC-Level1.txt” inside the python-games directory along with the 
+python file.</p>  <p><font face="Courier New"><font color="#f79646">import</font> pygame, os</font></p>  <p><font face="Courier New">pygame.init()     <br>screen = pygame.display.set_mode((400, 400))</font></p>  <p><font face="Courier New">tile_image_list = [     <br>&nbsp;&nbsp;&nbsp; pygame.image.load(<font color="#008000">'Wall_Block_Tall.png'</font>),      <br>&nbsp;&nbsp;&nbsp; pygame.image.load(<font color="#008000">'Grass_Block.png'</font>),      <br>&nbsp;&nbsp;&nbsp; pygame.image.load(<font color="#008000">'Plain_Block.png'</font>),&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; pygame.image.load(<font color="#008000">'Wood_Block_Tall.png'</font>)      <br>&nbsp;&nbsp;&nbsp; ]</font></p>  <p><font face="Courier New">level_map = []</font></p>  <p><font face="Courier New"><font color="#f79646">def</font> LoadLevelMap(filename):      <br>&nbsp;&nbsp;&nbsp; file = open(filename)      <br>&nbsp;&nbsp;&nbsp; <font color="#f79646">for</font> line <font color="#f79646">in</font> file:      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tiles = line.split(",")      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; level_map.append(tiles)      <br>&nbsp;&nbsp;&nbsp; file.close()</font></p>  <p><font face="Courier New"><font color="#f79646">def</font> DrawLevelMap():      <br>&nbsp;&nbsp;&nbsp; x_pos = 0      <br>&nbsp;&nbsp;&nbsp; y_pos = 0      <br>&nbsp;&nbsp;&nbsp; <font color="#f79646">for</font> line <font color="#f79646">in</font> level_map:      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#f79646">for</font> tile <font color="#f79646">in</font> line:      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; screen.blit(tile_image_list[int(tile)], (x_pos, y_pos))      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x_pos += 50&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x_pos = 0      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; y_pos += 40      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print(x_pos, y_pos)</font></p>  <p><font face="Courier New">LoadLevelMap(<font color="#008000">"GCC-Level1.txt"</font>)      <br>DrawLevelMap()      <br>pygame.display.flip()</font></p>
+
+
+

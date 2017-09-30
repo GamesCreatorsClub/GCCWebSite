@@ -1,0 +1,371 @@
+.. tags: Tutorials
+.. slug: 81-zombie-text-adventure
+.. title: Zombie Text Adventure!
+.. date: 11 May 2016 10:49
+.. author: Edward Powell
+
+	<h2>
+					<a href="https://web.archive.org/web/20161026121708/http://raspberrypilot.com/index.php/tutorials/81-zombie-text-adventure">
+			Zombie Text Adventure!</a>
+			</h2>
+
+
+
+
+
+<p><img src="../../../images/old/bigstock-cartoon-zombie-isolated-on-whi-15129581.jpg" style="float: left; margin: 6px; display: inline;" border="0" align="left" height="183" width="183"></p>
+<p>This week we’ll be looking at a different sort of game – the typed 
+text adventure. I’ve tidied up and simplified&nbsp; ‘Zombies in 
+Kenilworth’ (for those who have seen it previously) so that you will be 
+able to reuse the core code to create your own text adventures.</p>
+<p>My version has just 6 locations and 3 in-game objects that must be 
+collected and used to escape from the zombie apocalypse that engulfed 
+the computer lab. I am sure that you will be able to come up with some 
+significant enhancements – if not entirely your own take on the text 
+adventure genre.</p>
+<p>For those of you who like to do the typing, here it is in all its 
+glory. I’ve marked the section CUSTOMISE THE CODE HERE where you can 
+replace my Zombie adventure with one of your own. Simply plan our a map 
+of locations and their connections (exits). Then decide which exits will
+ block progress by being locked, and add in a selection of cryptic 
+objects which must be collected, taken to the locked locations and used 
+in order for the player to progress through your map.</p>
+<p>See you later.</p>
+<p>&nbsp;</p>
+<table cellspacing="0" cellpadding="2" border="0" width="400">
+<tbody>
+<tr>
+<td width="400" valign="top">
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong><span style="font-size: 9pt;">def </span></strong></span></span></pre>
+<span style="font-size: 9pt;"><span style="color: #000000;">AddGameLocation(id, name, description):<br> </span><span><span style="color: #000080;"><strong>global </strong></span></span><span style="color: #000000;">locations_map<br> locations_map[id] = {</span><span><span style="color: #008080;"><strong>"Name" </strong></span></span><span style="color: #000000;">: name, </span><span><span style="color: #008080;"><strong>"Description" </strong></span></span><span style="color: #000000;">: description}<br> locations_map[id][</span><span><span style="color: #008080;"><strong>"Exits"</strong></span></span><span style="color: #000000;">] = {}<br> </span><span><span style="color: #000080;"><strong>return</strong></span></span></span>
+<pre style="background-color: #ffffff;">&nbsp;</pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span><br></span><span><span style="color: #000080;"><strong>def </strong></span></span><span style="color: #000000;">AddGameObject(name, description, location_id, use_location_id, use_target, use_message):<br> </span><span><span style="color: #000080;"><strong>global </strong></span></span><span style="color: #000000;">object_list<br> object_list[name] = {</span><span><span style="color: #008080;"><strong>"Description" </strong></span></span><span style="color: #000000;">: description , </span><span><span style="color: #008080;"><strong>"Location" </strong></span></span><span style="color: #000000;">: location_id, </span><span><span style="color: #008080;"><strong>"UseLocation" </strong></span></span><span style="color: #000000;">: use_location_id, </span><span><span style="color: #008080;"><strong>"UseTarget" </strong></span></span><span style="color: #000000;">: use_target, </span><span><span style="color: #008080;"><strong>"UseMessage" </strong></span></span><span style="color: #000000;">: use_message}<br> </span><span><span style="color: #000080;"><strong>return</strong></span></span> </span></span>
+<pre style="background-color: #ffffff;">&nbsp;</pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span><br></span><span><span style="color: #000080;"><strong>def </strong></span></span><span style="color: #000000;">AddUnlockableGameLocationExit(location_id, exit_name, location_exit_id, unlocked_description, locked_description = </span><span><span style="color: #008080;"><strong>"none"</strong></span></span><span style="color: #000000;">):<br> </span><span><span style="color: #000080;"><strong>global </strong></span></span><span style="color: #000000;">locations_map</span> </span></span>
+<pre style="background-color: #ffffff;"><br>    </pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span><span style="color: #000080;"><strong>if </strong></span></span><span style="color: #000000;">exit_name </span><span><span style="color: #000080;"><strong>not in </strong></span></span><span style="color: #000000;">locations_map[location_id][</span><span><span style="color: #008080;"><strong>"Exits"</strong></span></span><span style="color: #000000;">]:<br> </span><span><span style="color: #000080;"><strong>if </strong></span></span><span style="color: #000000;">locked_description != </span><span><span style="color: #008080;"><strong>"none"</strong></span></span><span style="color: #000000;">:<br> locations_map[location_id][</span><span><span style="color: #008080;"><strong>"Exits"</strong></span></span><span style="color: #000000;">][exit_name] = {</span><span><span style="color: #008080;"><strong>"ExitLocation" </strong></span></span><span style="color: #000000;">: location_exit_id, </span><span><span style="color: #008080;"><strong>"Status" </strong></span></span><span style="color: #000000;">: </span><span><span style="color: #008080;"><strong>"locked"</strong></span></span><span style="color: #000000;">}<br> </span><span><span style="color: #000080;"><strong>else</strong></span></span><span style="color: #000000;">:<br> locations_map[location_id][</span><span><span style="color: #008080;"><strong>"Exits"</strong></span></span><span style="color: #000000;">][exit_name] = {</span><span><span style="color: #008080;"><strong>"ExitLocation" </strong></span></span><span style="color: #000000;">: location_exit_id, </span><span><span style="color: #008080;"><strong>"Status" </strong></span></span><span style="color: #000000;">: </span><span><span style="color: #008080;"><strong>"unlocked"</strong></span></span><span style="color: #000000;">}<br> locations_map[location_id][</span><span><span style="color: #008080;"><strong>"Exits"</strong></span></span><span style="color: #000000;">][exit_name][</span><span><span style="color: #008080;"><strong>"Descriptions"</strong></span></span><span style="color: #000000;">] = {}</span> </span></span>
+<pre style="background-color: #ffffff;"><br><br>    locations_map[location_id][</pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span><span style="color: #008080;"><strong>"Exits"</strong></span></span><span style="color: #000000;">][exit_name][</span><span><span style="color: #008080;"><strong>"Descriptions"</strong></span></span><span style="color: #000000;">][</span><span><span style="color: #008080;"><strong>"unlocked"</strong></span></span><span style="color: #000000;">] = unlocked_description</span></span></span><span style="color: #000000;"><br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>if </strong></span></span></pre>
+<span style="color: #000000;">locked_description != </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"none"</strong></span></span></pre>
+<span style="color: #000000;">:<br> locations_map[location_id][</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"Exits"</strong></span></span></pre>
+<span style="color: #000000;">][exit_name][</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"Descriptions"</strong></span></span></pre>
+<span style="color: #000000;">][</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"locked"</strong></span></span></pre>
+<span style="color: #000000;">] = locked_description<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>return</strong></span></span></pre>
+<pre style="background-color: #ffffff;">&nbsp;</pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span><br></span><span><span style="color: #000080;"><strong>def </strong></span></span><span style="color: #000000;">UseExit(exit_name):<br> </span><span><span style="color: #000080;"><strong>global </strong></span></span><span style="color: #000000;">current_location_name<br> </span><span><span style="color: #000080;"><strong>global </strong></span></span><span style="color: #000000;">locations_map<br><br> exit = locations_map[current_location_name][</span><span><span style="color: #008080;"><strong>"Exits"</strong></span></span><span style="color: #000000;">][exit_name]<br><br> </span><span><span style="color: #000080;"><strong>if </strong></span></span><span style="color: #000000;">exit[</span><span><span style="color: #008080;"><strong>"Status"</strong></span></span><span style="color: #000000;">] == </span><span><span style="color: #008080;"><strong>"unlocked"</strong></span></span><span style="color: #000000;">:<br> </span><span style="color: #808080;"><em><span># if this exit is unlocked then we allow the change of location<br></span></em></span><span style="color: #000000;">current_location_name = exit[</span><span><span style="color: #008080;"><strong>"ExitLocation"</strong></span></span><span style="color: #000000;">]<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>"You move to " </strong></span></span><span style="color: #000000;">+ locations_map[current_location_name][</span><span><span style="color: #008080;"><strong>"Name"</strong></span></span><span style="color: #000000;">])<br> </span><span style="color: #000080;"><strong><span>return True<br></span><span> else</span></strong></span><span style="color: #000000;">:<br> </span><span style="color: #808080;"><em><span># otherwise print this exit's description according to its current status<br></span></em></span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>""</strong></span></span><span style="color: #000000;">)<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(exit[</span><span><span style="color: #008080;"><strong>"Descriptions"</strong></span></span><span style="color: #000000;">][exit[</span><span><span style="color: #008080;"><strong>"Status"</strong></span></span><span style="color: #000000;">]])<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>""</strong></span></span><span style="color: #000000;">)<br> </span><span><span style="color: #000080;"><strong>return False</strong></span></span> </span></span>
+<pre style="background-color: #ffffff;">&nbsp;</pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span><br></span><span><br></span><span><span style="color: #000080;"><strong>def </strong></span></span><span style="color: #000000;">UseObject(object_name):<br> </span><span><span style="color: #000080;"><strong>global </strong></span></span><span style="color: #000000;">object_list<br> </span><span><span style="color: #000080;"><strong>global </strong></span></span><span style="color: #000000;">current_location_name<br> </span><span><span style="color: #000080;"><strong>global </strong></span></span><span style="color: #000000;">locations_map<br><br> </span><span><span style="color: #808080;"><em># Return and message and error if the object is<br></em></span></span><span style="color: #808080;"><em><span> # not in our object dictionary<br></span></em></span><span><span style="color: #000080;"><strong>if </strong></span></span><span style="color: #000000;">object_name </span><span><span style="color: #000080;"><strong>not in </strong></span></span><span style="color: #000000;">object_list:<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>"I don't know about this object"</strong></span></span><span style="color: #000000;">)<br> </span><span><span style="color: #000080;"><strong>return False</strong></span></span> </span></span>
+<pre style="background-color: #ffffff;">&nbsp;</pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span><br></span><span style="color: #808080;"><em><span># Check if the player has the object (its location is 'player'<br></span></em></span><span style="color: #000000;">object = object_list[object_name]<br> </span><span><span style="color: #000080;"><strong>if </strong></span></span><span style="color: #000000;">object[</span><span><span style="color: #008080;"><strong>"Location"</strong></span></span><span style="color: #000000;">] != </span><span><span style="color: #008080;"><strong>"player"</strong></span></span><span style="color: #000000;">:<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>"You do not have that"</strong></span></span><span style="color: #000000;">)<br> </span><span><span style="color: #000080;"><strong>return False</strong></span></span> </span></span>
+<pre style="background-color: #ffffff;">&nbsp;</pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span><br></span><span style="color: #808080;"><em><span># Check if the object is intended to be used here<br></span></em></span><span><span style="color: #000080;"><strong>if </strong></span></span><span style="color: #000000;">object[</span><span><span style="color: #008080;"><strong>"UseLocation"</strong></span></span><span style="color: #000000;">] != current_location_name:<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>"You cannot use that here"</strong></span></span><span style="color: #000000;">)<br> </span><span><span style="color: #000080;"><strong>return False</strong></span></span> </span></span>
+<pre style="background-color: #ffffff;">&nbsp;</pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span><br></span><span style="color: #808080;"><em><span># Get the current game location dictionary entry<br></span></em></span><span style="color: #000000;">game_location = locations_map[current_location_name]<br><br> </span><span style="color: #808080;"><em><span># go through all the items in this location's exit dictionary<br></span></em></span><span><span style="color: #000080;"><strong>for </strong></span></span><span style="color: #000000;">exit_key </span><span><span style="color: #000080;"><strong>in </strong></span></span><span style="color: #000000;">game_location[</span><span><span style="color: #008080;"><strong>"Exits"</strong></span></span><span style="color: #000000;">]:<br> </span><span style="color: #808080;"><em><span># Check if one of the exits matches the objects UseTarget<br></span></em></span><span><span style="color: #000080;"><strong>if </strong></span></span><span style="color: #000000;">game_location[</span><span><span style="color: #008080;"><strong>"Exits"</strong></span></span><span style="color: #000000;">][exit_key][</span><span><span style="color: #008080;"><strong>"ExitLocation"</strong></span></span><span style="color: #000000;">] == object[</span><span><span style="color: #008080;"><strong>"UseTarget"</strong></span></span><span style="color: #000000;">]:<br> </span><span style="color: #808080;"><em><span># Unlock the exit<br></span></em></span><span style="color: #000000;">game_location[</span><span><span style="color: #008080;"><strong>"Exits"</strong></span></span><span style="color: #000000;">][exit_key][</span><span><span style="color: #008080;"><strong>"Status"</strong></span></span><span style="color: #000000;">] = </span><span style="color: #008080;"><strong><span>"unlocked"<br></span></strong></span><span style="color: #808080;"><em><span># Print the Object's UseMessage<br></span></em></span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(object[</span><span><span style="color: #008080;"><strong>"UseMessage"</strong></span></span><span style="color: #000000;">])<br> </span><span style="color: #808080;"><em><span># Call the UseExit function to move the player to the new location<br></span></em></span><span style="color: #000000;">UseExit(exit_key)<br> </span><span><span style="color: #000080;"><strong>return True</strong></span></span></span></span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong><br></strong></span></span><span><br></span><span><span style="color: #808080;"><em># if we get here we couldn't find an exit to match the use_target<br></em></span></span></pre>
+<span style="color: #808080;"><em><span> # specified in this object - probably a mistake!<br></span></em></span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">print</span></span></pre>
+<span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"This object appears to have no purpose"</strong></span></span></pre>
+<span style="color: #000000;">)<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>return False</strong></span><br></span></pre>
+<pre style="background-color: #ffffff;">&nbsp;</pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span><br></span><span><span style="color: #000080;"><strong>def </strong></span></span><span style="color: #000000;">Move(direction):<br> </span><span><span style="color: #000080;"><strong>global </strong></span></span><span style="color: #000000;">current_location_name<br> </span><span><span style="color: #000080;"><strong>if </strong></span></span><span style="color: #000000;">direction </span><span><span style="color: #000080;"><strong>in </strong></span></span><span style="color: #000000;">locations_map[current_location_name][</span><span><span style="color: #008080;"><strong>"Exits"</strong></span></span><span style="color: #000000;">]:<br> </span><span style="color: #808080;"><em><span># location_exit = locations_map[current_location_name]["Exits"][direction]<br></span></em></span><span><span style="color: #000080;"><strong>if </strong></span></span><span style="color: #000000;">UseExit(direction):<br> Look() <br> </span><span><span style="color: #000080;"><strong>else</strong></span></span><span style="color: #000000;">:<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>"You cannot go that way"</strong></span></span><span style="color: #000000;">) </span></span></span>
+<pre style="background-color: #ffffff;"><br><br><span><span style="color: #000080;"><strong>def </strong></span></span></pre>
+<span style="color: #000000;">Look():<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>global </strong></span></span></pre>
+<span style="color: #000000;">current_location_name<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>global </strong></span></span></pre>
+<span style="color: #000000;">object_list<br><br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">print</span></span></pre>
+<span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"You are in " </strong></span></span></pre>
+<span style="color: #000000;">+ locations_map[current_location_name][</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"Description"</strong></span></span></pre>
+<span style="color: #000000;">])<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">print</span></span></pre>
+<span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>""</strong></span></span></pre>
+<span style="color: #000000;">)<br><br> first_item = </span><span style="color: #000080;"><strong><span>True<br></span><span> for </span></strong></span><span style="color: #000000;">object_key </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>in </strong></span></span></pre>
+<span style="color: #000000;">object_list:<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>if </strong></span></span></pre>
+<span style="color: #000000;">object_list[object_key][</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"Location"</strong></span></span></pre>
+<span style="color: #000000;">] == current_location_name:<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>if </strong></span></span></pre>
+<span style="color: #000000;">first_item == </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>True</strong></span></span></pre>
+<span style="color: #000000;">:<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">print</span></span></pre>
+<span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"You can see:"</strong></span></span></pre>
+<span style="color: #000000;">)<br> first_item = </span><span style="color: #000080;"><strong><span>False<br></span></strong><span>print</span></span><span style="color: #000000;">(object_key + </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>" - " </strong></span></span></pre>
+<span style="color: #000000;">+ object_list[object_key][</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"Description"</strong></span></span></pre>
+<span style="color: #000000;">])<br><br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">print</span></span></pre>
+<span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>""</strong></span></span></pre>
+<span style="color: #000000;">)<br><br> first_item = </span><span style="color: #000080;"><strong><span>True<br></span></strong></span><span style="color: #000000;">game_location = locations_map[current_location_name]<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>for </strong></span></span></pre>
+<span style="color: #000000;">exit_key </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>in </strong></span></span></pre>
+<span style="color: #000000;">game_location[</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"Exits"</strong></span></span></pre>
+<span style="color: #000000;">]:<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>if </strong></span></span></pre>
+<span style="color: #000000;">first_item :<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">print</span></span></pre>
+<span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"There are exits to the:"</strong></span></span></pre>
+<span style="color: #000000;">)<br> first_item = </span><span style="color: #000080;"><strong><span>False<br></span></strong><span>print</span></span><span style="color: #000000;">(exit_key + </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>" - " </strong></span></span></pre>
+<span style="color: #000000;">+ game_location[</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"Exits"</strong></span></span></pre>
+<span style="color: #000000;">][exit_key][</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"ExitLocation"</strong></span></span></pre>
+<span style="color: #000000;">])<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">print</span></span></pre>
+<span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>""</strong></span></span></pre>
+<span style="color: #000000;">)</span>
+<pre style="background-color: #ffffff;"><br><br><span><span style="color: #000080;"><strong>def </strong></span></span></pre>
+<span style="color: #000000;">Take(object_name):<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>for </strong></span></span></pre>
+<span style="color: #000000;">object_key </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>in </strong></span></span></pre>
+<span style="color: #000000;">object_list:<br> object = object_list[object_key]<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>if </strong></span></span></pre>
+<span style="color: #000000;">object[</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"Location"</strong></span></span></pre>
+<span style="color: #000000;">] == current_location_name </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>and </strong></span></span></pre>
+<span style="color: #000000;">object_key == object_name:<br> object[</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"Location"</strong></span></span></pre>
+<span style="color: #000000;">] = </span><span style="color: #008080;"><strong><span>"player"<br></span></strong></span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">print</span></span></pre>
+<span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"You take the " </strong></span></span></pre>
+<span style="color: #000000;">+ object_name)<br> </span>
+<pre style="background-color: #ffffff;"><span><strong><span style="color: #000080;">return<br></span></strong></span><span><br></span></pre>
+<span style="color: #000080;"><span>print</span></span><span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"You cannot see that here"</strong></span></span></pre>
+<span style="color: #000000;">)</span>
+<pre style="background-color: #ffffff;"><br><br><span><span style="color: #000080;"><strong>def </strong></span></span></pre>
+<span style="color: #000000;">ShowHelp():<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">print</span></span></pre>
+<span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"Commands available:"</strong></span></span></pre>
+<span style="color: #000000;">)<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">print</span></span></pre>
+<span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"look                      - Describes where you are"</strong></span></span></pre>
+<span style="color: #000000;">)<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">print</span></span></pre>
+<span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"north, south, east, west  - Moves you in a direction"</strong></span></span></pre>
+<span style="color: #000000;">)<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">print</span></span></pre>
+<span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"help                      - Prints this help"</strong></span></span></pre>
+<span style="color: #000000;">)<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">print</span></span></pre>
+<span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"take [Object]             - Take an object with you"</strong></span></span></pre>
+<span style="color: #000000;">)<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">print</span></span></pre>
+<span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"use  [Object]             - Use an object at this location"</strong></span></span></pre>
+<span style="color: #000000;">)<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">print</span></span></pre>
+<span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>""</strong></span></span></pre>
+<span style="color: #000000;">)</span>
+<pre style="background-color: #ffffff;"><br><br><span><span style="color: #808080;"><em># ============ CUSTOMISE THE CODE HERE ==========</em></span></span></pre>
+<pre style="background-color: #ffffff;">&nbsp;</pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span><br></span><span><span style="color: #808080;"><em># Edit this function to set the start location and intro text</em></span><br></span><span><span style="color: #000080;"><strong>def </strong></span></span><span style="color: #000000;">ResetGame():<br> </span><span><span style="color: #000080;"><strong>global </strong></span></span><span style="color: #000000;">current_location_name<br> current_location_name = </span><span style="color: #008080;"><strong><span>'lab'<br></span></strong></span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>" ______________________________ "</strong></span></span><span style="color: #000000;">)<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>"| == Zombies in Kenilworth == |"</strong></span></span><span style="color: #000000;">)<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>"| A GCC Text Adventure |"</strong></span></span><span style="color: #000000;">)<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>"|______________________________|"</strong></span></span><span style="color: #000000;">)<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>""</strong></span></span><span style="color: #000000;">)<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>"You were at the Computer Club when suddenly someone shouted 'Zombies!!'"</strong></span></span><span style="color: #000000;">)<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>"There was panic. You hit your head..."</strong></span></span><span style="color: #000000;">)<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>"and that was the last thing you can remember"</strong></span></span><span style="color: #000000;">)<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>""</strong></span></span><span style="color: #000000;">)</span></span></span>
+<pre style="background-color: #ffffff;"><br><br><br><span><span style="color: #808080;"><em># Your game map is made up of game locations.<br></em></span></span><span><span style="color: #808080;"><em># Add each one using AddGameLocation(id, name, description):<br></em></span></span><span><span style="color: #808080;"><em>#   id = unique name used by the game to identify this location<br></em></span></span><span><span style="color: #808080;"><em>#   name = printable name shown to the player<br></em></span></span><span><span style="color: #808080;"><em>#   description = long description used as part of the reponse to a 'look' by the player</em></span></span></pre>
+<pre style="background-color: #ffffff;">&nbsp;</pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span style="color: #000000;">AddGameLocation(</span><span><span style="color: #008080;"><strong>"lab"</strong></span></span><span style="color: #000000;">, </span><span><span style="color: #008080;"><strong>"the computer lab"</strong></span></span><span style="color: #000000;">, </span><span><span style="color: #008080;"><strong>"a
+ familiar room where GCC is usually held. It is still full of computers,
+ but they have all been smashed; As have the tables and chairs."</strong></span></span><span style="color: #000000;">)<br>AddGameLocation(</span><span><span style="color: #008080;"><strong>"cupboard"</strong></span></span><span style="color: #000000;">, </span><span><span style="color: #008080;"><strong>"the stock cupboard"</strong></span></span><span style="color: #000000;">, </span><span><span style="color: #008080;"><strong>"a small cupboard where the teacher normally keeps stationary and lesson equipment."</strong></span></span><span style="color: #000000;">)<br>AddGameLocation(</span><span><span style="color: #008080;"><strong>"shelf"</strong></span></span><span style="color: #000000;">, </span><span><span style="color: #008080;"><strong>"the dusty shelf"</strong></span></span><span style="color: #000000;">, </span><span><span style="color: #008080;"><strong>"a small shelf, covered in dust. Evidently nobody has looked up here for quite a while."</strong></span></span><span style="color: #000000;">)<br>AddGameLocation(</span><span><span style="color: #008080;"><strong>"corridor"</strong></span></span><span style="color: #000000;">, </span><span><span style="color: #008080;"><strong>"the corridor"</strong></span></span><span style="color: #000000;">, </span><span><span style="color: #008080;"><strong>"a normally bustling thoroughfare, but it is eerily silent."</strong></span></span><span style="color: #000000;">)<br>AddGameLocation(</span><span><span style="color: #008080;"><strong>"foyer"</strong></span></span><span style="color: #000000;">, </span><span><span style="color: #008080;"><strong>"the foyer"</strong></span></span><span style="color: #000000;">, </span><span><span style="color: #008080;"><strong>"the entrance to lower school and your way out!"</strong></span></span><span style="color: #000000;">)</span></span></span>
+<pre style="background-color: #ffffff;"><br><br><span><span style="color: #808080;"><em># This location - 'escape' is special and triggers the end of the game</em></span><br></span></pre>
+<span style="color: #000000;">AddGameLocation(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"escape"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"the outside world!"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"the outside world again. You breathe the fresh air... but then you hear the sound of moaning. Time to run!"</strong></span></span></pre>
+<span style="color: #000000;">)</span>
+<pre style="background-color: #ffffff;"><br><span><span style="color: #808080;"><em># Now connect up your game locations with exits - if you add an extra 'locked' description then the exit<br></em></span></span><span><span style="color: #808080;"><em># AddUnlockableGameLocationExit(location_id, exit_name, location_exit_id, unlocked_description, locked_description = "none"):<br></em></span></span><span><span style="color: #808080;"><em>#   location_id = the unique location name to which this exit belongs<br></em></span></span><span><span style="color: #808080;"><em>#   exit_name = the name used by the player to 'Use' this exit - usually a direction, so could be 'up' or 'down' etc.<br></em></span></span><span><span style="color: #808080;"><em>#   location_exit_id = the unique location name of the location to which this exit leads<br></em></span></span><span><span style="color: #808080;"><em>#   unlocked_description = the description used when the location is unlocked (the default)<br></em></span></span><span><span style="color: #808080;"><em>#   (optional) locked_description = can be left off, the description used when the location is locked. Specifying this will also lock the location</em></span><br></span></pre>
+<span style="color: #000000;">AddUnlockableGameLocationExit(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"lab"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"north"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"corridor"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"you go through to the corridor"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"the door is locked."</strong></span></span></pre>
+<span style="color: #000000;">)<br>AddUnlockableGameLocationExit(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"lab"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"east"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"cupboard"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"you go into the cupboard"</strong></span></span></pre>
+<span style="color: #000000;">)<br>AddUnlockableGameLocationExit(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"cupboard"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"west"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"lab"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"you go through to the computer lab"</strong></span></span></pre>
+<span style="color: #000000;">)<br>AddUnlockableGameLocationExit(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"cupboard"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"east"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"shelf"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"you climb up to the shelf"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"You can see a shiny object, but the shelf is too high to reach"</strong></span></span></pre>
+<span style="color: #000000;">)<br>AddUnlockableGameLocationExit(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"shelf"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"west"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"cupboard"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"you climb back down to the stock cupboard"</strong></span></span></pre>
+<span style="color: #000000;">)<br>AddUnlockableGameLocationExit(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"corridor"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"south"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"lab"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"you return to the computer lab"</strong></span></span></pre>
+<span style="color: #000000;">)<br>AddUnlockableGameLocationExit(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"corridor"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"north"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"foyer"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"you go through to the foyer"</strong></span></span></pre>
+<span style="color: #000000;">)<br>AddUnlockableGameLocationExit(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"foyer"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"south"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"corridor"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"you return to the corridor"</strong></span></span></pre>
+<span style="color: #000000;">)<br>AddUnlockableGameLocationExit(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"foyer"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"east"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"escape"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"you walk passed the zombie, who is too busy eating to notice you"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"You can see your way out, but a zombie blocks the way"</strong></span></span></pre>
+<span style="color: #000000;">)<br>AddUnlockableGameLocationExit(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"escape"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"west"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"foyer"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"you return to the foyer"</strong></span></span></pre>
+<span style="color: #000000;">)</span>
+<pre style="background-color: #ffffff;"><br><span><span style="color: #808080;"><em># Finally add the game objects that will be used to unlock the matching exits<br></em></span></span><span><span style="color: #808080;"><em># AddGameObject(name, description, location_id, use_location_id, use_target, use_message)<br></em></span></span><span><span style="color: #808080;"><em>#   name = the object's name (must be unique within the game)<br></em></span></span><span><span style="color: #808080;"><em>#   description = used to describe the object to the player. Should *hint* at its potential use<br></em></span></span><span><span style="color: #808080;"><em>#   location_id = where this object will be found<br></em></span></span><span><span style="color: #808080;"><em>#   use_location_id = where this object should be used<br></em></span></span><span><span style="color: #808080;"><em>#   use_target = the name of the location exit id that it will unlock at the use location<br></em></span></span><span><span style="color: #808080;"><em>#   use_message = the printed message given when the object is successfully used</em></span><br></span></pre>
+<span style="color: #000000;">AddGameObject(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"box"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"a small but sturdy box"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"lab"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"cupboard"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"shelf"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"You stand on the wooden box. Now you can reach the high shelf"</strong></span></span></pre>
+<span style="color: #000000;">)<br>AddGameObject(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"key"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"a small key like the ones the teachers carry"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"shelf"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"lab"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"corridor"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"The key fits the locked door perfectly. The lock clicks and the door swings open..."</strong></span></span></pre>
+<span style="color: #000000;">)<br>AddGameObject(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"brains"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"a glob of partially consumed brains. You think that they might once have been Edward's..."</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"lab"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"foyer"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"escape"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"The zombie greedily grabs the brains and starts munching. He seems entirely distracted."</strong></span></span></pre>
+<span style="color: #000000;">)</span>
+<pre style="background-color: #ffffff;">&nbsp;</pre>
+<pre style="background-color: #ffffff;"><span><span style="color: #808080;"><em># =================================================</em></span></span></pre>
+<pre style="background-color: #ffffff;">&nbsp;</pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span><br></span><span><span style="color: #808080;"><em># Here are the global variables which<br></em></span></span><span><span style="color: #808080;"><em># can be used by all the functions and objects<br></em></span></span><span><span style="color: #808080;"><em># we have created</em></span><br></span><span style="color: #000000;">current_location_name = </span><span><span style="color: #008080;"><strong>''</strong></span><br></span><span style="color: #000000;">game_running = </span><span><span style="color: #000080;"><strong>True</strong></span><br></span><span style="color: #000000;">locations_map = {}<br>object_list = {}</span></span></span>
+<pre style="background-color: #ffffff;"><br><br><span><span style="color: #808080;"><em># This prints the title block when the program first runs</em></span></span></pre>
+<pre style="background-color: #ffffff;">&nbsp;</pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span style="color: #000000;">ResetGame()<br>ShowHelp()</span></span></span>
+<pre style="background-color: #ffffff;"><br><br><span><span style="color: #808080;"><em># Main game loop</em></span><br></span><span><span style="color: #000080;"><strong>while </strong></span></span></pre>
+<span style="color: #000000;">game_running: <br> </span><span style="color: #808080;"><em><span># wait for input and store it in 'command'<br></span></em></span><span style="color: #000000;">command = </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">input</span></span></pre>
+<span style="color: #000000;">(locations_map[current_location_name][</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"Name"</strong></span></span></pre>
+<span style="color: #000000;">] + </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>" &gt;&gt;"</strong></span></span></pre>
+<span style="color: #000000;">)</span>
+<pre style="background-color: #ffffff;"><br><br>    </pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span><span style="color: #808080;"><em># Use lower() to make everything lower case before<br></em></span></span><span style="color: #808080;"><em><span> # doing a match test, otherwise 'Help' would not be recognised as 'help'<br></span></em></span><span style="color: #000000;">command = command.lower()</span> </span></span>
+<pre style="background-color: #ffffff;"><br><br>    </pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span style="color: #808080;"><em><span># split 'command' wherever there is a space to make a list of 'commands'<br></span></em></span><span style="color: #000000;">commands = command.split(</span><span><span style="color: #008080;"><strong>" "</strong></span></span><span style="color: #000000;">)</span> </span></span>
+<pre style="background-color: #ffffff;"><br><br>    </pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span><span style="color: #808080;"><em># Call a function if the first command (position [0] in the list)<br></em></span></span><span style="color: #808080;"><em><span> # is one we know. <br></span></em></span><span><span style="color: #000080;"><strong>if </strong></span></span><span style="color: #000000;">commands[</span><span><span style="color: #0000ff;">0</span></span><span style="color: #000000;">] == </span><span><span style="color: #008080;"><strong>"look"</strong></span></span><span style="color: #000000;">:<br> Look()<br> <br> </span><span><span style="color: #000080;"><strong>elif </strong></span></span><span style="color: #000000;">commands[</span><span><span style="color: #0000ff;">0</span></span><span style="color: #000000;">] == </span><span><span style="color: #008080;"><strong>"help"</strong></span></span><span style="color: #000000;">:<br> ShowHelp()<br><br> </span><span><span style="color: #000080;"><strong>elif </strong></span></span><span style="color: #000000;">commands[</span><span><span style="color: #0000ff;">0</span></span><span style="color: #000000;">] == </span><strong><span><span style="color: #008080;">"north" </span></span><span><span style="color: #000080;">or </span></span></strong><span style="color: #000000;">commands[</span><span><span style="color: #0000ff;">0</span></span><span style="color: #000000;">] == </span><strong><span><span style="color: #008080;">"south" </span></span><span><span style="color: #000080;">or </span></span></strong><span style="color: #000000;">commands[</span><span><span style="color: #0000ff;">0</span></span><span style="color: #000000;">] == </span><strong><span><span style="color: #008080;">"east" </span></span><span><span style="color: #000080;">or </span></span></strong><span style="color: #000000;">commands[</span><span><span style="color: #0000ff;">0</span></span><span style="color: #000000;">] == </span><span><span style="color: #008080;"><strong>"west"</strong></span></span><span style="color: #000000;">:<br> Move(commands[</span><span><span style="color: #0000ff;">0</span></span><span style="color: #000000;">])<br><br> </span><span><span style="color: #000080;"><strong>elif </strong></span></span><span style="color: #000000;">commands[</span><span><span style="color: #0000ff;">0</span></span><span style="color: #000000;">] == </span><span><span style="color: #008080;"><strong>"take"</strong></span></span><span style="color: #000000;">:<br> </span><span style="color: #000080;"><span><strong>if </strong></span><span>len</span></span><span style="color: #000000;">(commands) &gt; </span><span><span style="color: #0000ff;">1</span></span><span style="color: #000000;">:<br> Take(commands[</span><span><span style="color: #0000ff;">1</span></span><span style="color: #000000;">])<br> </span><span><span style="color: #000080;"><strong>else</strong></span></span><span style="color: #000000;">:<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>"Take what?"</strong></span></span><span style="color: #000000;">)<br><br> </span><span><span style="color: #000080;"><strong>elif </strong></span></span><span style="color: #000000;">commands[</span><span><span style="color: #0000ff;">0</span></span><span style="color: #000000;">] == </span><span><span style="color: #008080;"><strong>"use"</strong></span></span><span style="color: #000000;">:<br> </span><span style="color: #000080;"><span><strong>if </strong></span><span>len</span></span><span style="color: #000000;">(commands) &gt; </span><span><span style="color: #0000ff;">1</span></span><span style="color: #000000;">:<br> UseObject(commands[</span><span><span style="color: #0000ff;">1</span></span><span style="color: #000000;">])<br> </span><span><span style="color: #000080;"><strong>else</strong></span></span><span style="color: #000000;">:<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>"Use what?"</strong></span></span><span style="color: #000000;">)<br><br> </span><span><span style="color: #000080;"><strong>else</strong></span></span><span style="color: #000000;">:<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>"I don't know that word. Try again."</strong></span></span><span style="color: #000000;">)<br> ShowHelp()</span></span></span><span style="color: #000000;"><br><br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>if </strong></span></span></pre>
+<span style="color: #000000;">current_location_name == </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"escape"</strong></span></span></pre>
+<span style="color: #000000;">:<br> again = </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">input</span></span></pre>
+<span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"Play Again? (Y/N) &gt;&gt;"</strong></span></span></pre>
+<span style="color: #000000;">)<br> again = again.lower()<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>if </strong></span></span></pre>
+<span style="color: #000000;">again != </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"y"</strong></span></span></pre>
+<span style="color: #000000;">:<br> game_running = </span><span style="color: #000080;"><strong><span>False<br></span><span> else</span></strong></span><span style="color: #000000;">:<br> ResetGame()</span></td>
+</tr>
+</tbody>
+</table>
+
+
+

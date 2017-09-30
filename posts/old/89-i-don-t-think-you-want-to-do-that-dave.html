@@ -1,0 +1,88 @@
+.. tags: Meetings
+.. slug: 89-i-don-t-think-you-want-to-do-that-dave
+.. title: I don’t think you want to do that Dave…
+.. date: 19 October 2016 11:13
+.. author: Edward Powell
+
+	<h2>
+					<a href="https://web.archive.org/web/20161026121855/http://raspberrypilot.com/index.php/meetings/89-i-don-t-think-you-want-to-do-that-dave">
+			I don’t think you want to do that Dave…</a>
+			</h2>
+
+
+
+
+
+<p><img style="float: left; margin: 6px; display: inline" src="../../../images/old/2000px-HAL9000.png" align="left" height="122" width="122">In
+ this session we are going to begin thinking about AI by adding a 
+computer opponent to our number guessing game. Along the way we are 
+going to introduce two new important concepts – logical combinations 
+when making decisions and extending the available commands by adding a 
+function.</p>  <p>The new version of the game is going to introduce a 
+competitive element to the game by having the computer guess the code 
+number each time the player does. Instead of the simple ‘higher’ ‘lower’
+ feedback we provided we will instead indicate who is closer to the 
+answer each round. This is adds two elements to our game – a competitive
+ tension and a clue that allows the player to improve there skill at the
+ game with practice. We’ll discuss what makes a ‘good’ game many times 
+over the coming sessions I am sure!</p>  <h2>Functions</h2>  <p>So far 
+we have coded using commands, or functions, that already form part of 
+the Python language and libraries. A function is a self-contained mini 
+program that completes a calculation or task in its own right. They are 
+very important for structuring more complicated programs and allowing 
+you to re-use your code effectively. Functions often receive the data on
+ which they will operate in the form of an ‘argument list’, which is 
+passed to the function inside a pair of brackets () that follow the 
+function name. A good example of a function is print() where you would 
+normally pass the string of text you want to print as an argument 
+(inside quotes and between the brackets) and the print function just 
+does its thing without you having to worry about the ‘mini-program’ 
+inside.</p>  <p>Our function is going to compare two values and return 
+the absolute difference between them for us to use to give a clue back 
+to the player as to their next guess. At the top of our program we start
+ by defining the function we are going to use as follows:</p>  <pre><font color="#0000ff">def</font> difference(x, y):<br>    <font color="#0000ff">if</font> x &gt;= y:<br>        result = x - y<br>    <font color="#0000ff">else</font>:<br>        result = y - x<br>    <font color="#0000ff">return</font> result</pre>
+
+<p>As you can see we start with the Def keyword, our function’s name and
+ the arguments it is going to use. The rest of the code is just a 
+mini-program that does its stuff and returns the answer.</p>
+
+<p>Once defined, we can use our function just like any pre-existing one –
+ we’ve effectively *extended* the language, how cool is that?</p>
+
+<h2>I’m never going to not do the opposite…</h2>
+
+<p>The other new concept to introduce logical combinations in our 
+decisions. In our new game design, we need to check if either the player
+ *or* the computer has one.’Or’ is the first of several ways of 
+combining questions to make a decision the other really important one is
+ ‘and’. If you check to see if one thing is true ‘or’ another thing is 
+true – then the decision will be triggered if either one is true. If we 
+only want to trigger the decision if both things are true we can use 
+‘and’ instead.</p>
+
+<p>Here is the code in its entirety, see if you can locate all the logical decisions being made and follow the flow of the program:</p>
+
+<pre>import random</pre>
+
+<pre><br><br><font color="#0000ff">def</font> difference(x, y):<br>    <font color="#0000ff">if</font> x &gt;= y:<br>        result = x - y<br>    <font color="#0000ff">else</font>:<br>        result = y - x<br>    <font color="#0000ff">return</font> result</pre>
+
+<pre><br><br>answer = random.randint(<font color="#4f81bd">1, 100</font>)<br><br><font color="#0000ff">print</font>(<font color="#4bacc6">'I have selected a number between 1 and 100.'</font>)</pre>
+
+<pre><br><br><em><font color="#008000"># Main game loop, only exits when there is a winner using 'break'</font></em><br>while True:</pre>
+
+<pre><br>    <em><font color="#008000"># Lets get the player and computer guesses<br></font></em>    player_guess = int(input(<font color="#4bacc6">'Your guess? '</font>))<br>    computer_guess = random.randint(1,100)<br>    <font color="#0000ff">print</font>(<font color="#4bacc6">'Computer guess is: '</font> + str(computer_guess))</pre>
+
+<pre><br><br>    <em><font color="#008000"># Has either one won?</font></em><br>    if computer_guess == answer or player_guess == answer:<br>        <font color="#0000ff">break</font></pre>
+
+<pre><br><br>    <em><font color="#008000"># See who is closest?</font></em><br>    player_guess_difference = difference(answer, player_guess)<br>    computer_guess_difference = difference(answer, computer_guess)</pre>
+
+<pre><br><br>    <em><font color="#008000"># Print a clue</font></em><br>    <font color="#0000ff">if</font> player_guess_difference &gt; computer_guess_difference:<br>        <font color="#0000ff">print</font>(<font color="#4bacc6">'The Computer is closer...'</font>)<br>    <font color="#0000ff">elif</font> player_guess_difference == computer_guess_difference:<br>        <font color="#0000ff">print</font>(<font color="#4bacc6">'You are both neck and neck'</font>)<br>    <font color="#0000ff">else</font>:<br>        <font color="#0000ff">print</font>(<font color="#4bacc6">'You are closer. Nearly there...'</font>)</pre>
+
+<pre><br><br><em><font color="#008000"># We get here once we break from the loop, but who has won?</font><br></em><font color="#0000ff">if</font> computer_guess == answer:<br>    <font color="#0000ff">print</font>(<font color="#4bacc6">'You LOSE. Sorry, it seems your computer is smarter than you.'</font>)<br><font color="#0000ff">else</font>:<br>    <font color="#0000ff">print</font>(<font color="#4bacc6">'You WIN. Phew, you are still the boss!'</font>)</pre>
+
+<h2>&nbsp;</h2>
+
+<h2>Don’t forget: half-term next week, so no computer club during the holiday!</h2>
+
+
+

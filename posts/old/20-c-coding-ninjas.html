@@ -1,0 +1,49 @@
+.. tags: Meetings
+.. slug: 20-c-coding-ninjas
+.. title: C++ Coding Ninjas
+.. date: 27 October 2013 09:22
+.. author: Edward Powell
+
+	<h2>
+					<a href="https://web.archive.org/web/20170315155221/http://raspberrypilot.com/index.php/meetings/20-c-coding-ninjas">
+			C++ Coding Ninjas</a>
+			</h2>
+
+
+
+
+
+<p>For the Code Ninjas in the club, we took a look at C++ for the first 
+time. This is a *massive* new challenge, so don’t feel bad if you found 
+it a bit daunting! </p>  <p><a href="https://web.archive.org/web/20170315155221/http://www.raspberrypilot.com/images/image_4.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: left; padding-top: 0px; padding-left: 0px; margin: 0px 10px 0px 0px; border-left: 0px; display: inline; padding-right: 0px" alt="image" src="../../../images/old/image_thumb_1.png" border="0" align="left" height="194" width="244"></a>Unlike
+ python, C++ is a compiled language, which means we can’t avoid looking 
+at how the code that we write is actually converted into the code that 
+the computer truly understands. In python this process goes on too, but 
+we just don’t see it. In addition, we are expected to understand the 
+computer’s underlying structure and resources (in particular its memory)
+ and manage these directly for ourselves as we write our program. 
+However, in return for this additional complexity C++ is one of the few 
+remaining <a href="https://web.archive.org/web/20170315155221/http://en.wikipedia.org/wiki/System_programming_language">‘System Languages’</a>
+ still in common use – this means that you could even write an operating
+ system (such as Windows itself) using a language like C++. Indeed 
+Android, Linux and the like have mostly been written using C (a closely 
+related pre-cursor of C++).</p>  <p>Because C++ requires quite a few 
+steps to get from our source code (the text we write) to byte code (the 
+code the computer actually runs) it makes life a lot easier if use an 
+Integrated Development Environment (IDE) to work in – provided we have a
+ compiler and linker though, we could (and probably will at some point, 
+just to prove it) do everything we need from simple text editor – even 
+notepad!</p>  <p>The IDE we’ve settled on for now is CodeBlocks and this
+ includes GCC compiler and linker see the tools and technology section 
+for download info.</p>  <p>We will have a lot of conceptual ground work 
+to cover over the next few weeks, but I want to have something visual 
+for you to tinker with so I skipped over *a lot* of topics and we looked
+ at single page of code that made use of two existing libraries – GLFW 
+&amp; OpenGL. GLFW allowed us to make a Window and run our simple game 
+loop, then OpenGL provides the 3D drawing commands we need to put stuff 
+on the screen. The process of incorporating these libraries will be 
+covered again. But the important thing I highlighted was that the key 
+concepts of the code itself were almost identical to pygame: </p>  <ul>   <li>Initialise the window, </li>    <li>Start a while loop that runs until the window is closed (the game loop) </li>    <li>Within the loop:</li>    <ul>     <li>Collect the messages from Windows (otherwise it thinks we are dead, or at least ‘Not responding’</li>      <li>Draw our graphics.</li>   </ul> </ul>  <p>Simples! <img class="wlEmoticon wlEmoticon-winkingsmile" style="border-top-style: none; border-left-style: none; border-bottom-style: none; border-right-style: none" alt="Winking smile" src="../../../images/old/wlemoticon-winkingsmile_2.png"></p>
+
+
+

@@ -1,0 +1,96 @@
+.. tags: Tutorials
+.. slug: 79-shootout-session-1
+.. title: Shootout – Session 1
+.. date: 20 April 2016 08:29
+.. author: Edward Powell
+
+	<h2>
+					<a href="https://web.archive.org/web/20161026121708/http://raspberrypilot.com/index.php/tutorials/79-shootout-session-1">
+			Shootout – Session 1</a>
+			</h2>
+
+
+
+
+
+<p><a href="https://web.archive.org/web/20161026121708/http://www.raspberrypilot.com/images/image_2_b0893c4c75d1d0915ef492c63f154c05.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: left; padding-top: 0px; padding-left: 0px; border-left: 0px; margin: 6px; display: inline; padding-right: 0px" alt="image" src="../../../images/old/image_thumb_2db1ecc200fa342541313327fa0652dc.png" border="0" align="left" height="184" width="244"></a>This
+ week we will be starting a new game – Shootout. It is essentially a 
+reaction time test, but using a western gunfight theme. Yosemite Sam 
+will draw and fire and the player must shoot him <em>after</em> he draws, but <em>before</em> he fires. If you shoot him before he draws then you will surely hang for killing an innocent man, but if you wait too long…</p>  <p>To
+ tackle this game we will be looking at a really common pattern in 
+computer programming – the finite state machine (or FSM). This is a 
+really useful way of breaking down the computational logic required for 
+many tasks you will encounter.</p>  <p>But before we get onto that, we 
+need to create the usual basic game framework – a loop which cycles 
+updating our game data and drawing the screen. As previously we will 
+break this down into functions that each deal with a specific aspect of 
+the game.</p>  <p>In a new python file, import the libraries we are going to need – pygame, sys and random.</p>  <p><font face="Courier New"><span style="white-space: pre; color: ; line-height: normal"><font style="color: #000080"><strong><font style="font-size: 9pt">import </font></strong></font></span><font style="white-space: pre; line-height: normal" color="#000000"><font style="font-size: 9pt">sys, pygame, random</font></font></font></p>  <p>Now we need to create our function structure.</p>            <h3>Init</h3>  <p>This
+ function completes all the one-time initialisation of the game. Things 
+that are done once, and only once, when our program is first run – such 
+as creating the game screen window and loading the game assets into 
+memory.</p>  <pre style="font-family: ; background-color: #ffffff"><span style="color: "><font color="#000080"><strong><font style="font-size: 9pt">def </font></strong></font></span><font style="font-size: 9pt"><font color="#000000">Init():<br>    </font><span style="color: "><font color="#000080"><strong>global </strong></font></span><font color="#000000">screen, current_keys, current_mouse, \<br>    background_surface, gamestate, \<br>    big_font, little_font</font></font></pre>
+
+<pre style="font-family: ; background-color: #ffffff"><font style="font-size: 9pt"><font color="#000000"><br><br>    </font><font color="#808080"><em><span style="color: "># Initialise pygame - must always be done first<br></span><span style="color: ">    </span></em></font><font color="#000000">pygame.init()<br>    <br>    gamestate = </font><span style="color: "><font color="#008080"><strong>"Start"</strong></font></span></font></pre>
+<font style="font-size: 9pt"><span style="color: "><font color="#008080"><strong>
+        </strong></font><pre style="font-family: ; background-color: #ffffff"><font color="#008080"><strong><br></strong></font><span style="color: "><br></span><span style="color: "><font color="#008080"><strong>    </strong></font></span><font color="#808080"><em><span style="color: "># Set the screen size using background image size<br></span><span style="color: ">    </span></em></font><font color="#000000">background_surface = pygame.image.load(</font><span style="color: "><font color="#008080"><strong>"images/Background.png"</strong></font></span><font color="#000000">)<br>    screen_size = background_surface.get_size()<br>    screen = pygame.display.set_mode(screen_size)</font></pre>
+        <font color="#000000">
+          </font><pre style="font-family: ; background-color: #ffffff"><font color="#000000"><br><br>    </font><span style="color: "><font color="#808080"><em># Convert the surfaces according to the screen bitdepths<br></em></font></span><font color="#808080"><em><span style="color: ">    # This will dramatically speed up blitting later<br></span><span style="color: ">    </span></em></font><font color="#000000">background_surface = background_surface.convert()</font></pre>
+          <font color="#000000">
+            </font><pre style="font-family: ; background-color: #ffffff"><font color="#000000"><br><br>    </font><font color="#808080"><em><span style="color: "># Load a big and little font<br></span><span style="color: ">    </span></em></font><font color="#000000">big_font = pygame.font.Font(</font><span style="color: "><font color="#000080"><strong>None</strong></font></span><font color="#000000">, </font><span style="color: "><font color="#0000ff">72</font></span><font color="#000000">)<br>    little_font = pygame.font.Font(</font><span style="color: "><font color="#000080"><strong>None</strong></font></span><font color="#000000">, </font><span style="color: "><font color="#0000ff">36</font></span><font color="#000000">)</font></pre>
+
+            </span></font><pre style="font-family: ; background-color: #ffffff"><font style="font-size: 9pt"><font color="#000000"><br><br>    </font><font color="#808080"><em><span style="color: "># Initialise our pressed key list<br></span><span style="color: ">    </span></em></font><font color="#000000">current_keys = pygame.key.get_pressed()<br>    current_mouse = pygame.mouse.get_pressed()</font></font></pre>
+
+            <h3>Reset</h3>
+
+            <p>This function resets all the properties of our game for 
+each go. Having started the game up, we expect the player to have 
+several go’s and so this function will be called lots of times. Since we
+ haven’t started to create our game yet, this function is empty and we 
+can just use the return keyword. As the game develops, we will add more 
+code here.</p>
+
+            <pre style="font-family: ; color: ; background-color: #ffffff"><span style="color: "><font color="#000080"><strong><font style="font-size: 9pt">def </font></strong></font></span><font style="font-size: 9pt"><font color="#000000">Reset():<br>    </font></font><span style="color: "><font style="font-size: 9pt; background-color: #e4e4ff" color="#000080"><strong>return</strong></font></span></pre>
+
+            <h3>GameLoop</h3>
+
+            <p>The main process of repeating the update and draw cycle. 
+This function will only complete and return when we ‘quit’ the game – 
+this is triggered by setting the gamestate variable to “Quit”.</p>
+
+            <pre style="font-family: ; color: ; background-color: #ffffff"><span style="color: "><font color="#000080"><strong><font style="font-size: 9pt">def </font></strong></font></span><font style="font-size: 9pt"><font color="#000000">GameLoop():<br>    </font><span style="color: "><font color="#000080"><strong>global </strong></font></span><font color="#000000">gamestate<br>    </font><span style="color: "><font color="#000080"><strong>while </strong></font></span><font color="#000000">gamestate </font><strong><span style="color: "><font color="#000080">is not </font></span><span style="color: "><font color="#008080">"Quit"</font></span></strong><font color="#000000">:<br>        </font><span style="color: "><font color="#000080"><strong>for </strong></font></span><font color="#000000">event </font><span style="color: "><font color="#000080"><strong>in </strong></font></span><font color="#000000">pygame.event.get():<br>            </font><span style="color: "><font color="#000080"><strong>if </strong></font></span><font color="#000000">event.type == pygame.QUIT:<br>                gamestate = </font><span style="color: "><font color="#008080"><strong>"Quit"<br></strong></font></span><span style="color: "><br></span><font color="#000000"><br><br>        Update()<br>        Draw()<br><br><br>    </font><font color="#808080"><em><span style="color: "># If we get here, we should quit<br></span><span style="color: ">    </span></em></font><font color="#000000">sys.exit()</font></font></pre>
+
+            <h3>Update</h3>
+
+            <p>This function processes all the changes to the game data in response to time, user input or other events.</p>
+
+            <pre style="font-family: ; color: ; background-color: #ffffff"><span style="color: "><font color="#000080"><strong><font style="font-size: 9pt">def </font></strong></font></span><font style="font-size: 9pt"><font color="#000000">Update():<br>    </font><span style="color: "><font color="#000080"><strong>global </strong></font></span><font color="#000000">current_keys, last_keys, current_mouse, last_mouse<br>    <span><font style="background-color: #ffe4ff">last_keys</font></span> = current_keys<br>    current_keys = pygame.key.get_pressed()<br><br>    last_mouse = current_mouse<br>    current_mouse = pygame.mouse.get_pressed()<br>    </font><span style="color: "><font color="#808080">elapsed_ms </font></span><font color="#000000">= pygame.time.Clock().tick(</font><span style="color: "><font color="#0000ff">30</font></span><font color="#000000">)</font></font></pre>
+
+            <h3>Draw</h3>
+
+            <p>This function constructs and draws our screen. As you 
+create more sophisticated game loops, you will find that you will 
+usually call the update and draw functions at different rates so keeping
+ this work logically separate is a good habit to get into.</p>
+
+            <h3></h3>
+
+            <h3>Call the functions</h3>
+
+            <p>Finally we need to actually call these functions 
+(remember, they are only defined so far and so won’t actually run), so 
+at the bottom of your file add your calls.</p>
+
+            <pre style="font-family: ; background-color: #ffffff"><span><font style="background-color: #e4e4ff"><font style="font-size: 9pt" color="#000000">Init</font></font></span><font style="font-size: 9pt" color="#000000">()<br>Reset()<br>GameLoop()</font></pre>
+
+            <pre style="font-family: ; background-color: #ffffff"><font color="#000000"></font></pre>
+
+            <p><font color="#000000">Now you should be able to F5 and 
+see your window created according to the background image and the loop 
+should run until you close the window. Essentially, this set of code is 
+the basis of any game you may wish to start, so it might be a good idea 
+to keep a copy of it somewhere so you can reuse it easily in the future.
+ Next week we’ll discuss how to structure and begin adding our game 
+logic to this framework.</font></p>
+
+
+

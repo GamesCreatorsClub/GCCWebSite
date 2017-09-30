@@ -1,0 +1,70 @@
+.. tags: Meetings
+.. slug: 8-meeting-5-putting-it-all-together
+.. title: Meeting 5–Putting it all together…
+.. date: 24 February 2013 08:38
+.. author: Edward Powell
+
+	<h2>
+					<a href="http://raspberrypilot.com/index.php/meetings/8-meeting-5-putting-it-all-together">
+			Meeting 5–Putting it all together…</a>
+			</h2>
+
+
+
+
+
+<p>This was the last session before half-term so I was keen to finish 
+with a basically functional game! For this we needed to add two key game
+ principles to our growing collection – showing a score, and a bit of 
+randomness.</p>  <h2>Rendering Text</h2>  <p>Unlike the early sessions, 
+printing text is decidedly trickier using pygame. It involves creating a
+ font object, using this to render to a surface (which is an image) and 
+then blitting this surface to our screen backbuffer and flipping it to 
+the front. Phew! Lets eat this elephant a bite at a time…</p>  <h3>Creating a font object</h3>  <p>We
+ need to initialise the font system in pygame and then create a font 
+object from the available system fonts installed on your computer.</p>  <p><font size="3" face="Courier New">pygame.font.init()     <br>font_object = pygame.font.SysFont(<font color="#008000">"Arial"</font>, 30)</font></p>  <p>How
+ did we know to use the name ‘Arial’? Well strictly speaking we need to 
+know what fonts are installed on the computer on which we are going to 
+run this game. There are certainly likely to very different ones 
+installed on a typical Windows PC compared to the RPi. To find out we 
+can use the IDLE shell to type in directly:</p>  <p><font size="3" face="Courier New">&gt;&gt;&gt; <font color="#f79646">import</font> pygame      <br>&gt;&gt;&gt; pygame.init()</font></p>  <p><font size="3" face="Courier New">&gt;&gt;&gt; <font color="#f79646">for</font> font <font color="#f79646">in</font> pygame.font.get_fonts():      <br>&nbsp;&nbsp;&nbsp; print(font)</font></p>  <p>This will print the names of all the fonts installed on your machine – pick one of these and use this instead of ‘Arial’.</p>  <h3>Rendering our text to a surface</h3>  <p>Now we have our font object we can use it to render some text to a surface in our main game loop:</p>  <p><font size="3" face="Courier New">score_text_surface = font.render<font color="#008000"><font color="#000000">(</font>"Score: "</font> + <font color="#9b00d3">str</font>(score), 1, (255, 255,255))</font></p>  <p>This line assumes that our score is being kept in a simple integer variable called ‘score’, s<a href="http://www.raspberrypilot.com/images/image_8.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 5px; padding-left: 0px; padding-right: 0px; display: inline; float: right; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" alt="image" src="../../../images/old/image_thumb_3.html" border="0" align="right" height="257" width="244"></a>o
+ before we can add it onto the the end of our ‘Score: ‘ text it needs to
+ be turned into a string using the str() function. The other values 
+determine if the text should be antialiased (smoothed around the edges) 
+and the colour in Red, Green, Blue (RGB) format – in this case maximum 
+for all three, which will make it white.</p>  <h3>Blit our surface to the screen</h3>  <p>Finally we can blit our surface to the screen in exactly the same way we blitted our images in the last session:</p>  <p>screen.blit(score_text_surface, (10, 10))</p>  <p>If
+ you recall, the pair of numbers is the screen coordinate to blit to. In
+ this case 10 pixels across and 10 pixels down from the top left corner 
+of our screen.</p>  <h2>Random Girlfriends</h2>  <p>So, our Valentine’s 
+Day meeting game needs a backstory. Our player character, lets call him 
+Jack (because we know Jack has a thing about Pink Girl), has arranged to
+ meet *all* of his girlfriends at the same place by accident. If they 
+meet each other he’s going to be totally busted. So our game will be 
+that Jack needs to meet all his girlfriends as they walk across the park
+ and send them on their way with a quick kiss (or mouse click). For each
+ girlfriend he succeeds in kissing we’ll award 10 points, but for each 
+one that he misses he’ll lose 5 points.</p>  <p>The main action we need 
+to implement here is that PinkGirl needs to start at a random location 
+on the left of the screen and she needs to move across the screen each 
+time through the game loop. If she is clicked on, we’ll score 10 and 
+move her back to the left. If she makes it to the right-hand of the 
+screen then we’ll subtract 5 points and then move her back.</p>  <p>Data-wise
+ we need two things here: the bounding rectangle of the girl, so we can 
+test if the mouse has been clicked on her, and a pair of position 
+coordinates that we can adjust programmatically to move her around. 
+These are created thus:</p>  <p><font size="3" face="Courier New">girl = pygame.image.load(<font color="#008000">"pinkgirl.png"</font>)      <br>girl_rect = girl.get_rect()</font></p>  <p><font size="3" face="Courier New">girl_position = [0,0]</font></p>  <p>To be able to create random numbers we also need to import the random module at the beginning of our game code:</p>  <p><font size="3" face="Courier New"><font color="#f79646">import</font> pygame, random</font></p>  <p>We can now use the random object to create random integers (<font size="3" face="Courier New">random.randint</font>) between two values – in our case 0, an the height of the screen to give a random starting position for the girl.</p>  <p>Now
+ to move the girl across the screen until she gets the right-hand side, 
+then reset her to a random position on the left we use this code in the 
+main loop:</p>  <p><font size="3" face="Courier New">girl_position[0] += 1     <br>girl_rect.center = girl_position      <br><font color="#f79646">if</font> girl_position[0] &gt; screen.get_width():      <br>&nbsp;&nbsp;&nbsp; score -= 5      <br>&nbsp;&nbsp;&nbsp; girl_position[1] = random.randint(0, screen.get_height())      <br>&nbsp;&nbsp;&nbsp; girl_position[0] = 0</font>    <br></p>  <p>Finally
+ we need to add an extra bit of code the the event handlers for the 
+mouse click. This tests if we have clicked on&nbsp; the girl and it 
+resets her position and adjusts the score accordingly:</p>  <p><font size="3" face="Courier New"><font color="#f79646">if</font> event.type == pygame.MOUSEBUTTONDOWN:      <br>&nbsp;&nbsp;&nbsp; <font color="#f79646">if</font> girl_rect.collidepoint(event.pos):      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; score += 10      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; girl_position[1] = random.randint(0, screen.get_height())      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; girl_position[0] = 0</font>    <br></p>  <p>And
+ that is basically it. There is *a lot* to take in I know – this was 
+probably too ambitious for one session in hindsight, but never mind. For
+ the last 10 minutes we directed our new-found python skills at 
+minecraft to cheer up those with aching brains, but before we go onto 
+that, here is the full code for the game, just for the record:</p>  <p><font size="3" face="Courier New"><font color="#f79646">import</font> pygame, random</font></p>  <p><font size="3" face="Courier New">pygame.init()     <br>pygame.font.init()      <br>screen = pygame.display.set_mode((400, 400))</font></p>  <p><font size="3" face="Courier New">font = pygame.font.SysFont(<font color="#008000">"Arial"</font>, 30)</font></p>  <p><font size="3" face="Courier New">boy = pygame.image.load(<font color="#008000">"boy.png"</font>)      <br>boy_rect = boy.get_rect()</font></p>  <p><font size="3" face="Courier New">girl = pygame.image.load(<font color="#008000">"pinkgirl.png"</font>)      <br>girl_rect = girl.get_rect()</font></p>  <p><font size="3" face="Courier New">background = pygame.image.load(<font color="#008000">"flippyboard.png"</font>)      <br>tree_image = pygame.image.load(<font color="#008000">"Tree_Ugly.png"</font>)</font></p>  <p><font size="3" face="Courier New">position = [0,0]     <br>girl_position = [0,0]      <br>tree_positions = [(167, 56), (78, 127), (55, 55), (350, 270)]      <br>score = 0</font></p>  <p><font size="3" face="Courier New">game_running = <font color="#f79646">True</font></font></p>  <p><font size="3" face="Courier New"><font color="#f79646">while</font> game_running:      <br>&nbsp;&nbsp;&nbsp; <font color="#f79646">for</font> event <font color="#f79646">in</font> pygame.event.get():      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#ffc000">if</font> event.type == pygame.QUIT:      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; game_running = <font color="#f79646">False</font>      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#ffc000">if</font> event.type == pygame.MOUSEMOTION:      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; position = event.pos      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#ffc000">if</font> event.type == pygame.MOUSEBUTTONDOWN:      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if girl_rect.collidepoint(event.pos):      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; score += 10      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ girl_position[1] = random.randint(0, screen.get_height())      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; girl_position[0] = 0</font></p>  <p><font size="3" face="Courier New">&nbsp;&nbsp;&nbsp; boy_rect.center = position&nbsp; <br>&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp; <font color="#ff0000"> # Move the girl       <br></font>&nbsp;&nbsp;&nbsp; girl_position[0] += 1      <br>&nbsp;&nbsp;&nbsp; girl_rect.center = girl_position      <br>&nbsp;&nbsp;&nbsp; <font color="#f79646">if</font> girl_position[0] &gt; screen.get_width():      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; score -= 5      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; girl_position[1] = random.randint(0, screen.get_height())      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; girl_position[0] = 0      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; screen.blit(background, (0,0))      <br>&nbsp;&nbsp;&nbsp; screen.blit(girl, girl_rect)      <br>&nbsp;&nbsp;&nbsp; screen.blit(boy, boy_rect)      <br>&nbsp;&nbsp;&nbsp; score_text = font.render(<font color="#008000">"Score: "</font> + <font color="#9b00d3">str</font>(score), 1, (255, 255,255))      <br>&nbsp;&nbsp;&nbsp; screen.blit(score_text, (10, 10))      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; <font color="#ffc000">for</font> tree <font color="#ffc000">in</font> tree_positions:      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; screen.blit(tree_image, tree)</font></p>  <p><font size="3" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; pygame.display.flip()</font></p>  <p><font size="3" face="Courier New">pygame.quit()     <br></font></p>
+
+
+

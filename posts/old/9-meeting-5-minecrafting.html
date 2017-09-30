@@ -1,0 +1,51 @@
+.. tags: Meetings
+.. slug: 9-meeting-5-minecrafting
+.. title: Meeting 5+ Minecrafting
+.. date: 24 February 2013 09:27
+.. author: Edward Powell
+
+	<h2>
+					<a href="http://raspberrypilot.com/index.php/meetings/9-meeting-5-minecrafting">
+			Meeting 5+ Minecrafting</a>
+			</h2>
+
+
+
+
+
+<p><img src="../../../images/old/modloader-for-minecraft-02-700x406.jpg" style="margin: 5px; display: inline; float: right;" border="0" align="right" height="228" width="393"></p>
+<p>For the last 10 minutes of the session I found a great target for our
+ new-found python skills in a proper commercial game – Minecraft.</p>
+<p>The version recently released for the RPi can be found at the PiStore
+ and it includes a python scripting interface. I moved the mcpi 
+directory onto the desktop of the club RPi’s for easy access.</p>
+<h2>Initialising our connection to minecraft</h2>
+<p>First we need start minecraft running in X Windows on the Pi, then 
+open a terminal window in the mcpi directory and change our current 
+directory (using the cd command) to the one containing the python module
+ for minecraft:</p>
+<p><span style="font-family: 'Courier New'; font-size: medium;">cd mcpi/api/python/acpi</span></p>
+<p>then start python</p>
+<p><span style="font-family: 'Courier New'; font-size: medium;">python</span></p>
+<p>and import the minecraft module into a namespace called ‘minecraft’.</p>
+<p><span style="font-family: 'Courier New'; font-size: medium;">import minecraft as minecraft</span></p>
+<p>and get hold of the main minecraft object:</p>
+<p><span style="font-family: 'Courier New'; font-size: medium;">mc = minecraft.Minecraft.create()</span></p>
+<p>Now we should have a minecraft object called ‘mc’ and we can use it 
+to access lots of different commands in minecraft. We can find out where
+ we are with:</p>
+<p><span style="font-family: 'Courier New'; font-size: medium;">mc.Player.getTilePos()</span></p>
+<p>then create some blocks around us using:</p>
+<p><span style="font-family: 'Courier New'; font-size: medium;">mc.setBlock(x, y, z, block_id)</span></p>
+<p>where the block_id is one of the many types of block. It turns out 
+that Scott has an encyclopaedic knowledge of these and told me that id 
+‘10’ is lava. This was impressive, but caused me to die from my own lava
+ flow almost immediately in my own demo <img class="wlEmoticon wlEmoticon-sadsmile" src="../../../images/old/wlemoticon-sadsmile_2.png" alt="Sad smile" style="border-style: none;" border="0"></p>
+<p><img src="../../../images/old/minecraft-7-650x0.jpg" alt="Minecraft XBLA" style="margin: 5px; display: inline; float: left;" border="0" align="left" height="220" width="392"></p>
+<p>You can use all the usual python constructs, like for loops, to 
+programmatically creating lots of shapes. You can even create python 
+module with some functions defined to create whole structures or 
+buildings automatically. Enjoy!</p>
+
+
+

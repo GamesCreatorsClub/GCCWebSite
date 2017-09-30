@@ -1,0 +1,37 @@
+.. tags: Meetings
+.. slug: 7-meeting-4-graphics
+.. title: Meeting 4–Graphics!!
+.. date: 07 February 2013 20:48
+.. author: Edward Powell
+
+	<h2>
+					<a href="http://raspberrypilot.com/index.php/meetings/7-meeting-4-graphics">
+			Meeting 4–Graphics!!</a>
+			</h2>
+
+
+
+
+
+<p><a href="http://www.raspberrypilot.com/images/image_2_2c62ed165e1efd07fb582c79e541caee.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px 5px 5px 0px; padding-left: 0px; padding-right: 0px; display: inline; float: left; border-top: 0px; border-right: 0px; padding-top: 0px" title="image" alt="image" src="../../../images/old/image_thumb_040467042273ea2b15163822c0c1e0b4.html" border="0" align="left" height="238" width="227"></a></p>  <p>This
+ week we put together everything we’ve been working on over the last few
+ meetings to start rendering some graphics in the game loop and then 
+move them around using the mouse.</p>  <p>The graphics we used are all 
+part of the pygame games provided as part of the raspian image.&nbsp; We
+ discussed how to define ‘paths’ to different files on the computer, but
+ to simplify the process of finding the images we need, we started the 
+IDLE shell, created an new window then immediately saved our new file in
+ the pygames folder – in the same location as the images.</p>  <p>Everyone
+ then created the basic pygame initialisation and game loop in the new 
+blank file (it’s all good practice!) and then we got onto the meat and 
+potatoes – loading an image. </p>  <p>We used <font face="Courier New">pygame.image.load</font> to import an image from disk and then store it in a variable. Then, in the game loop, we used the <font face="Courier New">blit</font>
+ method (short for ‘block image transfer’, if I remember my Amiga days 
+correctly) to render the image using the variable name. We also had to 
+remember to flip our freshly drawn screen from the back buffer to the 
+visible screen.</p>  <p>Once we’d nailed the basic principles of 
+rendering images, we added a background and some bushes, being careful 
+to draw them over the top of each other in the correct order: 
+background, manga boy (or girl in Jack’s case), then the bushes.</p>  <p>The final bit to wire-up was some interaction. Initially I demonstrated using a mouse click (the <font face="Courier New">pygame.MOUSEBUTTONDOWN</font> event) to move the character around the screen. But Jeremy, et al. tried the <font face="Courier New">pygame.MOUSEMOTION</font> event instead and this was actually way better!</p>  <p>So there we had it – loops, rendering and events coming together to make something that is really starting to look like a game!</p>  <p>Here’s the final code:</p>  <p><font size="3" face="Courier New"><font color="#ffc000">import</font> pygame</font></p>  <p><font size="3" face="Courier New">pygame.init()</font></p>  <p><font size="3" face="Courier New">screen = pygame.display.set_mode((400, 400))     <br>boy = pygame.image.load(<font color="#9bbb59">"boy.png"</font>)      <br>background = pygame.image.load(<font color="#9bbb59">"flippyboard.png"</font>)      <br>tree_image = pygame.image.load(<font color="#9bbb59">"Tree_Ugly.png"</font>)      <br>position = (0,0)</font></p>  <p><font size="3" face="Courier New">tree_positions = [(167, 56), (78, 127), (55, 55), (350, 270)]</font></p>  <p><font size="3" face="Courier New">game_running = <font color="#f79646">True</font></font></p>  <p><font size="3" face="Courier New"><font color="#f79646">while</font> game_running:      <br>&nbsp;&nbsp;&nbsp; <font color="#f79646">for</font> event in pygame.event.get():      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#f79646">if</font> event.type == pygame.QUIT:      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; game_running = <font color="#f79646">False</font></font></p>  <p><font size="3" face="Courier New"><font color="#f79646"></font>      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#f79646">if</font> event.type == pygame.MOUSEMOTION:      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; position = event.pos</font></p>  <p><font size="3" face="Courier New">&nbsp;&nbsp;&nbsp; screen.blit(background, (0,0))     <br>&nbsp;&nbsp;&nbsp; screen.blit(boy, position)      <br>&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; <font color="#f79646">for</font> tree <font color="#f79646">in</font> tree_positions:      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; screen.blit(tree_image, tree)      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; pygame.display.flip()</font></p>  <p><font size="3" face="Courier New">pygame.quit()</font></p>
+
+
+

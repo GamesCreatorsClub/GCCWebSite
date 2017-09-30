@@ -1,0 +1,30 @@
+.. tags: Meetings
+.. slug: 25-gathering-our-data-together
+.. title: Gathering our data together
+.. date: 04 February 2014 19:41
+.. author: Edward Powell
+
+	<h2>
+					<a href="https://web.archive.org/web/20170315155221/http://raspberrypilot.com/index.php/meetings/25-gathering-our-data-together">
+			Gathering our data together</a>
+			</h2>
+
+
+
+
+
+<p><a href="https://web.archive.org/web/20170315155221/http://www.raspberrypilot.com/images/image_5.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: left; padding-top: 0px; padding-left: 0px; margin: 0px 6px 6px 0px; border-left: 0px; display: inline; padding-right: 0px" alt="image" src="../../../images/old/image_thumb_1_6e1416f71b5bf857876e263b3407c7e7.html" border="0" align="left" height="188" width="259"></a>Our game is starting to get quite sophisticated, but the code is also starting to get complicated too <img class="wlEmoticon wlEmoticon-sadsmile" style="border-top-style: none; border-bottom-style: none; border-right-style: none; border-left-style: none" alt="Sad smile" src="../../../images/old/wlemoticon-sadsmile_2_57284b87394a51bb15a2eadb7598c281.html">.
+ Now is a good time to step-back and make our lives a bit easier with 
+some restructuring before we go onto to add more functionality. We 
+learned about functions in the last meeting, which allow us to reuse 
+important operations and logic, but now we need to look at our data.</p>  <h3>Replacing Individual Data Elements</h3>  <p>Our current player requires four separate data elements in order to manage movement and drawing</p>  <table cellspacing="0" cellpadding="2" border="1" width="600"><tbody>     <tr>       <td width="598" valign="top">         <p><font face="Courier New">player_start_rect = pygame.Rect(0,0, block_size, block_size)             <br>player_sprite = pygame.image.load("sprite_32.png")              <br>player_rect = player_start_rect              <br>speed = 4</font></p>       </td>     </tr>   </tbody></table>  <p>We
+ are going to strip these out and replace them with a single data 
+element with each sub-element neatly grouped under it. To do this we are
+ going to use a <a href="https://web.archive.org/web/20170315155221/http://www.tutorialspoint.com/python/python_dictionary.htm">Dictionary</a> container that will allow us to use a label to access each item from a new, single, player element.</p>  <table cellspacing="0" cellpadding="2" border="1" width="600"><tbody>     <tr>       <td width="600" valign="top">         <p><font face="Courier New">player = {             <br>&nbsp;&nbsp;&nbsp; "image":pygame.image.load("sprite_32.png"),              <br>&nbsp;&nbsp;&nbsp; "rect":pygame.Rect(0, 0, 32, 32),              <br>&nbsp;&nbsp;&nbsp; "start_rect":pygame.Rect(0, 0, 32, 32),              <br>&nbsp;&nbsp;&nbsp; "speed":4&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; }</font></p>       </td>     </tr>   </tbody></table>    <p>Now, everywhere in our code where we were having to remember and use each separate data item we can use our neater container:</p>  <table cellspacing="0" cellpadding="2" border="1" width="601"><tbody>     <tr>       <td width="281" valign="top">         <p><font face="Courier New">player_rect&nbsp; <br>player_sprite</font></p>          <p><font face="Courier New">player_start_rect</font></p>          <p><font face="Courier New">speed</font></p>       </td>        <td width="318" valign="top">         <p><font face="Courier New">player['rect']             <br>player['image']              <br>player['start_rect']              <br>player['speed']</font></p>       </td>     </tr>   </tbody></table>  <p>But
+ even more usefully we can now create some cool functions that take our 
+new player dictionary – or indeed other dictionaries provided they have 
+the same the items in them. This is a *very* useful way to simplify our 
+main loop code with function calls like:</p>  <table cellspacing="0" cellpadding="2" border="1" width="600"><tbody>     <tr>       <td width="600" valign="top">         <p><font face="Courier New">UpdatePosition(player)</font></p>          <p><font face="Courier New">Draw(player)</font></p>       </td>     </tr>   </tbody></table>  <p>instead of the swathes of code currently required.</p>
+
+
+

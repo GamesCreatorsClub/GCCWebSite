@@ -1,0 +1,90 @@
+.. tags: Tutorials
+.. slug: 22-minecraft-modding-in-java
+.. title: Minecraft Modding in Java
+.. date: 04 December 2013 23:13
+.. author: Andrew Hague
+
+	<h2>
+					<a href="https://web.archive.org/web/20161026121708/http://raspberrypilot.com/index.php/tutorials/22-minecraft-modding-in-java">
+			Minecraft Modding in Java</a>
+			</h2>
+
+
+
+
+
+<h2>What is needed?</h2>
+<ul>
+<li>JRE</li>
+<li>JDK</li>
+<li>IDE (Netbeans)</li>
+<li>MINECRAFT FORGE (for 1.5.2)</li>
+<li>FML libs for 1.5</li>
+<li>Some know-how…</li>
+</ul>
+<h2>Install</h2>
+<ul>
+<li>Install JRE, JDK, IDE</li>
+<li>Set PATH to include JRE &amp; JDK</li>
+<li>Unzip Minecraft Forge</li>
+<li>Run Install.cmd while online</li>
+<ul>
+<li>Downloads more stuff</li>
+<li>Creates MCP (Mod Coder Pack)</li>
+<li>Creates FML (Forge Mod Loader)</li>
+<li>Decompiles and patches minecraft</li>
+</ul>
+</ul>
+<p>• Unzip fml libs (into mcp\lib) [on 1.5.2]</p>
+<p>• Run Install.cmd again! [on 1.5.2]</p>
+<h2>Prepare to program</h2>
+<ul>
+<li>Set up IDE</li>
+<ul>
+<li>Edit project workspace settings (MCP_LOC)</li>
+<li>Import project workspace</li>
+<li>Shuffle which libs are used in preference in project</li>
+<li>Tell game where to find native libs</li>
+</ul>
+</ul>
+<h2>Setup Boilerplate for Mod</h2>
+<ul>
+<li>Each mod needs to be in a package</li>
+<li>Each mod package needs a main class</li>
+<li>Main class needs an instance, a server proxy, preinit, load and postinit.</li>
+<li>Proxy classes provide shared code between server and client (we won’t use these)</li>
+<li>Each new ‘thing’ lives in a new class and derives from a similar ‘thing’</li>
+</ul>
+<h2>A new ‘thing’ : a block</h2>
+<ul>
+<li>Block needs a look</li>
+<ul>
+<li>Texture in mods.MODNAME.textures.blocks</li>
+</ul>
+<li>Respond to being placed by the player</li>
+<ul>
+<li>Set more blocks</li>
+</ul>
+<li>Create instance of a block, and set it up some default features of that block.</li>
+<li>Register block, its name and block harvest level</li>
+<li>Build and test</li>
+</ul>
+<p>anything can happen, including crashes, lag, glitches: i.e. BUGS!</p>
+<h2>Package the mod</h2>
+<ul>
+<li>Recompile.bat</li>
+<li>Reobfuscate.bat</li>
+<li>Code</li>
+<ul>
+<li>‘mcp\reobf\minecraft\modname’ -&gt; mod.zip\modfolder\modname</li>
+</ul>
+<li>Textures</li>
+<ul>
+<li>‘mcp\src\minecraft\mods’ -&gt; mod.zip\modfolder\mods</li>
+</ul>
+</ul>
+<p>Email it to your friends that have FML installed for 1.5.2</p>
+<p>Find my mod and source code <a href="https://web.archive.org/web/20161026121708/https://www.dropbox.com/sh/sed5u2htattehw7/HbHtq-pri4">here </a>on Dropbox.</p>
+
+
+

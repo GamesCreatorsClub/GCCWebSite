@@ -1,0 +1,158 @@
+.. tags: Home
+.. slug: 76-python-crash-course
+.. title: Python Crash Course
+.. date: 02 March 2016 13:05
+.. author: Edward Powell
+
+	<h2>
+					<a href="https://web.archive.org/web/20161026121751/http://raspberrypilot.com/index.php/articles-tutorials/76-python-crash-course">
+			Python Crash Course</a>
+			</h2>
+
+
+
+
+
+
+
+<h1>Introduction</h1> <p>This page details the absolute essentials that 
+you need to know to get up an running with Python. This short list of 
+concepts is deceptively powerful. If you get these ideas really clear in
+ your mind and spend some time experimenting with IDLE, you will be well
+ on your way to getting your coding chops.</p> <h1>Comments &amp; Indents</h1> <p>Any line that starts with # is called a comment and is ignored by Python. These are where you can document your code</p> <div><pre class="prettyprint prettyprinted" style=""><code class="language-python"><span class="pln">
+</span><span class="com"># This is a comment, it will be ignored by python</span></code></pre></div>
+<p>Python uses space or tab indenting to group code. On the screen you 
+cannot see spaces or tabs but they do have a unique code inside your 
+text file, so they are known as ‘whitespace’ and they really matter in 
+Python!</p>
+<div><pre class="prettyprint prettyprinted" style=""><code class="language-python"><span class="pln">
+flag </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">True</span><span class="pln">
+
+</span><span class="com"># Logic Test</span><span class="pln">
+</span><span class="kwd">if</span><span class="pln"> flag </span><span class="kwd">is</span><span class="pln"> </span><span class="kwd">True</span><span class="pun">:</span><span class="pln">
+    </span><span class="com"># Indented code is treated as a group or block</span><span class="pln">
+    </span><span class="com"># It 'belongs' to the test above</span><span class="pln">
+    </span><span class="com"># It is run if the test succeeds</span><span class="pln">
+    </span><span class="kwd">print</span><span class="pun">(</span><span class="str">"Only print this if flag is true!"</span><span class="pun">)</span><span class="pln">
+
+</span><span class="com"># No indenting means this code is NOT part</span><span class="pln">
+</span><span class="com"># of the test and will run regardless of flag</span><span class="pln">
+</span><span class="kwd">print</span><span class="pun">(</span><span class="str">"Always print this"</span><span class="pun">)</span></code></pre></div>
+<p><em><strong>EITHER</strong> indent using spaces <strong>OR</strong> 
+tabs. Don’t use a mixture, it will cause an error. Be careful of this 
+problem if you cut and paste someone else’s code into your own – they 
+may have used different indenting.</em></p>
+<h1>Strings &amp; Numbers</h1>
+<p>Python represents the whole number 2 differently from the text symbol for it, which is ‘2’.</p>
+<p><em>Letters and other text symbols are called characters. Groups of 
+characters are called Strings. Characters and strings are always 
+represented inside inverted commas, or quotation marks.</em></p>
+<div><pre class="prettyprint prettyprinted" style=""><code class="language-python"><span class="pln">
+this_is_a_string </span><span class="pun">=</span><span class="pln"> </span><span class="pun">“</span><span class="typ">Two</span><span class="pun">”</span><span class="pln">
+so_is_this </span><span class="pun">=</span><span class="pln"> </span><span class="pun">“</span><span class="lit">2</span><span class="pun">”</span><span class="pln">
+and_this_is_a_single_text_character </span><span class="pun">=</span><span class="pln"> </span><span class="pun">‘</span><span class="lit">2</span><span class="pun">’</span><span class="pln">
+but_this_is_a_number </span><span class="pun">=</span><span class="pln"> </span><span class="lit">2</span></code></pre></div>
+<p><em>Whole numbers are called Integers</em></p>
+<div><pre class="prettyprint prettyprinted" style=""><code class="language-python"><span class="pln">
+</span><p><span class="pln">this_is_an_integer </span><span class="pun">=</span><span class="pln"> </span><span class="lit">2</span></p>
+</code></pre></div>
+<p>Python can only combine or compare like types so you will often need to convert one form to the other.</p>
+<h3>Integer to String</h3>
+<div><pre class="prettyprint prettyprinted" style=""><code class="language-python"><span class="pln">
+str</span><span class="pun">(</span><span class="lit">2</span><span class="pun">)</span><span class="pln"> </span><span class="com"># returns '2'</span></code></pre></div>
+<p>will return the string equivalent of 2, which is ‘2’</p>
+<h3>String to Integer</h3>
+<div><pre class="prettyprint prettyprinted" style=""><code class="language-python"><span class="pln">
+int</span><span class="pun">(‘</span><span class="lit">2</span><span class="pun">’)</span><span class="pln"> </span><span class="com"># returns 2</span></code></pre></div>
+<p>will return the integer equivalent of ‘2’, which is 2</p>
+<p>Strings &amp; Integers are just two of the types of data that you can
+ create, store, modify and retrieve. When they are created we give them a
+ name label. Because the data associated with the label can change, we 
+often call these name labels <em>variables</em>. Below are the more of the common types of data you can create and reference using named variables.</p>
+<h1>Tuples &amp; Lists</h1>
+<p>It is often useful to keep groups of numbers or strings together 
+under a single variable name if they represent related information. The 
+width and height of your display window, for example are often kept 
+together. </p>
+<h3>Tuples</h3>
+<p>If the numbers will not need to be changed during your program - for 
+example, the width and height of your graphics window will be set once 
+when the window is created but not changed while your program runs – 
+then you can use a tuple. Tuples are created using a comma ‘,’ separated
+ list of data between two <em>normal</em> brackets ‘(‘ ‘)’</p>
+<div><pre class="prettyprint prettyprinted" style=""><code class="language-python"><span class="pln">
+my_screen_res_tuple </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="lit">640</span><span class="pun">,</span><span class="pln"> </span><span class="lit">480</span><span class="pun">)</span></code></pre></div>
+<p>You can access an individual value within a tuple by specifying the index of the item in the tuple</p>
+<div><pre class="prettyprint prettyprinted" style=""><code class="language-python"><span class="pln">
+my_screen_res_tuple</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]</span><span class="pln"> </span><span class="com"># will return 640</span></code></pre></div>
+<p>All indexes start from 0. The first item in a tuple, list or dictionary is at index 0, the second at index 1 etc.</p>
+<h3>Lists</h3>
+<p>List are very like tuples, but you can modify them as your program is
+ running. You create a list using a comma ‘,’ separated list of data 
+between two <em>square</em> braces‘[‘ ‘]’</p>
+<div><pre class="prettyprint prettyprinted" style=""><code class="language-python"><span class="pln">
+my_flexible_list </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="pun">‘</span><span class="pln">e</span><span class="pun">’,</span><span class="pln"> </span><span class="lit">25</span><span class="pun">,</span><span class="pln"> </span><span class="pun">‘</span><span class="lit">2</span><span class="pun">’,</span><span class="pln"> </span><span class="pun">‘</span><span class="pln">a string</span><span class="pun">’,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="pun">‘</span><span class="lit">2</span><span class="pun">’]</span><span class="pln">
+my_flexible_list</span><span class="pun">[</span><span class="lit">2</span><span class="pun">]</span><span class="pln"> </span><span class="com"># will return ‘e’</span><span class="pln">
+my_flexible_list</span><span class="pun">[</span><span class="lit">2</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="pun">‘</span><span class="pln">f</span><span class="pun">’</span><span class="pln"> </span><span class="com"># will replace ‘e’ with ‘f’</span><span class="pln">
+my_flexible_list</span><span class="pun">[</span><span class="lit">1</span><span class="pun">:</span><span class="lit">3</span><span class="pun">]</span><span class="pln"> </span><span class="com"># will return a new list - [4, ‘e’]</span><span class="pln">
+len</span><span class="pun">(</span><span class="pln">my_flexible_list</span><span class="pun">)</span><span class="pln"> </span><span class="com"># returns the length of the list – 8</span><span class="pln">
+my_flexible_list</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="lit">42</span><span class="pun">)</span><span class="pln"> </span><span class="com"># adds 42 to the end of the list - [2, 4, ‘e’, 25, ‘2’, ‘a string’, 5, ‘2’, 42]</span></code></pre></div>
+<p><em>Strings are a List of characters. You can manipulate strings in the same way as a list.</em></p>
+<h1>Dictionaries</h1>
+<p>Dictionaries are a bit like lists, but with labels for each item. 
+Instead of finding items by their index, you can find an item by its 
+label. You create a dictionary using a comma ‘,’ separated list of 
+labels &amp; data between two <em>curly </em>braces‘{‘ ‘}’. Label and data pairs are separated by a colon ‘:’</p>
+<div><pre class="prettyprint prettyprinted" style=""><code class="language-python"><span class="pln">
+my_dictionary </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{“</span><span class="typ">Item</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="typ">Label</span><span class="pun">”:</span><span class="lit">101</span><span class="pun">,</span><span class="pln"> </span><span class="pun">“</span><span class="typ">Second</span><span class="pln"> </span><span class="typ">Label</span><span class="pun">”:</span><span class="lit">23</span><span class="pun">}</span><span class="pln">
+my_dictionary</span><span class="pun">[“</span><span class="typ">Second</span><span class="pln"> </span><span class="typ">Label</span><span class="pun">”]</span><span class="pln"> </span><span class="com"># returns 23</span><span class="pln">
+</span><span class="pun">“</span><span class="typ">Item</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="typ">Label</span><span class="pun">”</span><span class="pln"> </span><span class="kwd">in</span><span class="pln"> my_dictionary </span><span class="com"># returns True</span></code></pre></div>
+<h1>Logic</h1>
+<p>Logic allows you to test the state of variables and make your code 
+‘branch’ in different directions depending on the outcome of the test. 
+The logical test can have several parts to it, but always ends with a 
+colon ':'. The code block to be run if the test succeeds must be 
+indented below it.</p>
+<div><pre class="prettyprint prettyprinted" style=""><code class="language-python"><span class="pln">
+</span><span class="kwd">if</span><span class="pln"> test</span><span class="pun">:</span><span class="pln">
+	</span><span class="com"># Do indented code here, if test is True</span><span class="pln">
+</span><span class="kwd">elif</span><span class="pln"> other_test</span><span class="pun">:</span><span class="pln">
+	</span><span class="com"># Do indented code here, if other_test is True</span><span class="pln">
+</span><span class="kwd">else</span><span class="pun">:</span><span class="pln">
+	</span><span class="com"># Do indented code here, only if test and other_test are False</span></code></pre></div>
+<p>You can use the <em>if</em> block on its own without an else (or any elif's).</p>
+<p>You can also have as many <em>elif</em> blocks as you need, but there should never be more than one <em>else</em></p>
+<h1>Loops</h1>
+<p>Loops allow you to repeated indented code blocks. You can repeat 
+until a logical test becomes False by using a While loop. The Loop 
+declaration, like logic, ends with a colon ':' and the block of code to 
+be looped must be indented below it.</p>
+<div><pre class="prettyprint prettyprinted" style=""><code class="language-python"><span class="pln">
+flag </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">True</span><span class="pln">
+
+</span><span class="kwd">while</span><span class="pln"> flag</span><span class="pun">:</span><span class="pln">
+	</span><span class="com"># Indented code here is repeated</span><span class="pln">
+	</span><span class="com"># until flag becomes False	</span></code></pre></div>
+<p>You can repeat a fixed number of times using a For loop.</p>
+<div><pre class="prettyprint prettyprinted" style=""><code class="language-python"><span class="pln">
+</span><span class="kwd">for</span><span class="pln"> thing </span><span class="kwd">in</span><span class="pln"> my_list</span><span class="pun">:</span><span class="pln">
+	</span><span class="com"># Indented code here is repeated</span><span class="pln">
+	</span><span class="com"># for each item in my_list</span><span class="pln">
+	</span><span class="com"># You can access the item </span><span class="pln">
+	</span><span class="com"># using the 'thing' variable </span><span class="pln">
+    </span><span class="com"># each iteration	</span><span class="pln">
+	
+</span><span class="kwd">for</span><span class="pln"> x </span><span class="kwd">in</span><span class="pln"> range</span><span class="pun">(</span><span class="lit">10</span><span class="pun">):</span><span class="pln">
+	</span><span class="com"># Indented code repeated 10 times</span><span class="pln">
+	</span><span class="com"># x will be 0 through 9</span><span class="pln">
+	</span><span class="com"># as the loop repeats</span><span class="pln">
+	</span><span class="kwd">print</span><span class="pun">(</span><span class="pln">x</span><span class="pun">)</span><span class="pln">
+	
+</span><span class="kwd">for</span><span class="pln"> x </span><span class="kwd">in</span><span class="pln"> range</span><span class="pun">(</span><span class="lit">5</span><span class="pun">,</span><span class="lit">10</span><span class="pun">):</span><span class="pln">
+	</span><span class="com"># Indented code repeated 5 times</span><span class="pln">
+	</span><span class="com"># x will be 5 through 9</span><span class="pln">
+	</span><span class="com"># as the loop repeats</span><span class="pln">
+	</span><span class="kwd">print</span><span class="pun">(</span><span class="pln">x</span><span class="pun">)</span></code></pre></div>
+
+
+

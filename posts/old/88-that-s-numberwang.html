@@ -1,0 +1,31 @@
+.. tags: Meetings
+.. slug: 88-that-s-numberwang
+.. title: That’s Numberwang!
+.. date: 19 October 2016 09:15
+.. author: Edward Powell
+
+	<h2>
+					<a href="https://web.archive.org/web/20161026121855/http://raspberrypilot.com/index.php/meetings/88-that-s-numberwang">
+			That’s Numberwang!</a>
+			</h2>
+
+
+
+
+
+<p><img style="float: right; margin: 6px 0px; display: inline" src="../../../images/old/numbers.jpg" align="right" height="117" width="182">GCC
+ was *packed* last week and it was great! We covered a lot of ground 
+with many key elements of coding that we will find ourselves using time 
+and time again.</p>  <p>The key things we discusses were:</p>  <ul>   <li>Repeating sections of code – the <font face="Courier New">while</font> loop</li>    <li>Decisions – <font face="Courier New">if, elif, else</font> &amp; the <font face="Courier New">while</font> loop logic</li>    <li>Converting data types – <font face="Courier New">str()</font> &amp; <font face="Courier New">int()</font></li>    <li>The ‘main game loop’ structure</li> </ul>  <p>I
+ will run through these again in our next session, but in the meantime 
+here is&nbsp; Nick’s code in its entirety for you to look at. Can you 
+follow the flow of the code and pick out each element from the list 
+above?</p>  <p><font face="Courier New">import random</font></p>  <p><font face="Courier New">answer = random.randint(1, 100)</font></p>  <p><font face="Courier New">print('I have selected a number between 1 and 100.')</font></p>  <p><font face="Courier New">lives = 3     <br>while lives &gt; 0:      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; guess = int(input('Your guess? '))      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if answer == guess:      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print('Correct')      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else:      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lives = lives - 1      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print('Incorrect, try again')      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if guess &lt; answer:      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print('Too low!')      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else:      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print('Too high!')</font></p>  <p><font face="Courier New">if lives == 0:     <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print('Sorry, you have no more guesses.')</font></p>  <p>For
+ comparison, here is a near identical game created with slightly 
+different underlying logic. Can you follow the flow of this code? Can 
+you highlight the differences and the similarities between the two 
+approaches to the same problem? It is interesting to see that there can 
+be many different code solutions to the same problem.</p>  <p><font face="Courier New">import random</font></p>  <p><font face="Courier New">tries = 6     <br>attempts = 0      <br>secret = random.randint(1, 99)      <br>guess = 0</font></p>  <p><font face="Courier New">print("Access DENIED: This system is locked with a code between 1-99")</font></p>  <p><font face="Courier New">while guess != secret and attempts &lt; tries:     <br>&nbsp;&nbsp;&nbsp; remaining = tries - attempts      <br>&nbsp;&nbsp;&nbsp; print("You have " + str(remaining) + " remaining attempts")&nbsp; <br>&nbsp;&nbsp;&nbsp; guess = int(input("Enter Code Now..."))      <br>&nbsp;&nbsp;&nbsp; if guess &lt; secret:      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print("Code FAIL: Too low. Don't you know any bigger numbers?")      <br>&nbsp;&nbsp;&nbsp; if guess &gt; secret:      <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print("Code: FAIL: Too high. Calm yourself &amp; try a smaller number")      <br>&nbsp;&nbsp;&nbsp; attempts = attempts + 1</font></p>  <p><font face="Courier New">if guess==secret:     <br>&nbsp;&nbsp;&nbsp; print("Confirmed!")      <br>&nbsp;&nbsp;&nbsp; print("Access ENABLED: Please proceed to Nuclear Missile launch control. Have fun...")      <br>else:      <br>&nbsp;&nbsp;&nbsp; print("Access LOCKED: Black helicopters have been dispatched to your location.")      <br>&nbsp;&nbsp;&nbsp; print("Before you are terminated, you may as well know that the code was " + str(secret))</font></p>  <p>Next session we will look at competing against our first computer opponent!</p>
+
+
+

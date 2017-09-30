@@ -1,0 +1,46 @@
+.. tags: Meetings
+.. slug: 30-jet-pack
+.. title: Jet Pack
+.. date: 25 February 2014 21:17
+.. author: Edward Powell
+
+	<h2>
+					<a href="https://web.archive.org/web/20170315155454/http://raspberrypilot.com/index.php/meetings/30-jet-pack">
+			Jet Pack</a>
+			</h2>
+
+
+
+
+
+<p>   </p><div id="scid:5737277B-5D6D-4f48-ABFC-DD9C333F4C5D:2a3a896e-9ce8-4ce1-bb08-b0b5efb5f126" class="wlWriterEditableSmartContent" style="float: left; padding-bottom: 6px; padding-top: 6px; padding-left: 6px; margin: 0px; display: inline; padding-right: 6px"><div><object height="252" width="448"><param name="movie" value="http://www.youtube.com/v/jT4gzLAryCs?hl=en&amp;hd=1"><embed src="../../../images/old/jT4gzLAryCs.html" type="application/x-shockwave-flash" height="252" width="448"></object></div><div style="width:448px;clear:both;font-size:.8em">JetPac–16KB of genius for the ZX Spectrum.</div></div>
+ In this session we’re going to add an alternative update method for the
+ player to provide a completely different kind of movement – Jet pack 
+power! This new game dynamic is inspired by a favourite game of mine – 
+JetPac. This was the flappy bird of its day and was written by a company
+ called Ultimate – which is now <a href="https://web.archive.org/web/20170315155454/http://www.rare.co.uk/games">Rare</a>, a computer games company that is still based very close to us in Twycross.<p></p>  <p>To
+ begin with, our player data is going to need to include a new 
+�?velocity’ field. Velocity is different from simple speed, because it 
+encodes direction as well as magnitude. In our case the velocity is 
+going to be represented with two values – one for the x direction (left 
+and right) and the other for the y direction (up and down). We need to 
+add this field to our existing data:</p>  <table cellspacing="0" cellpadding="2" border="1" width="600"><tbody>     <tr>       <td width="600" valign="top">         <p><font face="Courier New">player = {             <br>&nbsp;&nbsp;&nbsp; "images":[              <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pygame.image.load("player_left_0.png"),              <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pygame.image.load("player_right_0.png"),               <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pygame.image.load("player_up_0.png"),              <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pygame.image.load("player_down_0.png"),              <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pygame.image.load("player_left_1.png"),              <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pygame.image.load("player_right_1.png"),&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pygame.image.load("player_up_1.png"),              <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pygame.image.load("player_down_1.png")              <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ],              <br>&nbsp;&nbsp;&nbsp; "rect":pygame.Rect(0, 0, 32, 32),              <br>&nbsp;&nbsp;&nbsp; "start_rect":pygame.Rect(0, 0, 32, 32),              <br>&nbsp;&nbsp;&nbsp; "speed":4,              <br>&nbsp;&nbsp; </font><font face="Courier New"><strong> <font size="3">"velocity":[0,0],</font>                <br></strong>&nbsp;&nbsp;&nbsp; "direction":0              <br>&nbsp;&nbsp;&nbsp; }</font></p>       </td>     </tr>   </tbody></table>  <p>This
+ new velocity field will now be used to decide how far and how fast the 
+player is moving, but we will continue to use the old speed field as a 
+*maximum* speed to cap the velocity values.</p>  <p>Next we need to 
+create our new movement function. Hopefully the power of functions will 
+now become apparent because we can leave all of our other code almost 
+entirely untouched and just focus on this new functionality. The 
+fundamental principles of our new function are pretty similar to the 
+previous one and can be divided into the following stages:</p>  <ul>   <li>Copy the current player position rectangle</li>    <li>Read the keyboard input</li>    <li>Use the input to update the position of the copy position rectangle</li>    <li>Check if the copy rectangle collides with any level walls</li>    <li>If it doesn’t collide, use the copy to update the actual position of the player rectangle</li> </ul>  <p>Our
+ new function is a little more sophisticated in how it does these 
+things, but essentially it is the same as our previous one. I will go 
+through it in detail during the session.</p>  <table cellspacing="0" cellpadding="2" border="1" width="600"><tbody>     <tr>       <td width="600" valign="top">         <p><font face="Courier New"><font color="#ffc000">def</font> <font color="#0000ff">UpdateJetPackPlayerPosition</font>(player, walls):              <br>&nbsp;&nbsp;&nbsp; player_move_rect = player["rect"]</font></p>          <p><font face="Courier New">&nbsp;&nbsp;&nbsp; <font color="#ff0000"># reset the x movement velocity to zero               <br></font>&nbsp;&nbsp;&nbsp; player["velocity"][0] = 0</font></p>          <p><font face="Courier New">&nbsp;&nbsp;&nbsp; <font color="#ff0000"># Create gravity force               <br></font>&nbsp;&nbsp;&nbsp; force = -0.5</font></p>          <p><font face="Courier New">&nbsp;&nbsp;&nbsp; <font color="#ff0000"># Read the keyboard input and move the marker</font>              <br>&nbsp;&nbsp;&nbsp; key = pygame.key.get_pressed()              <br>&nbsp;&nbsp;&nbsp; <font color="#ffc000">if</font> key[pygame.K_LEFT]:              <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; player["direction"] = 0              <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#ff0000"> # Add left movement velocity               <br></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; player["velocity"][0] = -2</font></p>          <p><font face="Courier New">&nbsp;&nbsp;&nbsp; <font color="#ffc000">if</font> key[pygame.K_RIGHT]:              <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; player["direction"] = 1              <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#ff0000"># Add right movement velocity               <br></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; player["velocity"][0] = 2</font></p>          <p><font face="Courier New">&nbsp;&nbsp;&nbsp; <font color="#ffc000">if</font> key[pygame.K_UP]:              <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#ff0000"># Add Jetpack thrust</font>              <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; force = 1              <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; player["velocity"][1] = player["velocity"][1] - force</font></p>          <p><font face="Courier New">&nbsp;&nbsp;&nbsp; <font color="#ffc000">if</font> player["velocity"][1] &gt; player["speed"]:              <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; player["velocity"][1] = player["speed"]</font></p>          <p><font face="Courier New">&nbsp;&nbsp;&nbsp; <font color="#ffc000">if</font> player["velocity"][1] &lt; -player["speed"]:              <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; player["velocity"][1] = -player["speed"]              <br>&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp; player_move_rect = player_move_rect.move(player["velocity"][0], 0)              <br>&nbsp;&nbsp;&nbsp; <font color="#ffc000">if</font> player_move_rect.collidelist(walls) == -1:              <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; player["rect"] = player_move_rect              <br>&nbsp;&nbsp;&nbsp; <font color="#ffc000">else</font>:              <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; player_move_rect = player['rect']              <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; player["velocity"][0] = 0</font></p>          <p><font face="Courier New">&nbsp;&nbsp;&nbsp; player_move_rect = player_move_rect.move(0, player["velocity"][1])             <br>&nbsp;&nbsp;&nbsp; <font color="#ffc000">if</font> player_move_rect.collidelist(walls) == -1:              <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; player["rect"] = player_move_rect              <br>&nbsp;&nbsp;&nbsp; <font color="#ffc000">else</font>:              <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; player["velocity"][1] = 0</font></p>       </td>     </tr>   </tbody></table>  <p>Finally
+ we need to update our main game loop to replace the call to 
+UpdatePlayerPosition, with the new UpdateJetPackPosition.You’ll probably
+ want to redesign your levels to be more like platforms than mazes, but 
+apart from that you’re done. We now have a radically different game by 
+modifying just one function – how cool is that!</p>
+
+
+

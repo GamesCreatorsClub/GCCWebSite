@@ -1,0 +1,1108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" dir="ltr" slick-uniqueid="3" lang="en-gb"><head><script type="text/javascript" src="Tutorials1_files/analytics.js" charset="utf-8"></script>
+
+<script type="text/javascript">archive_analytics.values.service='wb';archive_analytics.values.server_name='wwwb-app13.us.archive.org';archive_analytics.values.server_ms=584;</script>
+<script type="text/javascript" src="Tutorials1_files/wbhack.js" charset="utf-8"></script>
+
+<script type="text/javascript">
+__wbhack.init('');
+</script>
+<link rel="stylesheet" type="text/css" href="Tutorials1_files/banner-styles.css">
+<link rel="stylesheet" type="text/css" href="Tutorials1_files/iconochive.css">
+
+<!-- End Wayback Rewrite JS Include -->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
+<script src="Tutorials1_files/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="Tutorials1_files/prettify.css">
+  <!-- base href="https://web.archive.org/web/20161026121708/http://raspberrypilot.com/index.php/tutorials" -->
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="description" content="Pi&amp;#039;s, programming, games &amp;amp; graphics">
+  <meta name="generator" content="Joomla! - Open Source Content Management">
+  <title>Tutorials</title>
+  <link href="https://web.archive.org/web/20161026121708/http://raspberrypilot.com/index.php/tutorials?format=feed&amp;type=rss" rel="alternate" type="application/rss+xml" title="RSS 2.0">
+  <link href="https://web.archive.org/web/20161026121708/http://raspberrypilot.com/index.php/tutorials?format=feed&amp;type=atom" rel="alternate" type="application/atom+xml" title="Atom 1.0">
+  <link href="https://web.archive.org/web/20161026121708im_/http://raspberrypilot.com/templates/beez_20/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+  <link rel="stylesheet" href="Tutorials1_files/system.css" type="text/css">
+  <link rel="stylesheet" href="Tutorials1_files/position.css" type="text/css" media="screen,projection">
+  <link rel="stylesheet" href="Tutorials1_files/layout.css" type="text/css" media="screen,projection">
+  <link rel="stylesheet" href="Tutorials1_files/print.css" type="text/css" media="print">
+  <link rel="stylesheet" href="Tutorials1_files/general.css" type="text/css">
+  <link rel="stylesheet" href="Tutorials1_files/general_mozilla.css" type="text/css">
+  <link rel="stylesheet" href="Tutorials1_files/nature.css" type="text/css">
+  <script src="Tutorials1_files/mootools-core.js" type="text/javascript"></script>
+  <script src="Tutorials1_files/core.js" type="text/javascript"></script>
+  <script src="Tutorials1_files/caption.js" type="text/javascript"></script>
+  <script src="Tutorials1_files/mootools-more.js" type="text/javascript"></script>
+  <script src="Tutorials1_files/md_stylechanger.js" type="text/javascript"></script>
+  <script src="Tutorials1_files/hide.js" type="text/javascript"></script>
+  <script type="text/javascript">
+window.addEvent('load', function() {
+				new JCaption('img.caption');
+			});
+window.addEvent('domready', function() {
+			$$('.hasTip').each(function(el) {
+				var title = el.get('title');
+				if (title) {
+					var parts = title.split('::', 2);
+					el.store('tip:title', parts[0]);
+					el.store('tip:text', parts[1]);
+				}
+			});
+			var JTooltips = new Tips($$('.hasTip'), { maxTitleChars: 50, fixed: false});
+		});
+function keepAlive() {	var myAjax = new Request({method: "get", url: "index.php"}).send();} window.addEvent("domready", function(){ keepAlive.periodical(840000); });
+  </script>
+
+
+<!--[if lte IE 6]>
+<link href="/templates/beez_20/css/ieonly.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+
+<!--[if IE 7]>
+<link href="/templates/beez_20/css/ie7only.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+
+<script type="text/javascript">
+	var big ='72%';
+	var small='53%';
+	var altopen='is open';
+	var altclose='is closed';
+	var bildauf='/templates/beez_20/images/plus.png';
+	var bildzu='/templates/beez_20/images/minus.png';
+	var rightopen='Open info';
+	var rightclose='Close info';
+	var fontSizeTitle='Font size';
+	var bigger='Bigger';
+	var reset='Reset';
+	var smaller='Smaller';
+	var biggerTitle='Increase size';
+	var resetTitle='Revert styles to default';
+	var smallerTitle='Decrease size';
+</script>
+</head>
+
+<body style="font-size: 100%;"><div id="wm-ipp" style="display: block; direction: ltr;" lang="en">
+<div style="position:fixed;left:0;top:0;width:100%!important">
+<div id="wm-ipp-inside">
+  <table style="width:100%;">
+    <tbody>
+      <tr>
+	<td id="wm-logo">
+	  <a href="https://web.archive.org/web/" title="Wayback Machine home page"><img src="Tutorials1_files/wayback-toolbar-logo.png" alt="Wayback Machine" border="0" height="39" width="110"></a>
+	</td>
+	<td class="c">
+	  <table style="margin:0 auto;">
+	    <tbody>
+	      <tr>
+		<td class="u" colspan="2">
+		  <form target="_top" method="get" action="/web/submit" name="wmtb" id="wmtb"><input name="url" id="wmtbURL" value="http://raspberrypilot.com/index.php/tutorials" style="width:400px;" onfocus="this.focus();this.select();" autocomplete="off" type="text"><input name="type" value="replay" type="hidden"><input name="date" value="20161026121708" type="hidden"><input value="Go" type="submit"></form>
+		</td>
+		<td class="n" rowspan="2">
+		  <table>
+		    <tbody>
+		      <!-- NEXT/PREV MONTH NAV AND MONTH INDICATOR -->
+		      <tr class="m">
+			<td class="b" nowrap="nowrap"><a href="https://web.archive.org/web/20160403213204/http://www.raspberrypilot.com:80/index.php/tutorials" title="03 Apr 2016"><strong>Apr</strong></a></td>
+			<td class="c" id="displayMonthEl" title="You are here: 12:17:08 Oct 26, 2016">OCT</td>
+			<td class="f" nowrap="nowrap">Nov</td>
+		      </tr>
+		      <!-- NEXT/PREV CAPTURE NAV AND DAY OF MONTH INDICATOR -->
+		      <tr class="d">
+			<td class="b" nowrap="nowrap"><a href="https://web.archive.org/web/20160403213204/http://www.raspberrypilot.com:80/index.php/tutorials" title="21:32:04 Apr 03, 2016"><img src="Tutorials1_files/wm_tb_prv_on.png" alt="Previous capture" border="0" height="16" width="14"></a></td>
+			<td class="c" id="displayDayEl" style="width:34px;font-size:24px;" title="You are here: 12:17:08 Oct 26, 2016">26</td>
+			<td class="f" nowrap="nowrap"><img src="Tutorials1_files/wm_tb_nxt_off.png" alt="Next capture" border="0" height="16" width="14"></td>
+		      </tr>
+		      <!-- NEXT/PREV YEAR NAV AND YEAR INDICATOR -->
+		      <tr class="y">
+			<td class="b" nowrap="nowrap"><a href="https://web.archive.org/web/20150218111642/http://raspberrypilot.com/index.php/tutorials" title="18 Feb 2015"><strong>2015</strong></a></td>
+			<td class="c" id="displayYearEl" title="You are here: 12:17:08 Oct 26, 2016">2016</td>
+			<td class="f" nowrap="nowrap">2017</td>
+		      </tr>
+		    </tbody>
+		  </table>
+		</td>
+	      </tr>
+	      <tr>
+		<td class="s">
+		  		  <div id="wm-nav-captures"><a class="t" href="https://web.archive.org/web/*/http://raspberrypilot.com/index.php/tutorials" title="See a list of every capture for this URL">5 captures</a><div class="r" title="Timespan for captures of this URL">18 Feb 2015 - 26 Oct 2016</div></div>
+		</td>
+		<td class="k">
+		  <a href="" id="wm-graph-anchor">
+		    <div id="wm-ipp-sparkline" title="Explore captures for this URL" style="position: relative">
+		      <canvas id="wm-sparkline-canvas" width="550" height="27" border="0"></canvas>
+		    <div class="yt" style="display: none; width: 25px; height: 27px;"></div><div class="mt" style="display: none; width: 2px; height: 27px;"></div></div>
+		  </a>
+		</td>
+	      </tr>
+	    </tbody>
+	  </table>
+	</td>
+	<td class="r">
+	  <a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=https://web.archive.org/web/20161026121708/http://raspberrypilot.com/index.php/tutorials', '', 'height=400,width=600'); return false;" title="Share on Facebook" style="top: 4px; right: 16px;" target="_blank"><span class="iconochive-facebook" style="color:#3b5998;font-size:160%;"></span></a>
+	  <a href="#" onclick="window.open('https://twitter.com/intent/tweet?text=https://web.archive.org/web/20161026121708/http://raspberrypilot.com/index.php/tutorials&amp;via=internetarchive', '', 'height=400,width=600'); return false;" title="Share on Twitter" style="bottom:14px;right:16px;" target="_blank"><span class="iconochive-twitter" style="color:#1dcaff;font-size:160%;"></span></a>
+	  <a href="http://faq.web.archive.org/" title="Get some help using the Wayback Machine" style="bottom:14px;right:5px;padding-right:0;"><span class="iconochive-question" style="color:rgb(87,186,244);font-size:160%;"></span></a>
+	  <a href="#close" onclick="__wm.h(event);return false;" style="top:-2px;right:0;padding-right:0;" title="Close the toolbar"><span class="iconochive-remove-circle" style="color:#888888;font-size:240%;"></span></a>
+	  <a id="wm-expand" class="wm-btn" href="#expand" onclick="__wm.ex(event);return false;"><span class="iconochive-down-solid"></span> <span style="font-size:80%">About this capture</span></a>
+	</td>
+      </tr>
+    </tbody>
+  </table>
+    <div id="wm-capinfo" style="border-top:1px solid #777;display:none;">
+            <div style="background-color:#353535;color:#aaa;font-weight:bold;text-align:center;"><a class="wm-selector selected" href="javascript:void(0)">COLLECTED BY</a></div>
+    <div style="padding:3px;position:relative;">
+            <div style="display:inline-block;vertical-align:top;width:50%;">
+			<span class="c-logo" style="background-image:url(https://archive.org/services/img/webwidecrawl);"></span>
+		Organization: <a style="color:#33f;" href="https://archive.org/details/webwidecrawl" target="_new"><span class="wm-title">Internet Archive</span></a>
+		<div style="max-height:75px;overflow:hidden;position:relative;">
+	  <div style="position:absolute;top:0;left:0;width:100%;height:75px;background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 90%,rgba(255,255,255,255) 100%);"></div>
+	  The Internet Archive discovers and captures web pages through many different web crawls.
+
+At any given time several distinct crawls are running, some for months, and some every day or longer.
+
+View the web archive through the <a href="http://archive.org/web/web.php">Wayback Machine</a>.
+	</div>
+	      </div>
+      <div style="display:inline-block;vertical-align:top;width:49%;">
+			<span class="c-logo" style="background-image:url(https://archive.org/services/img/wide00015)"></span>
+		<div>Collection: <a style="color:#33f;" href="https://archive.org/details/wide00015" target="_new"><span class="wm-title">Wide Crawl Number 15</span></a></div>
+		<div style="max-height:75px;overflow:hidden;position:relative;">
+	  <div style="position:absolute;top:0;left:0;width:100%;height:75px;background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 90%,rgba(255,255,255,255) 100%);"></div>
+	  Web wide crawl.
+	</div>
+	      </div>
+    </div></div></div></div></div><!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<script type="text/javascript" src="Tutorials1_files/timestamp.js" charset="utf-8"></script>
+<script type="text/javascript" src="Tutorials1_files/graph-calc.js" charset="utf-8"></script>
+<script type="text/javascript" src="Tutorials1_files/auto-complete.js" charset="utf-8"></script>
+<script type="text/javascript" src="Tutorials1_files/toolbar.js" charset="utf-8"></script>
+
+<style type="text/css">
+body {
+  margin-top:0 !important;
+  padding-top:0 !important;
+  min-width:800px !important;
+}
+.wb-autocomplete-suggestions {
+    text-align: left; cursor: default; border: 1px solid #ccc; 
+border-top: 0; background: #fff; box-shadow: -1px 1px 3px 
+rgba(0,0,0,.1);
+    position: absolute; display: none; z-index: 2147483647; max-height: 
+254px; overflow: hidden; overflow-y: auto; box-sizing: border-box;
+}
+.wb-autocomplete-suggestion { position: relative; padding: 0 .6em; 
+line-height: 23px; white-space: nowrap; overflow: hidden; text-overflow:
+ ellipsis; font-size: 1.02em; color: #333; }
+.wb-autocomplete-suggestion b { font-weight: bold; }
+.wb-autocomplete-suggestion.selected { background: #f0f0f0; }
+</style>
+<script type="text/javascript">
+__wm.bt(550,27,25,2,"web","http://raspberrypilot.com/index.php/tutorials","2016-10-26",1996);
+</script><div class="wb-autocomplete-suggestions "></div>
+<!-- END WAYBACK TOOLBAR INSERT -->
+
+<div id="all">
+        <div id="back">
+                <div id="header">
+                                <div class="logoheader">
+                                        <h1 id="logo">
+
+                                                                                <img src="Tutorials1_files/GCCLogo.png" alt="RaspberryPilot">
+                                                                                                                        <span class="header1">
+                                        Website of the Kenilworth Games Creators Club                                        </span></h1>
+                                </div><!-- end logoheader -->
+                                        <ul class="skiplinks">
+                                                <li><a href="#main" class="u2">Skip to content</a></li>
+                                                <li><a href="#nav" class="u2">Jump to main navigation and login</a></li>
+                                                                                    </ul>
+                                        <h2 class="unseen">Nav view search</h2>
+                                        <h3 class="unseen">Navigation</h3>
+                                        
+                                        <div id="line">
+                                        <div id="fontsize"><h3>Font size</h3><p><a title="Increase size" href="#" onclick="changeFontSize(2); return false">Bigger</a><span class="unseen">.</span><a href="#" title="Revert styles to default" onclick="revertStyles(); return false">Reset</a><span class="unseen">.</span><a href="#" title="Decrease size" onclick="changeFontSize(-2); return false">Smaller</a></p></div>
+                                        <h3 class="unseen">Search</h3>
+                                        
+                                        </div> <!-- end line -->
+
+
+                        </div><!-- end header -->
+                        <div id="contentarea">
+                                        <div id="breadcrumbs">
+
+                                                        
+<div class="breadcrumbs">
+<span class="showHere">You are here: </span><a href="https://web.archive.org/web/20161026121708/http://raspberrypilot.com/" class="pathway">Home</a> <img src="Tutorials1_files/arrow.png" alt=""> <span>Tutorials</span></div>
+
+
+                                        </div>
+
+                                        
+
+                                                        <div class="left1 leftbigger" id="nav" role="navigation">
+                                                   <div class="moduletable_menu">
+ <h3><span class="backh"><span class="backh2"><span class="backh3">Main Menu</span></span></span></h3>
+ 
+<ul class="menu">
+<li class="item-101"><a href="https://web.archive.org/web/20161026121708/http://raspberrypilot.com/">Home</a></li><li class="item-104"><a href="https://web.archive.org/web/20161026121708/http://raspberrypilot.com/index.php/meetings">Meetings</a></li><li class="item-105"><a href="https://web.archive.org/web/20161026121708/http://raspberrypilot.com/index.php/tools-technology">Tools &amp; Technology</a></li><li class="item-106"><a href="https://web.archive.org/web/20161026121708/http://raspberrypilot.com/index.php/articles-tutorials">Articles</a></li><li class="item-107 current active"><a href="https://web.archive.org/web/20161026121708/http://raspberrypilot.com/index.php/tutorials">Tutorials</a></li><li class="item-108"><a href="https://web.archive.org/web/20161026121708/http://raspberrypilot.com/index.php/games">Games!</a></li></ul>
+</div>
+<div class="moduletable">
+ <h3><span class="backh"><span class="backh2"><span class="backh3">Login Form</span></span></span></h3>
+ <form action="/web/20161026121708/http://raspberrypilot.com/index.php/tutorials" method="post" id="login-form">
+		<fieldset class="userdata">
+	<p id="form-login-username">
+		<label for="modlgn-username">User Name</label>
+		<input id="modlgn-username" name="username" class="inputbox" size="18" type="text">
+	</p>
+	<p id="form-login-password">
+		<label for="modlgn-passwd">Password</label>
+		<input id="modlgn-passwd" name="password" class="inputbox" size="18" type="password">
+	</p>
+		<p id="form-login-remember">
+		<label for="modlgn-remember">Remember Me</label>
+		<input id="modlgn-remember" name="remember" class="inputbox" value="yes" type="checkbox">
+	</p>
+		<input name="Submit" class="button" value="Log in" type="submit">
+	<input name="option" value="com_users" type="hidden">
+	<input name="task" value="user.login" type="hidden">
+	<input name="return" value="aW5kZXgucGhwP0l0ZW1pZD0xMDc=" type="hidden">
+	<input name="1500ce11d15ea0fa6f4a6056a26de25e" value="1" type="hidden">	</fieldset>
+	<ul>
+		<li>
+			<a href="https://web.archive.org/web/20161026121708/http://raspberrypilot.com/index.php/component/users/?view=reset">
+			Forgot your password?</a>
+		</li>
+		<li>
+			<a href="https://web.archive.org/web/20161026121708/http://raspberrypilot.com/index.php/component/users/?view=remind">
+			Forgot your username?</a>
+		</li>
+			</ul>
+	</form>
+</div>
+
+                                                                
+                                                                
+
+
+                                                        </div><!-- end navi -->
+               
+                                        <div id="wrapper2">
+
+                                                <div id="main" role="main">
+
+                                                
+                                                        
+<div id="system-message-container">
+</div>
+                                                        <div class="blog">
+
+	
+
+
+
+
+
+
+<div class="items-leading">
+			<div class="leading-0">
+			
+	<h2>
+					<a href="https://web.archive.org/web/20161026121708/http://raspberrypilot.com/index.php/tutorials/83-angry-circles">
+			Angry Circles</a>
+			</h2>
+
+
+
+
+
+ <dl class="article-info">
+ <dt class="article-info-term">Details</dt>
+		<dd class="published">
+		Published on Wednesday, 06 July 2016 11:24		</dd>
+	<dd class="createdby">
+				
+							Written by Edward Powell				</dd>
+		<dd class="hits">
+		Hits: 180		</dd>
+ 	</dl>
+<p><a href="https://web.archive.org/web/20161026121708/http://www.raspberrypilot.com/images/image_2_533f19f87da90399dd8c824637542572.png"><img src="Tutorials1_files/image_thumb_324e59cbc7335386a027de64df629807.png" alt="image" title="image" style="background-image: none; float: left; padding-top: 0px; padding-left: 0px; margin: 6px; display: inline; padding-right: 0px; border-width: 0px;" border="0" align="left" height="154" width="244"></a>For
+ the next couple of weeks I though we might explore the rudiments of 
+physics simulators and I was inspired by the excellent tutorials from <a href="https://web.archive.org/web/20161026121708/http://www.petercollingridge.co.uk/book/export/html/6">Peter Collingridge</a>
+ on the topic. We have covered all the basic python tools we need 
+already, so I think we can leap in with a fairly functional demo which 
+will allow you to fling some 2D circular shapes (we’re calling them 
+particles) around using the mouse. The particle implementation is also 
+an excellent use of the concept of Classes we discussed a few weeks ago.
+ In the code below you can see how we group together all the data and 
+behaviour (the functions or methods) of a particle in one piece of code 
+that defines a Particle class and then create lots of ‘instances’ of 
+particles – each has the same structure (making all the management code 
+much easier) but they all maintain own specific data values - positions,
+ speeds and directions etc. This is perhaps the simplest (but still very
+ powerful) benefit of using classes – we will come onto other benefits 
+in due course.</p>
+<p>Take a look at the code below. At the bottom you should by now 
+recognise the absolutely standard game loop – with the usual 
+input-&gt;update-&gt;draw cycle. I hope you will see it is surprisingly 
+short and very readable! This is a good indication of the well 
+structured code above. In the middle of the code, after we define a 
+couple of helper functions, is the definition of the class (make sure 
+you get your indenting right here – the class’ functions must be 
+indented <strong>inside</strong> the class level. The interesting 
+aspects of the maths I will cover in tonight’s session – but it all 
+comes down to some very simple <em>sin,</em> <em>cos, tan</em> usage and good ol’ Pythagoras.</p>
+<p><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="color: #000080;"><strong><span style="font-size: 9pt;">import </span></strong></span><span style="font-size: 9pt;">pygame</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="color: #000080;"><strong><span style="font-size: 9pt;">import </span></strong></span><span style="font-size: 9pt;">random</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="color: #000080;"><strong><span style="font-size: 9pt;">import </span></strong></span><span style="font-size: 9pt;">math</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">background_colour = (<span style="color: #0000ff;">255</span>,<span style="color: #0000ff;">255</span>,<span style="color: #0000ff;">255</span>)</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">(width, height) = (<span style="color: #0000ff;">400</span>, <span style="color: #0000ff;">400</span>)</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">drag = </span><span style="color: #0000ff;"><span style="font-size: 9pt;">0.999</span></span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">elasticity = </span><span style="color: #0000ff;"><span style="font-size: 9pt;">0.75</span></span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">gravity = (math.pi, <span style="color: #0000ff;">0.2</span>)</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="color: #000080;"><strong><span style="font-size: 9pt;">def </span></strong></span><span style="font-size: 9pt;">addVectors(vector1, vector2):</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">angle1 = vector1[</span></span></span><span style="font-size: 9pt;"><span style="color: #0000ff;"><span style="face: &quot;Courier;"><span style="size: 2;">0</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">]</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">length1 = vector1[</span></span></span><span style="font-size: 9pt;"><span style="color: #0000ff;"><span style="face: &quot;Courier;"><span style="size: 2;">1</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">]</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">angle2 = vector2[</span></span></span><span style="font-size: 9pt;"><span style="color: #0000ff;"><span style="face: &quot;Courier;"><span style="size: 2;">0</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">]</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">length2 = vector2[</span></span></span><span style="font-size: 9pt;"><span style="color: #0000ff;"><span style="face: &quot;Courier;"><span style="size: 2;">1</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">]</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">x = math.sin(angle1) * length1 + math.sin(angle2) * length2</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">y = math.cos(angle1) * length1 + math.cos(angle2) * length2</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">angle = </span></span></span><span style="font-size: 9pt;"><span style="color: #0000ff;"><span style="face: &quot;Courier;"><span style="size: 2;">0.5 </span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">* math.pi - math.atan2(y, x)</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">length = math.hypot(x, y)</span></span></span></span><span style="color: #000000;"><span style="color: #000080;"><span style="face: &quot;Courier;"><span style="size: 2;"><strong><span style="font-size: 9pt;">return </span></strong></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">(angle, length)</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="color: #000080;"><strong><span style="font-size: 9pt;">def </span></strong></span><span style="font-size: 9pt;">findParticle(particles, x, y):</span></span></span></span><span style="color: #000000;"><span style="color: #000080;"><span style="face: &quot;Courier;"><span style="size: 2;"><strong><span style="font-size: 9pt;">for </span></strong></span></span></span><span style="font-size: 9pt;"><span style="face: &quot;Courier;"><span style="size: 2;">p </span></span><span style="color: #000080;"><span style="face: &quot;Courier;"><span style="size: 2;"><strong>in </strong></span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">particles:</span></span></span></span><span style="color: #000000;"><span style="color: #000080;"><span style="face: &quot;Courier;"><span style="size: 2;"><strong><span style="font-size: 9pt;">if </span></strong></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">math.hypot(p.x-x, p.y-y) &lt;= p.size:</span></span></span></span><span style="color: #000000;"><span style="color: #000080;"><span style="face: &quot;Courier;"><span style="size: 2;"><strong><span style="font-size: 9pt;">return </span></strong></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">p</span></span></span></span><span style="color: #000000;"><span style="color: #000080;"><span style="face: &quot;Courier;"><span style="size: 2;"><strong><span style="font-size: 9pt;">return None</span></strong></span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="color: #000080;"><strong><span style="font-size: 9pt;">class </span></strong></span><span style="font-size: 9pt;">Particle():</span></span></span></span><span style="color: #000000;"><span style="color: #000080;"><span style="face: &quot;Courier;"><span style="size: 2;"><strong><span style="font-size: 9pt;">def </span></strong></span></span></span><span style="font-size: 9pt;"><span style="color: #b200b2;"><span style="face: &quot;Courier;"><span style="size: 2;">__init__</span></span></span><span style="face: &quot;Courier;"><span style="size: 2;">(</span></span><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">, x_y, size):</span></span></span></span><span style="color: #000000;"><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">self</span></span></span></span><span style="font-size: 9pt;"><span style="face: &quot;Courier;"><span style="size: 2;">.x = x_y[</span></span><span style="color: #0000ff;"><span style="face: &quot;Courier;"><span style="size: 2;">0</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">]</span></span></span></span><span style="color: #000000;"><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">self</span></span></span></span><span style="font-size: 9pt;"><span style="face: &quot;Courier;"><span style="size: 2;">.y = x_y[</span></span><span style="color: #0000ff;"><span style="face: &quot;Courier;"><span style="size: 2;">1</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">]</span></span></span></span><span style="color: #000000;"><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">self</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">.size = size</span></span></span></span><span style="color: #000000;"><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">self</span></span></span></span><span style="font-size: 9pt;"><span style="face: &quot;Courier;"><span style="size: 2;">.colour = (</span></span><span style="color: #0000ff;"><span style="face: &quot;Courier;"><span style="size: 2;">0</span></span></span><span style="face: &quot;Courier;"><span style="size: 2;">, </span></span><span style="color: #0000ff;"><span style="face: &quot;Courier;"><span style="size: 2;">0</span></span></span><span style="face: &quot;Courier;"><span style="size: 2;">, </span></span><span style="color: #0000ff;"><span style="face: &quot;Courier;"><span style="size: 2;">255</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">)</span></span></span></span><span style="color: #000000;"><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">self</span></span></span></span><span style="font-size: 9pt;"><span style="face: &quot;Courier;"><span style="size: 2;">.thickness = </span></span></span><span style="color: #0000ff;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">1</span></span></span></span></span><span style="color: #000000;"><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">self</span></span></span></span><span style="font-size: 9pt;"><span style="face: &quot;Courier;"><span style="size: 2;">.speed = </span></span></span><span style="color: #0000ff;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">0</span></span></span></span></span><span style="color: #000000;"><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">self</span></span></span></span><span style="font-size: 9pt;"><span style="face: &quot;Courier;"><span style="size: 2;">.angle = </span></span></span><span style="color: #0000ff;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">0</span></span></span></span></span><span style="color: #000000;"><span style="color: #000080;"><span style="face: &quot;Courier;"><span style="size: 2;"><strong><span style="font-size: 9pt;">def </span></strong></span></span></span><span style="font-size: 9pt;"><span style="face: &quot;Courier;"><span style="size: 2;">display(</span></span><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">):</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">pygame.draw.circle(screen, </span></span></span><span style="font-size: 9pt;"><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span><span style="face: &quot;Courier;"><span style="size: 2;">.colour, (</span></span><span style="color: #000080;"><span style="face: &quot;Courier;"><span style="size: 2;">int</span></span></span><span style="face: &quot;Courier;"><span style="size: 2;">(</span></span><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span><span style="face: &quot;Courier;"><span style="size: 2;">.x), </span></span><span style="color: #000080;"><span style="face: &quot;Courier;"><span style="size: 2;">int</span></span></span><span style="face: &quot;Courier;"><span style="size: 2;">(</span></span><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span><span style="face: &quot;Courier;"><span style="size: 2;">.y)), </span></span><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span><span style="face: &quot;Courier;"><span style="size: 2;">.size, </span></span><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">.thickness)</span></span></span></span><span style="color: #000000;"><span style="color: #000080;"><span style="face: &quot;Courier;"><span style="size: 2;"><strong><span style="font-size: 9pt;">def </span></strong></span></span></span><span style="font-size: 9pt;"><span style="face: &quot;Courier;"><span style="size: 2;">move(</span></span><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">):</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">(</span></span></span><span style="font-size: 9pt;"><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span><span style="face: &quot;Courier;"><span style="size: 2;">.angle, </span></span><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span><span style="face: &quot;Courier;"><span style="size: 2;">.speed) = addVectors((</span></span><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span><span style="face: &quot;Courier;"><span style="size: 2;">.angle, </span></span><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">.speed), gravity)</span></span></span></span><span style="color: #000000;"><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">self</span></span></span></span><span style="font-size: 9pt;"><span style="face: &quot;Courier;"><span style="size: 2;">.x += math.sin(</span></span><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span><span style="face: &quot;Courier;"><span style="size: 2;">.angle) * </span></span><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">.speed</span></span></span></span><span style="color: #000000;"><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">self</span></span></span></span><span style="font-size: 9pt;"><span style="face: &quot;Courier;"><span style="size: 2;">.y -= math.cos(</span></span><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span><span style="face: &quot;Courier;"><span style="size: 2;">.angle) * </span></span><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">.speed</span></span></span></span><span style="color: #000000;"><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">self</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">.speed *= drag</span></span></span></span><span style="color: #000000;"><span style="color: #000080;"><span style="face: &quot;Courier;"><span style="size: 2;"><strong><span style="font-size: 9pt;">def </span></strong></span></span></span><span style="font-size: 9pt;"><span style="face: &quot;Courier;"><span style="size: 2;">bounce(</span></span><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">):</span></span></span></span><span style="color: #000000;"><span style="color: #000080;"><span style="face: &quot;Courier;"><span style="size: 2;"><strong><span style="font-size: 9pt;">if </span></strong></span></span></span><span style="font-size: 9pt;"><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span><span style="face: &quot;Courier;"><span style="size: 2;">.x &gt; width - </span></span><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">.size:</span></span></span></span><span style="color: #000000;"><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">self</span></span></span></span><span style="font-size: 9pt;"><span style="face: &quot;Courier;"><span style="size: 2;">.x = </span></span><span style="color: #0000ff;"><span style="face: &quot;Courier;"><span style="size: 2;">2</span></span></span><span style="face: &quot;Courier;"><span style="size: 2;">*(width - </span></span><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span><span style="face: &quot;Courier;"><span style="size: 2;">.size) - </span></span><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">.x</span></span></span></span><span style="color: #000000;"><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">self</span></span></span></span><span style="font-size: 9pt;"><span style="face: &quot;Courier;"><span style="size: 2;">.angle = - </span></span><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">.angle</span></span></span></span><span style="color: #000000;"><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">self</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">.speed *= elasticity</span></span></span></span><span style="color: #000000;"><span style="color: #000080;"><span style="face: &quot;Courier;"><span style="size: 2;"><strong><span style="font-size: 9pt;">elif </span></strong></span></span></span><span style="font-size: 9pt;"><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span><span style="face: &quot;Courier;"><span style="size: 2;">.x &lt; </span></span><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">.size:</span></span></span></span><span style="color: #000000;"><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">self</span></span></span></span><span style="font-size: 9pt;"><span style="face: &quot;Courier;"><span style="size: 2;">.x = </span></span><span style="color: #0000ff;"><span style="face: &quot;Courier;"><span style="size: 2;">2</span></span></span><span style="face: &quot;Courier;"><span style="size: 2;">*</span></span><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span><span style="face: &quot;Courier;"><span style="size: 2;">.size - </span></span><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">.x</span></span></span></span><span style="color: #000000;"><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">self</span></span></span></span><span style="font-size: 9pt;"><span style="face: &quot;Courier;"><span style="size: 2;">.angle = - </span></span><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">.angle</span></span></span></span><span style="color: #000000;"><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">self</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">.speed *= elasticity</span></span></span></span><span style="color: #000000;"><span style="color: #000080;"><span style="face: &quot;Courier;"><span style="size: 2;"><strong><span style="font-size: 9pt;">if </span></strong></span></span></span><span style="font-size: 9pt;"><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span><span style="face: &quot;Courier;"><span style="size: 2;">.y &gt; height - </span></span><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">.size:</span></span></span></span><span style="color: #000000;"><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">self</span></span></span></span><span style="font-size: 9pt;"><span style="face: &quot;Courier;"><span style="size: 2;">.y = </span></span><span style="color: #0000ff;"><span style="face: &quot;Courier;"><span style="size: 2;">2</span></span></span><span style="face: &quot;Courier;"><span style="size: 2;">*(height - </span></span><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span><span style="face: &quot;Courier;"><span style="size: 2;">.size) - </span></span><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">.y</span></span></span></span><span style="color: #000000;"><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">self</span></span></span></span><span style="font-size: 9pt;"><span style="face: &quot;Courier;"><span style="size: 2;">.angle = math.pi - </span></span><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">.angle</span></span></span></span><span style="color: #000000;"><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">self</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">.speed *= elasticity</span></span></span></span><span style="color: #000000;"><span style="color: #000080;"><span style="face: &quot;Courier;"><span style="size: 2;"><strong><span style="font-size: 9pt;">elif </span></strong></span></span></span><span style="font-size: 9pt;"><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span><span style="face: &quot;Courier;"><span style="size: 2;">.y &lt; </span></span><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">.size:</span></span></span></span><span style="color: #000000;"><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">self</span></span></span></span><span style="font-size: 9pt;"><span style="face: &quot;Courier;"><span style="size: 2;">.y = </span></span><span style="color: #0000ff;"><span style="face: &quot;Courier;"><span style="size: 2;">2</span></span></span><span style="face: &quot;Courier;"><span style="size: 2;">*</span></span><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span><span style="face: &quot;Courier;"><span style="size: 2;">.size - </span></span><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">.y</span></span></span></span><span style="color: #000000;"><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">self</span></span></span></span><span style="font-size: 9pt;"><span style="face: &quot;Courier;"><span style="size: 2;">.angle = math.pi - </span></span><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;">self</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">.angle</span></span></span></span><span style="color: #000000;"><span style="color: #94558d;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">self</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">.speed *= elasticity</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">screen = pygame.display.set_mode((width, height))</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">pygame.display.set_caption(<span style="color: #008080;"><strong>'Angry Circles'</strong></span>)</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">number_of_particles = </span><span style="color: #0000ff;"><span style="font-size: 9pt;">3</span></span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">my_particles = []</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="color: #000080;"><strong><span style="font-size: 9pt;">for </span></strong></span><span style="font-size: 9pt;">n <span style="color: #000080;"><strong>in </strong></span><span style="color: #000080;">range</span>(number_of_particles):</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">size = random.randint(</span></span></span><span style="font-size: 9pt;"><span style="color: #0000ff;"><span style="face: &quot;Courier;"><span style="size: 2;">10</span></span></span><span style="face: &quot;Courier;"><span style="size: 2;">, </span></span><span style="color: #0000ff;"><span style="face: &quot;Courier;"><span style="size: 2;">20</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">)</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">x = random.randint(size, width-size)</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">y = random.randint(size, height-size)</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">particle = Particle((x, y), size)</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">particle.speed = random.random()</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">particle.angle = random.uniform(</span></span></span><span style="font-size: 9pt;"><span style="color: #0000ff;"><span style="face: &quot;Courier;"><span style="size: 2;">0</span></span></span><span style="face: &quot;Courier;"><span style="size: 2;">, math.pi*</span></span><span style="color: #0000ff;"><span style="face: &quot;Courier;"><span style="size: 2;">2</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">)</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">my_particles.append(particle)</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">clock = pygame.time.Clock()</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">selected_particle = </span><span style="color: #000080;"><strong><span style="font-size: 9pt;">None</span></strong></span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">running = </span><span style="color: #000080;"><strong><span style="font-size: 9pt;">True</span></strong></span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="color: #000080;"><strong><span style="font-size: 9pt;">while </span></strong></span><span style="font-size: 9pt;">running:</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">clock.tick(</span></span></span><span style="font-size: 9pt;"><span style="color: #0000ff;"><span style="face: &quot;Courier;"><span style="size: 2;">20</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">)</span></span></span></span><span style="color: #000000;"><span style="color: #000080;"><span style="face: &quot;Courier;"><span style="size: 2;"><strong><span style="font-size: 9pt;">for </span></strong></span></span></span><span style="font-size: 9pt;"><span style="face: &quot;Courier;"><span style="size: 2;">event </span></span><span style="color: #000080;"><span style="face: &quot;Courier;"><span style="size: 2;"><strong>in </strong></span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">pygame.event.get():</span></span></span></span><span style="color: #000000;"><span style="color: #000080;"><span style="face: &quot;Courier;"><span style="size: 2;"><strong><span style="font-size: 9pt;">if </span></strong></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">event.type == pygame.QUIT:</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">running = </span></span></span><span style="color: #000080;"><span style="face: &quot;Courier;"><span style="size: 2;"><strong><span style="font-size: 9pt;">False</span></strong></span></span></span></span><span style="color: #000000;"><span style="color: #000080;"><span style="face: &quot;Courier;"><span style="size: 2;"><strong><span style="font-size: 9pt;">elif </span></strong></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">event.type == pygame.MOUSEBUTTONDOWN:</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">(mouseX, mouseY) = pygame.mouse.get_pos()</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">selected_particle = findParticle(my_particles, mouseX, mouseY)</span></span></span></span><span style="color: #000000;"><span style="color: #000080;"><span style="face: &quot;Courier;"><span style="size: 2;"><strong><span style="font-size: 9pt;">elif </span></strong></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">event.type == pygame.MOUSEBUTTONUP:</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">selected_particle = </span></span></span><span style="color: #000080;"><span style="face: &quot;Courier;"><span style="size: 2;"><strong><span style="font-size: 9pt;">None</span></strong></span></span></span></span><span style="color: #000000;"><span style="color: #000080;"><span style="face: &quot;Courier;"><span style="size: 2;"><strong><span style="font-size: 9pt;">if </span></strong></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">selected_particle:</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">(mouseX, mouseY) = pygame.mouse.get_pos()</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">dx = mouseX - selected_particle.x</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">dy = mouseY - selected_particle.y</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">selected_particle.angle = </span></span></span><span style="font-size: 9pt;"><span style="color: #0000ff;"><span style="face: &quot;Courier;"><span style="size: 2;">0.5</span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">*math.pi + math.atan2(dy, dx)</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">selected_particle.speed = math.hypot(dx, dy) * </span></span></span><span style="color: #0000ff;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">0.1</span></span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">screen.fill(background_colour)</span></span></span></span><span style="color: #000000;"><span style="color: #000080;"><span style="face: &quot;Courier;"><span style="size: 2;"><strong><span style="font-size: 9pt;">for </span></strong></span></span></span><span style="font-size: 9pt;"><span style="face: &quot;Courier;"><span style="size: 2;">particle </span></span><span style="color: #000080;"><span style="face: &quot;Courier;"><span style="size: 2;"><strong>in </strong></span></span></span></span><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">my_particles:</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">particle.move()</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">particle.bounce()</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">particle.display()</span></span></span></span><span style="color: #000000;"><span style="face: &quot;Courier;"><span style="size: 2;"><span style="font-size: 9pt;">pygame.display.flip()</span></span></span></span></p>
+
+
+<div class="item-separator"></div>
+		</div>
+			</div>
+
+			<div class="items-row cols-1 row-0">
+		<div class="item column-1">
+		
+	<h2>
+					<a href="https://web.archive.org/web/20161026121708/http://raspberrypilot.com/index.php/tutorials/81-zombie-text-adventure">
+			Zombie Text Adventure!</a>
+			</h2>
+
+
+
+
+
+ <dl class="article-info">
+ <dt class="article-info-term">Details</dt>
+		<dd class="published">
+		Published on Wednesday, 11 May 2016 10:49		</dd>
+	<dd class="createdby">
+				
+							Written by Edward Powell				</dd>
+		<dd class="hits">
+		Hits: 304		</dd>
+ 	</dl>
+<p><img src="Tutorials1_files/bigstock-cartoon-zombie-isolated-on-whi-15129581.jpg" style="float: left; margin: 6px; display: inline;" border="0" align="left" height="183" width="183"></p>
+<p>This week we’ll be looking at a different sort of game – the typed 
+text adventure. I’ve tidied up and simplified&nbsp; ‘Zombies in 
+Kenilworth’ (for those who have seen it previously) so that you will be 
+able to reuse the core code to create your own text adventures.</p>
+<p>My version has just 6 locations and 3 in-game objects that must be 
+collected and used to escape from the zombie apocalypse that engulfed 
+the computer lab. I am sure that you will be able to come up with some 
+significant enhancements – if not entirely your own take on the text 
+adventure genre.</p>
+<p>For those of you who like to do the typing, here it is in all its 
+glory. I’ve marked the section CUSTOMISE THE CODE HERE where you can 
+replace my Zombie adventure with one of your own. Simply plan our a map 
+of locations and their connections (exits). Then decide which exits will
+ block progress by being locked, and add in a selection of cryptic 
+objects which must be collected, taken to the locked locations and used 
+in order for the player to progress through your map.</p>
+<p>See you later.</p>
+<p>&nbsp;</p>
+<table cellspacing="0" cellpadding="2" border="0" width="400">
+<tbody>
+<tr>
+<td width="400" valign="top">
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong><span style="font-size: 9pt;">def </span></strong></span></span></pre>
+<span style="font-size: 9pt;"><span style="color: #000000;">AddGameLocation(id, name, description):<br> </span><span><span style="color: #000080;"><strong>global </strong></span></span><span style="color: #000000;">locations_map<br> locations_map[id] = {</span><span><span style="color: #008080;"><strong>"Name" </strong></span></span><span style="color: #000000;">: name, </span><span><span style="color: #008080;"><strong>"Description" </strong></span></span><span style="color: #000000;">: description}<br> locations_map[id][</span><span><span style="color: #008080;"><strong>"Exits"</strong></span></span><span style="color: #000000;">] = {}<br> </span><span><span style="color: #000080;"><strong>return</strong></span></span></span>
+<pre style="background-color: #ffffff;">&nbsp;</pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span><br></span><span><span style="color: #000080;"><strong>def </strong></span></span><span style="color: #000000;">AddGameObject(name, description, location_id, use_location_id, use_target, use_message):<br> </span><span><span style="color: #000080;"><strong>global </strong></span></span><span style="color: #000000;">object_list<br> object_list[name] = {</span><span><span style="color: #008080;"><strong>"Description" </strong></span></span><span style="color: #000000;">: description , </span><span><span style="color: #008080;"><strong>"Location" </strong></span></span><span style="color: #000000;">: location_id, </span><span><span style="color: #008080;"><strong>"UseLocation" </strong></span></span><span style="color: #000000;">: use_location_id, </span><span><span style="color: #008080;"><strong>"UseTarget" </strong></span></span><span style="color: #000000;">: use_target, </span><span><span style="color: #008080;"><strong>"UseMessage" </strong></span></span><span style="color: #000000;">: use_message}<br> </span><span><span style="color: #000080;"><strong>return</strong></span></span> </span></span>
+<pre style="background-color: #ffffff;">&nbsp;</pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span><br></span><span><span style="color: #000080;"><strong>def </strong></span></span><span style="color: #000000;">AddUnlockableGameLocationExit(location_id, exit_name, location_exit_id, unlocked_description, locked_description = </span><span><span style="color: #008080;"><strong>"none"</strong></span></span><span style="color: #000000;">):<br> </span><span><span style="color: #000080;"><strong>global </strong></span></span><span style="color: #000000;">locations_map</span> </span></span>
+<pre style="background-color: #ffffff;"><br>    </pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span><span style="color: #000080;"><strong>if </strong></span></span><span style="color: #000000;">exit_name </span><span><span style="color: #000080;"><strong>not in </strong></span></span><span style="color: #000000;">locations_map[location_id][</span><span><span style="color: #008080;"><strong>"Exits"</strong></span></span><span style="color: #000000;">]:<br> </span><span><span style="color: #000080;"><strong>if </strong></span></span><span style="color: #000000;">locked_description != </span><span><span style="color: #008080;"><strong>"none"</strong></span></span><span style="color: #000000;">:<br> locations_map[location_id][</span><span><span style="color: #008080;"><strong>"Exits"</strong></span></span><span style="color: #000000;">][exit_name] = {</span><span><span style="color: #008080;"><strong>"ExitLocation" </strong></span></span><span style="color: #000000;">: location_exit_id, </span><span><span style="color: #008080;"><strong>"Status" </strong></span></span><span style="color: #000000;">: </span><span><span style="color: #008080;"><strong>"locked"</strong></span></span><span style="color: #000000;">}<br> </span><span><span style="color: #000080;"><strong>else</strong></span></span><span style="color: #000000;">:<br> locations_map[location_id][</span><span><span style="color: #008080;"><strong>"Exits"</strong></span></span><span style="color: #000000;">][exit_name] = {</span><span><span style="color: #008080;"><strong>"ExitLocation" </strong></span></span><span style="color: #000000;">: location_exit_id, </span><span><span style="color: #008080;"><strong>"Status" </strong></span></span><span style="color: #000000;">: </span><span><span style="color: #008080;"><strong>"unlocked"</strong></span></span><span style="color: #000000;">}<br> locations_map[location_id][</span><span><span style="color: #008080;"><strong>"Exits"</strong></span></span><span style="color: #000000;">][exit_name][</span><span><span style="color: #008080;"><strong>"Descriptions"</strong></span></span><span style="color: #000000;">] = {}</span> </span></span>
+<pre style="background-color: #ffffff;"><br><br>    locations_map[location_id][</pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span><span style="color: #008080;"><strong>"Exits"</strong></span></span><span style="color: #000000;">][exit_name][</span><span><span style="color: #008080;"><strong>"Descriptions"</strong></span></span><span style="color: #000000;">][</span><span><span style="color: #008080;"><strong>"unlocked"</strong></span></span><span style="color: #000000;">] = unlocked_description</span></span></span><span style="color: #000000;"><br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>if </strong></span></span></pre>
+<span style="color: #000000;">locked_description != </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"none"</strong></span></span></pre>
+<span style="color: #000000;">:<br> locations_map[location_id][</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"Exits"</strong></span></span></pre>
+<span style="color: #000000;">][exit_name][</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"Descriptions"</strong></span></span></pre>
+<span style="color: #000000;">][</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"locked"</strong></span></span></pre>
+<span style="color: #000000;">] = locked_description<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>return</strong></span></span></pre>
+<pre style="background-color: #ffffff;">&nbsp;</pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span><br></span><span><span style="color: #000080;"><strong>def </strong></span></span><span style="color: #000000;">UseExit(exit_name):<br> </span><span><span style="color: #000080;"><strong>global </strong></span></span><span style="color: #000000;">current_location_name<br> </span><span><span style="color: #000080;"><strong>global </strong></span></span><span style="color: #000000;">locations_map<br><br> exit = locations_map[current_location_name][</span><span><span style="color: #008080;"><strong>"Exits"</strong></span></span><span style="color: #000000;">][exit_name]<br><br> </span><span><span style="color: #000080;"><strong>if </strong></span></span><span style="color: #000000;">exit[</span><span><span style="color: #008080;"><strong>"Status"</strong></span></span><span style="color: #000000;">] == </span><span><span style="color: #008080;"><strong>"unlocked"</strong></span></span><span style="color: #000000;">:<br> </span><span style="color: #808080;"><em><span># if this exit is unlocked then we allow the change of location<br></span></em></span><span style="color: #000000;">current_location_name = exit[</span><span><span style="color: #008080;"><strong>"ExitLocation"</strong></span></span><span style="color: #000000;">]<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>"You move to " </strong></span></span><span style="color: #000000;">+ locations_map[current_location_name][</span><span><span style="color: #008080;"><strong>"Name"</strong></span></span><span style="color: #000000;">])<br> </span><span style="color: #000080;"><strong><span>return True<br></span><span> else</span></strong></span><span style="color: #000000;">:<br> </span><span style="color: #808080;"><em><span># otherwise print this exit's description according to its current status<br></span></em></span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>""</strong></span></span><span style="color: #000000;">)<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(exit[</span><span><span style="color: #008080;"><strong>"Descriptions"</strong></span></span><span style="color: #000000;">][exit[</span><span><span style="color: #008080;"><strong>"Status"</strong></span></span><span style="color: #000000;">]])<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>""</strong></span></span><span style="color: #000000;">)<br> </span><span><span style="color: #000080;"><strong>return False</strong></span></span> </span></span>
+<pre style="background-color: #ffffff;">&nbsp;</pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span><br></span><span><br></span><span><span style="color: #000080;"><strong>def </strong></span></span><span style="color: #000000;">UseObject(object_name):<br> </span><span><span style="color: #000080;"><strong>global </strong></span></span><span style="color: #000000;">object_list<br> </span><span><span style="color: #000080;"><strong>global </strong></span></span><span style="color: #000000;">current_location_name<br> </span><span><span style="color: #000080;"><strong>global </strong></span></span><span style="color: #000000;">locations_map<br><br> </span><span><span style="color: #808080;"><em># Return and message and error if the object is<br></em></span></span><span style="color: #808080;"><em><span> # not in our object dictionary<br></span></em></span><span><span style="color: #000080;"><strong>if </strong></span></span><span style="color: #000000;">object_name </span><span><span style="color: #000080;"><strong>not in </strong></span></span><span style="color: #000000;">object_list:<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>"I don't know about this object"</strong></span></span><span style="color: #000000;">)<br> </span><span><span style="color: #000080;"><strong>return False</strong></span></span> </span></span>
+<pre style="background-color: #ffffff;">&nbsp;</pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span><br></span><span style="color: #808080;"><em><span># Check if the player has the object (its location is 'player'<br></span></em></span><span style="color: #000000;">object = object_list[object_name]<br> </span><span><span style="color: #000080;"><strong>if </strong></span></span><span style="color: #000000;">object[</span><span><span style="color: #008080;"><strong>"Location"</strong></span></span><span style="color: #000000;">] != </span><span><span style="color: #008080;"><strong>"player"</strong></span></span><span style="color: #000000;">:<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>"You do not have that"</strong></span></span><span style="color: #000000;">)<br> </span><span><span style="color: #000080;"><strong>return False</strong></span></span> </span></span>
+<pre style="background-color: #ffffff;">&nbsp;</pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span><br></span><span style="color: #808080;"><em><span># Check if the object is intended to be used here<br></span></em></span><span><span style="color: #000080;"><strong>if </strong></span></span><span style="color: #000000;">object[</span><span><span style="color: #008080;"><strong>"UseLocation"</strong></span></span><span style="color: #000000;">] != current_location_name:<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>"You cannot use that here"</strong></span></span><span style="color: #000000;">)<br> </span><span><span style="color: #000080;"><strong>return False</strong></span></span> </span></span>
+<pre style="background-color: #ffffff;">&nbsp;</pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span><br></span><span style="color: #808080;"><em><span># Get the current game location dictionary entry<br></span></em></span><span style="color: #000000;">game_location = locations_map[current_location_name]<br><br> </span><span style="color: #808080;"><em><span># go through all the items in this location's exit dictionary<br></span></em></span><span><span style="color: #000080;"><strong>for </strong></span></span><span style="color: #000000;">exit_key </span><span><span style="color: #000080;"><strong>in </strong></span></span><span style="color: #000000;">game_location[</span><span><span style="color: #008080;"><strong>"Exits"</strong></span></span><span style="color: #000000;">]:<br> </span><span style="color: #808080;"><em><span># Check if one of the exits matches the objects UseTarget<br></span></em></span><span><span style="color: #000080;"><strong>if </strong></span></span><span style="color: #000000;">game_location[</span><span><span style="color: #008080;"><strong>"Exits"</strong></span></span><span style="color: #000000;">][exit_key][</span><span><span style="color: #008080;"><strong>"ExitLocation"</strong></span></span><span style="color: #000000;">] == object[</span><span><span style="color: #008080;"><strong>"UseTarget"</strong></span></span><span style="color: #000000;">]:<br> </span><span style="color: #808080;"><em><span># Unlock the exit<br></span></em></span><span style="color: #000000;">game_location[</span><span><span style="color: #008080;"><strong>"Exits"</strong></span></span><span style="color: #000000;">][exit_key][</span><span><span style="color: #008080;"><strong>"Status"</strong></span></span><span style="color: #000000;">] = </span><span style="color: #008080;"><strong><span>"unlocked"<br></span></strong></span><span style="color: #808080;"><em><span># Print the Object's UseMessage<br></span></em></span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(object[</span><span><span style="color: #008080;"><strong>"UseMessage"</strong></span></span><span style="color: #000000;">])<br> </span><span style="color: #808080;"><em><span># Call the UseExit function to move the player to the new location<br></span></em></span><span style="color: #000000;">UseExit(exit_key)<br> </span><span><span style="color: #000080;"><strong>return True</strong></span></span></span></span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong><br></strong></span></span><span><br></span><span><span style="color: #808080;"><em># if we get here we couldn't find an exit to match the use_target<br></em></span></span></pre>
+<span style="color: #808080;"><em><span> # specified in this object - probably a mistake!<br></span></em></span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">print</span></span></pre>
+<span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"This object appears to have no purpose"</strong></span></span></pre>
+<span style="color: #000000;">)<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>return False</strong></span><br></span></pre>
+<pre style="background-color: #ffffff;">&nbsp;</pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span><br></span><span><span style="color: #000080;"><strong>def </strong></span></span><span style="color: #000000;">Move(direction):<br> </span><span><span style="color: #000080;"><strong>global </strong></span></span><span style="color: #000000;">current_location_name<br> </span><span><span style="color: #000080;"><strong>if </strong></span></span><span style="color: #000000;">direction </span><span><span style="color: #000080;"><strong>in </strong></span></span><span style="color: #000000;">locations_map[current_location_name][</span><span><span style="color: #008080;"><strong>"Exits"</strong></span></span><span style="color: #000000;">]:<br> </span><span style="color: #808080;"><em><span># location_exit = locations_map[current_location_name]["Exits"][direction]<br></span></em></span><span><span style="color: #000080;"><strong>if </strong></span></span><span style="color: #000000;">UseExit(direction):<br> Look() <br> </span><span><span style="color: #000080;"><strong>else</strong></span></span><span style="color: #000000;">:<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>"You cannot go that way"</strong></span></span><span style="color: #000000;">) </span></span></span>
+<pre style="background-color: #ffffff;"><br><br><span><span style="color: #000080;"><strong>def </strong></span></span></pre>
+<span style="color: #000000;">Look():<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>global </strong></span></span></pre>
+<span style="color: #000000;">current_location_name<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>global </strong></span></span></pre>
+<span style="color: #000000;">object_list<br><br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">print</span></span></pre>
+<span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"You are in " </strong></span></span></pre>
+<span style="color: #000000;">+ locations_map[current_location_name][</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"Description"</strong></span></span></pre>
+<span style="color: #000000;">])<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">print</span></span></pre>
+<span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>""</strong></span></span></pre>
+<span style="color: #000000;">)<br><br> first_item = </span><span style="color: #000080;"><strong><span>True<br></span><span> for </span></strong></span><span style="color: #000000;">object_key </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>in </strong></span></span></pre>
+<span style="color: #000000;">object_list:<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>if </strong></span></span></pre>
+<span style="color: #000000;">object_list[object_key][</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"Location"</strong></span></span></pre>
+<span style="color: #000000;">] == current_location_name:<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>if </strong></span></span></pre>
+<span style="color: #000000;">first_item == </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>True</strong></span></span></pre>
+<span style="color: #000000;">:<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">print</span></span></pre>
+<span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"You can see:"</strong></span></span></pre>
+<span style="color: #000000;">)<br> first_item = </span><span style="color: #000080;"><strong><span>False<br></span></strong><span>print</span></span><span style="color: #000000;">(object_key + </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>" - " </strong></span></span></pre>
+<span style="color: #000000;">+ object_list[object_key][</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"Description"</strong></span></span></pre>
+<span style="color: #000000;">])<br><br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">print</span></span></pre>
+<span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>""</strong></span></span></pre>
+<span style="color: #000000;">)<br><br> first_item = </span><span style="color: #000080;"><strong><span>True<br></span></strong></span><span style="color: #000000;">game_location = locations_map[current_location_name]<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>for </strong></span></span></pre>
+<span style="color: #000000;">exit_key </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>in </strong></span></span></pre>
+<span style="color: #000000;">game_location[</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"Exits"</strong></span></span></pre>
+<span style="color: #000000;">]:<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>if </strong></span></span></pre>
+<span style="color: #000000;">first_item :<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">print</span></span></pre>
+<span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"There are exits to the:"</strong></span></span></pre>
+<span style="color: #000000;">)<br> first_item = </span><span style="color: #000080;"><strong><span>False<br></span></strong><span>print</span></span><span style="color: #000000;">(exit_key + </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>" - " </strong></span></span></pre>
+<span style="color: #000000;">+ game_location[</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"Exits"</strong></span></span></pre>
+<span style="color: #000000;">][exit_key][</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"ExitLocation"</strong></span></span></pre>
+<span style="color: #000000;">])<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">print</span></span></pre>
+<span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>""</strong></span></span></pre>
+<span style="color: #000000;">)</span>
+<pre style="background-color: #ffffff;"><br><br><span><span style="color: #000080;"><strong>def </strong></span></span></pre>
+<span style="color: #000000;">Take(object_name):<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>for </strong></span></span></pre>
+<span style="color: #000000;">object_key </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>in </strong></span></span></pre>
+<span style="color: #000000;">object_list:<br> object = object_list[object_key]<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>if </strong></span></span></pre>
+<span style="color: #000000;">object[</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"Location"</strong></span></span></pre>
+<span style="color: #000000;">] == current_location_name </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>and </strong></span></span></pre>
+<span style="color: #000000;">object_key == object_name:<br> object[</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"Location"</strong></span></span></pre>
+<span style="color: #000000;">] = </span><span style="color: #008080;"><strong><span>"player"<br></span></strong></span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">print</span></span></pre>
+<span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"You take the " </strong></span></span></pre>
+<span style="color: #000000;">+ object_name)<br> </span>
+<pre style="background-color: #ffffff;"><span><strong><span style="color: #000080;">return<br></span></strong></span><span><br></span></pre>
+<span style="color: #000080;"><span>print</span></span><span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"You cannot see that here"</strong></span></span></pre>
+<span style="color: #000000;">)</span>
+<pre style="background-color: #ffffff;"><br><br><span><span style="color: #000080;"><strong>def </strong></span></span></pre>
+<span style="color: #000000;">ShowHelp():<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">print</span></span></pre>
+<span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"Commands available:"</strong></span></span></pre>
+<span style="color: #000000;">)<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">print</span></span></pre>
+<span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"look                      - Describes where you are"</strong></span></span></pre>
+<span style="color: #000000;">)<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">print</span></span></pre>
+<span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"north, south, east, west  - Moves you in a direction"</strong></span></span></pre>
+<span style="color: #000000;">)<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">print</span></span></pre>
+<span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"help                      - Prints this help"</strong></span></span></pre>
+<span style="color: #000000;">)<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">print</span></span></pre>
+<span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"take [Object]             - Take an object with you"</strong></span></span></pre>
+<span style="color: #000000;">)<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">print</span></span></pre>
+<span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"use  [Object]             - Use an object at this location"</strong></span></span></pre>
+<span style="color: #000000;">)<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">print</span></span></pre>
+<span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>""</strong></span></span></pre>
+<span style="color: #000000;">)</span>
+<pre style="background-color: #ffffff;"><br><br><span><span style="color: #808080;"><em># ============ CUSTOMISE THE CODE HERE ==========</em></span></span></pre>
+<pre style="background-color: #ffffff;">&nbsp;</pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span><br></span><span><span style="color: #808080;"><em># Edit this function to set the start location and intro text</em></span><br></span><span><span style="color: #000080;"><strong>def </strong></span></span><span style="color: #000000;">ResetGame():<br> </span><span><span style="color: #000080;"><strong>global </strong></span></span><span style="color: #000000;">current_location_name<br> current_location_name = </span><span style="color: #008080;"><strong><span>'lab'<br></span></strong></span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>" ______________________________ "</strong></span></span><span style="color: #000000;">)<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>"| == Zombies in Kenilworth == |"</strong></span></span><span style="color: #000000;">)<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>"| A GCC Text Adventure |"</strong></span></span><span style="color: #000000;">)<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>"|______________________________|"</strong></span></span><span style="color: #000000;">)<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>""</strong></span></span><span style="color: #000000;">)<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>"You were at the Computer Club when suddenly someone shouted 'Zombies!!'"</strong></span></span><span style="color: #000000;">)<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>"There was panic. You hit your head..."</strong></span></span><span style="color: #000000;">)<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>"and that was the last thing you can remember"</strong></span></span><span style="color: #000000;">)<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>""</strong></span></span><span style="color: #000000;">)</span></span></span>
+<pre style="background-color: #ffffff;"><br><br><br><span><span style="color: #808080;"><em># Your game map is made up of game locations.<br></em></span></span><span><span style="color: #808080;"><em># Add each one using AddGameLocation(id, name, description):<br></em></span></span><span><span style="color: #808080;"><em>#   id = unique name used by the game to identify this location<br></em></span></span><span><span style="color: #808080;"><em>#   name = printable name shown to the player<br></em></span></span><span><span style="color: #808080;"><em>#   description = long description used as part of the reponse to a 'look' by the player</em></span></span></pre>
+<pre style="background-color: #ffffff;">&nbsp;</pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span style="color: #000000;">AddGameLocation(</span><span><span style="color: #008080;"><strong>"lab"</strong></span></span><span style="color: #000000;">, </span><span><span style="color: #008080;"><strong>"the computer lab"</strong></span></span><span style="color: #000000;">, </span><span><span style="color: #008080;"><strong>"a
+ familiar room where GCC is usually held. It is still full of computers,
+ but they have all been smashed; As have the tables and chairs."</strong></span></span><span style="color: #000000;">)<br>AddGameLocation(</span><span><span style="color: #008080;"><strong>"cupboard"</strong></span></span><span style="color: #000000;">, </span><span><span style="color: #008080;"><strong>"the stock cupboard"</strong></span></span><span style="color: #000000;">, </span><span><span style="color: #008080;"><strong>"a small cupboard where the teacher normally keeps stationary and lesson equipment."</strong></span></span><span style="color: #000000;">)<br>AddGameLocation(</span><span><span style="color: #008080;"><strong>"shelf"</strong></span></span><span style="color: #000000;">, </span><span><span style="color: #008080;"><strong>"the dusty shelf"</strong></span></span><span style="color: #000000;">, </span><span><span style="color: #008080;"><strong>"a small shelf, covered in dust. Evidently nobody has looked up here for quite a while."</strong></span></span><span style="color: #000000;">)<br>AddGameLocation(</span><span><span style="color: #008080;"><strong>"corridor"</strong></span></span><span style="color: #000000;">, </span><span><span style="color: #008080;"><strong>"the corridor"</strong></span></span><span style="color: #000000;">, </span><span><span style="color: #008080;"><strong>"a normally bustling thoroughfare, but it is eerily silent."</strong></span></span><span style="color: #000000;">)<br>AddGameLocation(</span><span><span style="color: #008080;"><strong>"foyer"</strong></span></span><span style="color: #000000;">, </span><span><span style="color: #008080;"><strong>"the foyer"</strong></span></span><span style="color: #000000;">, </span><span><span style="color: #008080;"><strong>"the entrance to lower school and your way out!"</strong></span></span><span style="color: #000000;">)</span></span></span>
+<pre style="background-color: #ffffff;"><br><br><span><span style="color: #808080;"><em># This location - 'escape' is special and triggers the end of the game</em></span><br></span></pre>
+<span style="color: #000000;">AddGameLocation(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"escape"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"the outside world!"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"the outside world again. You breathe the fresh air... but then you hear the sound of moaning. Time to run!"</strong></span></span></pre>
+<span style="color: #000000;">)</span>
+<pre style="background-color: #ffffff;"><br><span><span style="color: #808080;"><em># Now connect up your game locations with exits - if you add an extra 'locked' description then the exit<br></em></span></span><span><span style="color: #808080;"><em># AddUnlockableGameLocationExit(location_id, exit_name, location_exit_id, unlocked_description, locked_description = "none"):<br></em></span></span><span><span style="color: #808080;"><em>#   location_id = the unique location name to which this exit belongs<br></em></span></span><span><span style="color: #808080;"><em>#   exit_name = the name used by the player to 'Use' this exit - usually a direction, so could be 'up' or 'down' etc.<br></em></span></span><span><span style="color: #808080;"><em>#   location_exit_id = the unique location name of the location to which this exit leads<br></em></span></span><span><span style="color: #808080;"><em>#   unlocked_description = the description used when the location is unlocked (the default)<br></em></span></span><span><span style="color: #808080;"><em>#   (optional) locked_description = can be left off, the description used when the location is locked. Specifying this will also lock the location</em></span><br></span></pre>
+<span style="color: #000000;">AddUnlockableGameLocationExit(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"lab"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"north"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"corridor"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"you go through to the corridor"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"the door is locked."</strong></span></span></pre>
+<span style="color: #000000;">)<br>AddUnlockableGameLocationExit(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"lab"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"east"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"cupboard"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"you go into the cupboard"</strong></span></span></pre>
+<span style="color: #000000;">)<br>AddUnlockableGameLocationExit(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"cupboard"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"west"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"lab"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"you go through to the computer lab"</strong></span></span></pre>
+<span style="color: #000000;">)<br>AddUnlockableGameLocationExit(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"cupboard"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"east"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"shelf"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"you climb up to the shelf"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"You can see a shiny object, but the shelf is too high to reach"</strong></span></span></pre>
+<span style="color: #000000;">)<br>AddUnlockableGameLocationExit(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"shelf"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"west"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"cupboard"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"you climb back down to the stock cupboard"</strong></span></span></pre>
+<span style="color: #000000;">)<br>AddUnlockableGameLocationExit(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"corridor"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"south"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"lab"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"you return to the computer lab"</strong></span></span></pre>
+<span style="color: #000000;">)<br>AddUnlockableGameLocationExit(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"corridor"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"north"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"foyer"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"you go through to the foyer"</strong></span></span></pre>
+<span style="color: #000000;">)<br>AddUnlockableGameLocationExit(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"foyer"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"south"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"corridor"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"you return to the corridor"</strong></span></span></pre>
+<span style="color: #000000;">)<br>AddUnlockableGameLocationExit(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"foyer"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"east"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"escape"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"you walk passed the zombie, who is too busy eating to notice you"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"You can see your way out, but a zombie blocks the way"</strong></span></span></pre>
+<span style="color: #000000;">)<br>AddUnlockableGameLocationExit(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"escape"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"west"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"foyer"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"you return to the foyer"</strong></span></span></pre>
+<span style="color: #000000;">)</span>
+<pre style="background-color: #ffffff;"><br><span><span style="color: #808080;"><em># Finally add the game objects that will be used to unlock the matching exits<br></em></span></span><span><span style="color: #808080;"><em># AddGameObject(name, description, location_id, use_location_id, use_target, use_message)<br></em></span></span><span><span style="color: #808080;"><em>#   name = the object's name (must be unique within the game)<br></em></span></span><span><span style="color: #808080;"><em>#   description = used to describe the object to the player. Should *hint* at its potential use<br></em></span></span><span><span style="color: #808080;"><em>#   location_id = where this object will be found<br></em></span></span><span><span style="color: #808080;"><em>#   use_location_id = where this object should be used<br></em></span></span><span><span style="color: #808080;"><em>#   use_target = the name of the location exit id that it will unlock at the use location<br></em></span></span><span><span style="color: #808080;"><em>#   use_message = the printed message given when the object is successfully used</em></span><br></span></pre>
+<span style="color: #000000;">AddGameObject(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"box"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"a small but sturdy box"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"lab"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"cupboard"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"shelf"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"You stand on the wooden box. Now you can reach the high shelf"</strong></span></span></pre>
+<span style="color: #000000;">)<br>AddGameObject(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"key"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"a small key like the ones the teachers carry"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"shelf"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"lab"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"corridor"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"The key fits the locked door perfectly. The lock clicks and the door swings open..."</strong></span></span></pre>
+<span style="color: #000000;">)<br>AddGameObject(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"brains"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"a glob of partially consumed brains. You think that they might once have been Edward's..."</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"lab"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"foyer"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"escape"</strong></span></span></pre>
+<span style="color: #000000;">, </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"The zombie greedily grabs the brains and starts munching. He seems entirely distracted."</strong></span></span></pre>
+<span style="color: #000000;">)</span>
+<pre style="background-color: #ffffff;">&nbsp;</pre>
+<pre style="background-color: #ffffff;"><span><span style="color: #808080;"><em># =================================================</em></span></span></pre>
+<pre style="background-color: #ffffff;">&nbsp;</pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span><br></span><span><span style="color: #808080;"><em># Here are the global variables which<br></em></span></span><span><span style="color: #808080;"><em># can be used by all the functions and objects<br></em></span></span><span><span style="color: #808080;"><em># we have created</em></span><br></span><span style="color: #000000;">current_location_name = </span><span><span style="color: #008080;"><strong>''</strong></span><br></span><span style="color: #000000;">game_running = </span><span><span style="color: #000080;"><strong>True</strong></span><br></span><span style="color: #000000;">locations_map = {}<br>object_list = {}</span></span></span>
+<pre style="background-color: #ffffff;"><br><br><span><span style="color: #808080;"><em># This prints the title block when the program first runs</em></span></span></pre>
+<pre style="background-color: #ffffff;">&nbsp;</pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span style="color: #000000;">ResetGame()<br>ShowHelp()</span></span></span>
+<pre style="background-color: #ffffff;"><br><br><span><span style="color: #808080;"><em># Main game loop</em></span><br></span><span><span style="color: #000080;"><strong>while </strong></span></span></pre>
+<span style="color: #000000;">game_running: <br> </span><span style="color: #808080;"><em><span># wait for input and store it in 'command'<br></span></em></span><span style="color: #000000;">command = </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">input</span></span></pre>
+<span style="color: #000000;">(locations_map[current_location_name][</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"Name"</strong></span></span></pre>
+<span style="color: #000000;">] + </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>" &gt;&gt;"</strong></span></span></pre>
+<span style="color: #000000;">)</span>
+<pre style="background-color: #ffffff;"><br><br>    </pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span><span style="color: #808080;"><em># Use lower() to make everything lower case before<br></em></span></span><span style="color: #808080;"><em><span> # doing a match test, otherwise 'Help' would not be recognised as 'help'<br></span></em></span><span style="color: #000000;">command = command.lower()</span> </span></span>
+<pre style="background-color: #ffffff;"><br><br>    </pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span style="color: #808080;"><em><span># split 'command' wherever there is a space to make a list of 'commands'<br></span></em></span><span style="color: #000000;">commands = command.split(</span><span><span style="color: #008080;"><strong>" "</strong></span></span><span style="color: #000000;">)</span> </span></span>
+<pre style="background-color: #ffffff;"><br><br>    </pre>
+<span style="font-size: 9pt;"><span style="font-size: 9pt;"><span><span style="color: #808080;"><em># Call a function if the first command (position [0] in the list)<br></em></span></span><span style="color: #808080;"><em><span> # is one we know. <br></span></em></span><span><span style="color: #000080;"><strong>if </strong></span></span><span style="color: #000000;">commands[</span><span><span style="color: #0000ff;">0</span></span><span style="color: #000000;">] == </span><span><span style="color: #008080;"><strong>"look"</strong></span></span><span style="color: #000000;">:<br> Look()<br> <br> </span><span><span style="color: #000080;"><strong>elif </strong></span></span><span style="color: #000000;">commands[</span><span><span style="color: #0000ff;">0</span></span><span style="color: #000000;">] == </span><span><span style="color: #008080;"><strong>"help"</strong></span></span><span style="color: #000000;">:<br> ShowHelp()<br><br> </span><span><span style="color: #000080;"><strong>elif </strong></span></span><span style="color: #000000;">commands[</span><span><span style="color: #0000ff;">0</span></span><span style="color: #000000;">] == </span><strong><span><span style="color: #008080;">"north" </span></span><span><span style="color: #000080;">or </span></span></strong><span style="color: #000000;">commands[</span><span><span style="color: #0000ff;">0</span></span><span style="color: #000000;">] == </span><strong><span><span style="color: #008080;">"south" </span></span><span><span style="color: #000080;">or </span></span></strong><span style="color: #000000;">commands[</span><span><span style="color: #0000ff;">0</span></span><span style="color: #000000;">] == </span><strong><span><span style="color: #008080;">"east" </span></span><span><span style="color: #000080;">or </span></span></strong><span style="color: #000000;">commands[</span><span><span style="color: #0000ff;">0</span></span><span style="color: #000000;">] == </span><span><span style="color: #008080;"><strong>"west"</strong></span></span><span style="color: #000000;">:<br> Move(commands[</span><span><span style="color: #0000ff;">0</span></span><span style="color: #000000;">])<br><br> </span><span><span style="color: #000080;"><strong>elif </strong></span></span><span style="color: #000000;">commands[</span><span><span style="color: #0000ff;">0</span></span><span style="color: #000000;">] == </span><span><span style="color: #008080;"><strong>"take"</strong></span></span><span style="color: #000000;">:<br> </span><span style="color: #000080;"><span><strong>if </strong></span><span>len</span></span><span style="color: #000000;">(commands) &gt; </span><span><span style="color: #0000ff;">1</span></span><span style="color: #000000;">:<br> Take(commands[</span><span><span style="color: #0000ff;">1</span></span><span style="color: #000000;">])<br> </span><span><span style="color: #000080;"><strong>else</strong></span></span><span style="color: #000000;">:<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>"Take what?"</strong></span></span><span style="color: #000000;">)<br><br> </span><span><span style="color: #000080;"><strong>elif </strong></span></span><span style="color: #000000;">commands[</span><span><span style="color: #0000ff;">0</span></span><span style="color: #000000;">] == </span><span><span style="color: #008080;"><strong>"use"</strong></span></span><span style="color: #000000;">:<br> </span><span style="color: #000080;"><span><strong>if </strong></span><span>len</span></span><span style="color: #000000;">(commands) &gt; </span><span><span style="color: #0000ff;">1</span></span><span style="color: #000000;">:<br> UseObject(commands[</span><span><span style="color: #0000ff;">1</span></span><span style="color: #000000;">])<br> </span><span><span style="color: #000080;"><strong>else</strong></span></span><span style="color: #000000;">:<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>"Use what?"</strong></span></span><span style="color: #000000;">)<br><br> </span><span><span style="color: #000080;"><strong>else</strong></span></span><span style="color: #000000;">:<br> </span><span><span style="color: #000080;">print</span></span><span style="color: #000000;">(</span><span><span style="color: #008080;"><strong>"I don't know that word. Try again."</strong></span></span><span style="color: #000000;">)<br> ShowHelp()</span></span></span><span style="color: #000000;"><br><br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>if </strong></span></span></pre>
+<span style="color: #000000;">current_location_name == </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"escape"</strong></span></span></pre>
+<span style="color: #000000;">:<br> again = </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;">input</span></span></pre>
+<span style="color: #000000;">(</span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"Play Again? (Y/N) &gt;&gt;"</strong></span></span></pre>
+<span style="color: #000000;">)<br> again = again.lower()<br> </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #000080;"><strong>if </strong></span></span></pre>
+<span style="color: #000000;">again != </span>
+<pre style="background-color: #ffffff;"><span><span style="color: #008080;"><strong>"y"</strong></span></span></pre>
+<span style="color: #000000;">:<br> game_running = </span><span style="color: #000080;"><strong><span>False<br></span><span> else</span></strong></span><span style="color: #000000;">:<br> ResetGame()</span></td>
+</tr>
+</tbody>
+</table>
+
+
+<div class="item-separator"></div>
+	</div>
+						<span class="row-separator"></span>
+				</div>
+
+						<div class="items-row cols-1 row-1">
+		<div class="item column-1">
+		
+	<h2>
+					<a href="https://web.archive.org/web/20161026121708/http://raspberrypilot.com/index.php/tutorials/80-what-a-state-to-get-into">
+			What a state to get into…</a>
+			</h2>
+
+
+
+
+
+ <dl class="article-info">
+ <dt class="article-info-term">Details</dt>
+		<dd class="published">
+		Published on Wednesday, 27 April 2016 10:57		</dd>
+	<dd class="createdby">
+				
+							Written by Edward Powell				</dd>
+		<dd class="hits">
+		Hits: 242		</dd>
+ 	</dl>
+<p><img style="float: left; margin: 6px; display: inline" src="Tutorials1_files/finitestatemachines-logo.jpg" align="left" height="131" width="205">This
+ week we are going to be adding our game state code to the basic (and 
+reusable) game loop code from last week. The structure of the code is 
+going to be very simple. In the <font face="Courier New"><strong>Update</strong></font> function we are going to choose a particular block of code according to current game state (using the <font size="2" face="Courier New">If…, Elif…, Elif…, Else…</font>
+ conditional structure you have encountered previously). Each block of 
+code will check input and game data and simply change the current game 
+state to a new one if necessary. Essentially all of our game logic will 
+be captured in this function – although we will create some other 
+‘helper’ functions to complete repetitive tasks without having to copy 
+and paste code (if you find yourself doing this, it is a sure sign that 
+your code needs a better structure – time to ‘refactor’).</p>  <p>The <font face="Courier New"><strong>Draw</strong></font> code can now be extremely simple. It will just dumbly draw items according to the current game state.</p>  <p><a href="https://web.archive.org/web/20161026121708/http://www.raspberrypilot.com/images/image_2_8ff39faf27dccd8cc617e1707a6a04c8.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" alt="image" src="Tutorials1_files/image_thumb_ce85e2133d615eabdea59a25f3eec26a.png" border="0" height="261" width="580"></a></p>    <p>The
+ diagram above shows a simple design of the 7 new game states we need 
+(not including the existing ‘Quit’ state) and the events we will be 
+looking for in the Update function to trigger transitions between the 
+states. When you design a game you should definitely have something like
+ this diagram early on to help you plan your project – pretty much all 
+games have some sort of state structure within them.</p>  <p>In our 
+simple game, the transition events will either be mouse clicks from the 
+player, or internal timers. The timers will determine how long it takes 
+for Sam to draw his guns, how quickly he fires and also the duration of 
+the animation of firing (essentially how long we remain in the ‘Fire’ 
+game state, where we blit the gun flashes, before moving to the ‘Lose’ 
+game state, where we don’t).</p>  <h2>Code Snippets</h2>  <p>OK well to be honest that is the hard bit done, the rest is just typing <img class="wlEmoticon wlEmoticon-winkingsmile" style="border-top-style: none; border-left-style: none; border-bottom-style: none; border-right-style: none" alt="Winking smile" src="Tutorials1_files/wlemoticon-winkingsmile_2_54850c00b06cd9822a681f2c537710d0.png"></p>  <h3></h3>  <h3>Update</h3>  <p>The update function captures the diagram above in code form:</p>  <pre style="font-family: ; color: ; background-color: #ffffff"><span style="color: "><font color="#000080"><strong><font style="font-size: 9pt">def </font></strong></font></span><font style="font-size: 9pt"><font color="#000000">Update():<br>    </font><span style="color: "><font color="#000080"><strong>global </strong></font></span><font color="#000000">current_keys, last_keys, current_mouse, last_mouse, \<br>    gamestate, time_to_draw, time_to_fire, total_time<br><br>    last_keys = current_keys<br>    current_keys = pygame.key.get_pressed()<br><br>    last_mouse = current_mouse<br>    current_mouse = pygame.mouse.get_pressed()<br><br>    elapsed_ms = pygame.time.Clock().tick(</font><span style="color: "><font color="#0000ff">30</font></span><font color="#000000">)<br>    total_time = total_time + elapsed_ms<br><br>    </font><span style="color: "><font color="#000080"><strong>if </strong></font></span><font color="#000000">gamestate == </font><span style="color: "><font color="#008080"><strong>"Start"</strong></font></span><font color="#000000">:<br>        </font><span style="color: "><font color="#000080"><strong>if </strong></font></span><font color="#000000">LeftMouseClicked():<br>            gamestate = </font><strong><font color="#008080"><span style="color: ">"Ready"<br></span><span style="color: ">    </span></font><span style="color: "><font color="#000080">elif </font></span></strong><font color="#000000">gamestate == </font><span style="color: "><font color="#008080"><strong>"Ready"</strong></font></span><font color="#000000">:<br>        </font><span style="color: "><font color="#000080"><strong>if </strong></font></span><font color="#000000">total_time &gt; time_to_draw:<br>            total_time = </font><font color="#0000ff"><span style="color: ">0<br></span><span style="color: ">            </span></font><font color="#000000">gamestate = </font><strong><font color="#008080"><span style="color: ">"Draw"<br></span><span style="color: ">        </span></font><span style="color: "><font color="#000080">elif </font></span></strong><font color="#000000">LeftMouseClicked():<br>            gamestate = </font><strong><font color="#008080"><span style="color: ">"TooEarly"<br></span><span style="color: ">    </span></font><span style="color: "><font color="#000080">elif </font></span></strong><font color="#000000">gamestate == </font><span style="color: "><font color="#008080"><strong>"Draw"</strong></font></span><font color="#000000">:<br>        </font><span style="color: "><font color="#000080"><strong>if </strong></font></span><font color="#000000">total_time &gt; time_to_fire:<br>            total_time = </font><font color="#0000ff"><span style="color: ">0<br></span><span style="color: ">            </span></font><font color="#000000">gamestate = </font><strong><font color="#008080"><span style="color: ">"Fire"<br></span><span style="color: ">        </span></font><span style="color: "><font color="#000080">if </font></span></strong><font color="#000000">LeftMouseClicked():<br>            gamestate = </font><strong><font color="#008080"><span style="color: ">"Win"<br></span><span style="color: ">    </span></font><span style="color: "><font color="#000080">elif </font></span></strong><font color="#000000">gamestate == </font><span style="color: "><font color="#008080"><strong>"Fire"</strong></font></span><font color="#000000">:<br>            gamestate = </font><strong><font color="#008080"><span style="color: ">"Lose"<br></span><span style="color: ">    </span></font><span style="color: "><font color="#000080">elif </font></span></strong><font color="#000000">gamestate == </font><span style="color: "><font color="#008080"><strong>"TooEarly"</strong></font></span><font color="#000000">:<br>        </font><span style="color: "><font color="#000080"><strong>if </strong></font></span><font color="#000000">LeftMouseClicked():<br>            Reset()<br>            gamestate = </font><strong><font color="#008080"><span style="color: ">"Start"<br></span><span style="color: ">    </span></font><span style="color: "><font color="#000080">elif </font></span></strong><font color="#000000">gamestate == </font><span style="color: "><font color="#008080"><strong>"Win"</strong></font></span><font color="#000000">:<br>        </font><span style="color: "><font color="#000080"><strong>if </strong></font></span><font color="#000000">LeftMouseClicked():<br>            Reset()<br>            gamestate = </font><strong><font color="#008080"><span style="color: ">"Start"<br></span><span style="color: ">    </span></font><span style="color: "><font color="#000080">elif </font></span></strong><font color="#000000">gamestate == </font><span style="color: "><font color="#008080"><strong>"Lose"</strong></font></span><font color="#000000">:<br>        </font><span style="color: "><font color="#000080"><strong>if </strong></font></span><font color="#000000">LeftMouseClicked():<br>            Reset()<br>            gamestate = </font><strong><font color="#008080"><span style="color: ">"Start"<br></span><span style="color: ">    </span></font><span style="color: "><font color="#000080">else</font></span></strong><font color="#000000">:<br>        </font><span style="color: "><font color="#000080">print</font></span><font color="#000000">(</font><span style="color: "><font color="#008080"><strong>"Update Error: Unknown gamestate"</strong></font></span><font color="#000000">)</font></font></pre>
+
+<h3>Draw</h3>
+
+<p>The Draw function simply draws the screen according to the current game state:</p>
+
+<pre style="font-family: ; color: ; background-color: #ffffff"><span style="color: "><font color="#000080"><strong><font style="font-size: 9pt">def </font></strong></font></span><font style="font-size: 9pt"><font color="#000000">Draw():<br>    </font><span style="color: "><font color="#000080"><strong>global </strong></font></span><font color="#000000">background_surface, screen, sam_surface_set<br><br>    screen.blit(background_surface, (</font><span style="color: "><font color="#0000ff">0</font></span><font color="#000000">,</font><span style="color: "><font color="#0000ff">0</font></span><font color="#000000">))<br><br>    </font><span style="color: "><font color="#000080"><strong>if </strong></font></span><font color="#000000">gamestate == </font><span style="color: "><font color="#008080"><strong>"Start"</strong></font></span><font color="#000000">:<br>        DrawTitle(</font><span style="color: "><font color="#008080"><strong>"Click to Start"</strong></font></span><font color="#000000">)<br>    </font><span style="color: "><font color="#000080"><strong>elif </strong></font></span><font color="#000000">gamestate == </font><span style="color: "><font color="#008080"><strong>"Ready"</strong></font></span><font color="#000000">:<br>        DrawSam(</font><span style="color: "><font color="#008080"><strong>"Ready"</strong></font></span><font color="#000000">)<br>    </font><span style="color: "><font color="#000080"><strong>elif </strong></font></span><font color="#000000">gamestate == </font><span style="color: "><font color="#008080"><strong>"Draw"</strong></font></span><font color="#000000">:<br>        DrawSam(</font><span style="color: "><font color="#008080"><strong>"Draw"</strong></font></span><font color="#000000">)<br>    </font><span style="color: "><font color="#000080"><strong>elif </strong></font></span><font color="#000000">gamestate == </font><span style="color: "><font color="#008080"><strong>"Fire"</strong></font></span><font color="#000000">:<br>        DrawSam(</font><span style="color: "><font color="#008080"><strong>"Fire"</strong></font></span><font color="#000000">)<br>    </font><span style="color: "><font color="#000080"><strong>elif </strong></font></span><font color="#000000">gamestate == </font><span style="color: "><font color="#008080"><strong>"TooEarly"</strong></font></span><font color="#000000">:<br>        DrawTitle(</font><span style="color: "><font color="#008080"><strong>"You'll hang for this!"</strong></font></span><font color="#000000">)<br>        DrawSam(</font><span style="color: "><font color="#008080"><strong>"Innocent"</strong></font></span><font color="#000000">)<br>    </font><span style="color: "><font color="#000080"><strong>elif </strong></font></span><font color="#000000">gamestate == </font><span style="color: "><font color="#008080"><strong>"Win"</strong></font></span><font color="#000000">:<br>        DrawTitle(</font><span style="color: "><font color="#008080"><strong>"Got me you varmint"</strong></font></span><font color="#000000">)<br>        DrawSam(</font><span style="color: "><font color="#008080"><strong>"Shot"</strong></font></span><font color="#000000">)<br>    </font><span style="color: "><font color="#000080"><strong>elif </strong></font></span><font color="#000000">gamestate == </font><span style="color: "><font color="#008080"><strong>"Lose"</strong></font></span><font color="#000000">:<br>        DrawTitle(</font><span style="color: "><font color="#008080"><strong>"Take that!"</strong></font></span><font color="#000000">)<br>        DrawSam(</font><span style="color: "><font color="#008080"><strong>"Ready"</strong></font></span><font color="#000000">)<br>    </font><span style="color: "><font color="#000080"><strong>else</strong></font></span><font color="#000000">:<br>        </font><span style="color: "><font color="#000080">print</font></span><font color="#000000">(</font><span style="color: "><font color="#008080"><strong>"Draw Error: Unknown gamestate"</strong></font></span><font color="#000000">)<br><br>    pygame.display.flip()<br>    </font></font><span style="color: "><font style="font-size: 9pt" color="#000080"><strong>return</strong></font></span></pre>
+
+<h3>Additional Helper Functions</h3>
+
+<p>To avoid the noob error of cutting and pasting repeated code, and to 
+make the code easier to understand and manage, several additional helper
+ functions are handy to add. The first checks for a mouse click by 
+seeing of the left mouse button is newly pressed – i.e. it is pressed 
+this time around the game loop, but not last time – this prevents a 
+single mouse click triggering loads of mouse click transitions in one 
+go.</p>
+
+<pre style="font-family: ; color: ; background-color: #ffffff"><span style="color: "><font color="#000080"><strong><font style="font-size: 9pt">def </font></strong></font></span><font style="font-size: 9pt"><font color="#000000">LeftMouseClicked():<br>    </font><span style="color: "><font color="#000080"><strong>global </strong></font></span><font color="#000000">current_mouse, last_mouse<br>    </font><span style="color: "><font color="#000080"><strong>return </strong></font></span><font color="#000000">current_mouse[</font><span style="color: "><font color="#0000ff">0</font></span><font color="#000000">] </font><span style="color: "><font color="#000080"><strong>and not </strong></font></span><font color="#000000">last_mouse[</font><span style="color: "><font color="#0000ff">0</font></span><font color="#000000">]</font></font></pre>
+
+<p>Note that this function returns the boolean True or False so you can 
+use it anywhere that python needs a boolean. This is an example of a 
+function with a return type and they are very handy things!</p>
+
+<p>We also can draw a nice centred bit of large text using the DrawTitle function:</p>
+
+<pre style="font-family: ; color: ; background-color: #ffffff"><span style="color: "><font color="#000080"><strong><font style="font-size: 9pt">def </font></strong></font></span><font style="font-size: 9pt"><font color="#000000">DrawTitle(string):<br>    </font><span style="color: "><font color="#000080"><strong>global </strong></font></span><font color="#000000">big_font, screen<br>    text = big_font.render(string, </font><span style="color: "><font color="#0000ff">1</font></span><font color="#000000">, (</font><span style="color: "><font color="#0000ff">255</font></span><font color="#000000">, </font><span style="color: "><font color="#0000ff">128</font></span><font color="#000000">, </font><span style="color: "><font color="#0000ff">128</font></span><font color="#000000">))<br>    shadow = big_font.render(string, </font><span style="color: "><font color="#0000ff">1</font></span><font color="#000000">, (</font><span style="color: "><font color="#0000ff">0</font></span><font color="#000000">, </font><span style="color: "><font color="#0000ff">0</font></span><font color="#000000">, </font><span style="color: "><font color="#0000ff">0</font></span><font color="#000000">))<br>    textpos = text.get_rect()<br>    textpos.centerx = screen.get_rect().centerx<br>    shadowpos = shadow.get_rect()<br>    shadowpos.center = (textpos.centerx + </font><span style="color: "><font color="#0000ff">2</font></span><font color="#000000">, textpos.centery + </font><span style="color: "><font color="#0000ff">2</font></span><font color="#000000">)<br>    screen.blit(shadow, shadowpos)<br>    screen.blit(text, textpos)</font></font></pre>
+
+<p>Finally, Sam himself is represented by a set of surfaces – different 
+ones for the game states. To store these I use a dictionary structure to
+ allow us to get the surface we are after using a nice, friendly, string
+ name. I create this dictionary just once inside the Init function, 
+along with the global fonts used above:</p>
+
+<pre style="font-family: ; color: ; background-color: #ffffff"><span style="color: "><font color="#808080"><em><font style="font-size: 9pt"># Load the other sprite images</font></em></font><font style="font-size: 9pt"><br></font></span><font style="font-size: 9pt"><font color="#000000">sam_surface_set = { \<br>    </font><span style="color: "><font color="#008080"><strong>"Ready" </strong></font></span><font color="#000000">:  pygame.image.load(</font><span style="color: "><font color="#008080"><strong>"images/YosemiteSamReady.png"</strong></font></span><font color="#000000">).convert_alpha(), \<br>    </font><span style="color: "><font color="#008080"><strong>"Draw" </strong></font></span><font color="#000000">:  pygame.image.load(</font><span style="color: "><font color="#008080"><strong>"images/YosemiteSamAim.png"</strong></font></span><font color="#000000">).convert_alpha(), \<br>    </font><span style="color: "><font color="#008080"><strong>"Fire" </strong></font></span><font color="#000000">:  pygame.image.load(</font><span style="color: "><font color="#008080"><strong>"images/YosemiteSamFire.png"</strong></font></span><font color="#000000">).convert_alpha(), \<br>    </font><span style="color: "><font color="#008080"><strong>"Innocent" </strong></font></span><font color="#000000">:  pygame.image.load(</font><span style="color: "><font color="#008080"><strong>"images/YosemiteSamInnocent.png"</strong></font></span><font color="#000000">).convert_alpha(), \<br>    </font><span style="color: "><font color="#008080"><strong>"Shot" </strong></font></span><font color="#000000">:  pygame.image.load(</font><span style="color: "><font color="#008080"><strong>"images/YosemiteSamShot.png"</strong></font></span><font color="#000000">).convert_alpha() \<br>}</font><br><br><span style="color: "><font color="#808080"><em># Create some reusable fonts</em></font><br></span><font color="#000000">big_font = pygame.font.Font(</font><span style="color: "><font color="#000080"><strong>None</strong></font></span><font color="#000000">, </font><span style="color: "><font color="#0000ff">72</font></span><font color="#000000">)<br>little_font = pygame.font.Font(</font><span style="color: "><font color="#000080"><strong>None</strong></font></span><font color="#000000">, </font><span style="color: "><font color="#0000ff">36</font></span><font color="#000000">)</font></font></pre>
+
+<p>then I use it inside a handy DrawSam function that will draw the correct Sam according to the name that you pass in:</p>
+
+<pre style="font-family: ; color: ; background-color: #ffffff"><span style="color: "><font color="#000080"><strong><font style="font-size: 9pt">def </font></strong></font></span><font style="font-size: 9pt"><font color="#000000">DrawSam(state_string):<br>    </font><span style="color: "><font color="#000080"><strong>global </strong></font></span><font color="#000000">screen<br>    sam_surface = <span><font style="background-color: #e4e4ff">sam_surface_set</font></span>[state_string]<br>    target = sam_surface.get_rect()<br>    target.center = screen.get_rect().center<br>    screen.blit(sam_surface, target)</font></font></pre>
+
+<p>That’s it! In your version of the game try adding some new game 
+states or swap out the images for a different theme of game. Perhaps a 
+high score screen showing the fastest reaction time achieved in this 
+session of the game?</p>
+
+
+<div class="item-separator"></div>
+	</div>
+						<span class="row-separator"></span>
+				</div>
+
+						<div class="items-row cols-1 row-2">
+		<div class="item column-1">
+		
+	<h2>
+					<a href="https://web.archive.org/web/20161026121708/http://raspberrypilot.com/index.php/tutorials/79-shootout-session-1">
+			Shootout – Session 1</a>
+			</h2>
+
+
+
+
+
+ <dl class="article-info">
+ <dt class="article-info-term">Details</dt>
+		<dd class="published">
+		Published on Wednesday, 20 April 2016 08:29		</dd>
+	<dd class="createdby">
+				
+							Written by Edward Powell				</dd>
+		<dd class="hits">
+		Hits: 259		</dd>
+ 	</dl>
+<p><a href="https://web.archive.org/web/20161026121708/http://www.raspberrypilot.com/images/image_2_b0893c4c75d1d0915ef492c63f154c05.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; float: left; padding-top: 0px; padding-left: 0px; border-left: 0px; margin: 6px; display: inline; padding-right: 0px" alt="image" src="Tutorials1_files/image_thumb_2db1ecc200fa342541313327fa0652dc.png" border="0" align="left" height="184" width="244"></a>This
+ week we will be starting a new game – Shootout. It is essentially a 
+reaction time test, but using a western gunfight theme. Yosemite Sam 
+will draw and fire and the player must shoot him <em>after</em> he draws, but <em>before</em> he fires. If you shoot him before he draws then you will surely hang for killing an innocent man, but if you wait too long…</p>  <p>To
+ tackle this game we will be looking at a really common pattern in 
+computer programming – the finite state machine (or FSM). This is a 
+really useful way of breaking down the computational logic required for 
+many tasks you will encounter.</p>  <p>But before we get onto that, we 
+need to create the usual basic game framework – a loop which cycles 
+updating our game data and drawing the screen. As previously we will 
+break this down into functions that each deal with a specific aspect of 
+the game.</p>  <p>In a new python file, import the libraries we are going to need – pygame, sys and random.</p>  <p><font face="Courier New"><span style="white-space: pre; color: ; line-height: normal"><font style="color: #000080"><strong><font style="font-size: 9pt">import </font></strong></font></span><font style="white-space: pre; line-height: normal" color="#000000"><font style="font-size: 9pt">sys, pygame, random</font></font></font></p>  <p>Now we need to create our function structure.</p>            <h3>Init</h3>  <p>This
+ function completes all the one-time initialisation of the game. Things 
+that are done once, and only once, when our program is first run – such 
+as creating the game screen window and loading the game assets into 
+memory.</p>  <pre style="font-family: ; background-color: #ffffff"><span style="color: "><font color="#000080"><strong><font style="font-size: 9pt">def </font></strong></font></span><font style="font-size: 9pt"><font color="#000000">Init():<br>    </font><span style="color: "><font color="#000080"><strong>global </strong></font></span><font color="#000000">screen, current_keys, current_mouse, \<br>    background_surface, gamestate, \<br>    big_font, little_font</font></font></pre>
+
+<pre style="font-family: ; background-color: #ffffff"><font style="font-size: 9pt"><font color="#000000"><br><br>    </font><font color="#808080"><em><span style="color: "># Initialise pygame - must always be done first<br></span><span style="color: ">    </span></em></font><font color="#000000">pygame.init()<br>    <br>    gamestate = </font><span style="color: "><font color="#008080"><strong>"Start"</strong></font></span></font></pre>
+<font style="font-size: 9pt"><span style="color: "><font color="#008080"><strong>
+        </strong></font><pre style="font-family: ; background-color: #ffffff"><font color="#008080"><strong><br></strong></font><span style="color: "><br></span><span style="color: "><font color="#008080"><strong>    </strong></font></span><font color="#808080"><em><span style="color: "># Set the screen size using background image size<br></span><span style="color: ">    </span></em></font><font color="#000000">background_surface = pygame.image.load(</font><span style="color: "><font color="#008080"><strong>"images/Background.png"</strong></font></span><font color="#000000">)<br>    screen_size = background_surface.get_size()<br>    screen = pygame.display.set_mode(screen_size)</font></pre>
+        <font color="#000000">
+          </font><pre style="font-family: ; background-color: #ffffff"><font color="#000000"><br><br>    </font><span style="color: "><font color="#808080"><em># Convert the surfaces according to the screen bitdepths<br></em></font></span><font color="#808080"><em><span style="color: ">    # This will dramatically speed up blitting later<br></span><span style="color: ">    </span></em></font><font color="#000000">background_surface = background_surface.convert()</font></pre>
+          <font color="#000000">
+            </font><pre style="font-family: ; background-color: #ffffff"><font color="#000000"><br><br>    </font><font color="#808080"><em><span style="color: "># Load a big and little font<br></span><span style="color: ">    </span></em></font><font color="#000000">big_font = pygame.font.Font(</font><span style="color: "><font color="#000080"><strong>None</strong></font></span><font color="#000000">, </font><span style="color: "><font color="#0000ff">72</font></span><font color="#000000">)<br>    little_font = pygame.font.Font(</font><span style="color: "><font color="#000080"><strong>None</strong></font></span><font color="#000000">, </font><span style="color: "><font color="#0000ff">36</font></span><font color="#000000">)</font></pre>
+
+            </span></font><pre style="font-family: ; background-color: #ffffff"><font style="font-size: 9pt"><font color="#000000"><br><br>    </font><font color="#808080"><em><span style="color: "># Initialise our pressed key list<br></span><span style="color: ">    </span></em></font><font color="#000000">current_keys = pygame.key.get_pressed()<br>    current_mouse = pygame.mouse.get_pressed()</font></font></pre>
+
+            <h3>Reset</h3>
+
+            <p>This function resets all the properties of our game for 
+each go. Having started the game up, we expect the player to have 
+several go’s and so this function will be called lots of times. Since we
+ haven’t started to create our game yet, this function is empty and we 
+can just use the return keyword. As the game develops, we will add more 
+code here.</p>
+
+            <pre style="font-family: ; color: ; background-color: #ffffff"><span style="color: "><font color="#000080"><strong><font style="font-size: 9pt">def </font></strong></font></span><font style="font-size: 9pt"><font color="#000000">Reset():<br>    </font></font><span style="color: "><font style="font-size: 9pt; background-color: #e4e4ff" color="#000080"><strong>return</strong></font></span></pre>
+
+            <h3>GameLoop</h3>
+
+            <p>The main process of repeating the update and draw cycle. 
+This function will only complete and return when we ‘quit’ the game – 
+this is triggered by setting the gamestate variable to “Quit”.</p>
+
+            <pre style="font-family: ; color: ; background-color: #ffffff"><span style="color: "><font color="#000080"><strong><font style="font-size: 9pt">def </font></strong></font></span><font style="font-size: 9pt"><font color="#000000">GameLoop():<br>    </font><span style="color: "><font color="#000080"><strong>global </strong></font></span><font color="#000000">gamestate<br>    </font><span style="color: "><font color="#000080"><strong>while </strong></font></span><font color="#000000">gamestate </font><strong><span style="color: "><font color="#000080">is not </font></span><span style="color: "><font color="#008080">"Quit"</font></span></strong><font color="#000000">:<br>        </font><span style="color: "><font color="#000080"><strong>for </strong></font></span><font color="#000000">event </font><span style="color: "><font color="#000080"><strong>in </strong></font></span><font color="#000000">pygame.event.get():<br>            </font><span style="color: "><font color="#000080"><strong>if </strong></font></span><font color="#000000">event.type == pygame.QUIT:<br>                gamestate = </font><span style="color: "><font color="#008080"><strong>"Quit"<br></strong></font></span><span style="color: "><br></span><font color="#000000"><br><br>        Update()<br>        Draw()<br><br><br>    </font><font color="#808080"><em><span style="color: "># If we get here, we should quit<br></span><span style="color: ">    </span></em></font><font color="#000000">sys.exit()</font></font></pre>
+
+            <h3>Update</h3>
+
+            <p>This function processes all the changes to the game data in response to time, user input or other events.</p>
+
+            <pre style="font-family: ; color: ; background-color: #ffffff"><span style="color: "><font color="#000080"><strong><font style="font-size: 9pt">def </font></strong></font></span><font style="font-size: 9pt"><font color="#000000">Update():<br>    </font><span style="color: "><font color="#000080"><strong>global </strong></font></span><font color="#000000">current_keys, last_keys, current_mouse, last_mouse<br>    <span><font style="background-color: #ffe4ff">last_keys</font></span> = current_keys<br>    current_keys = pygame.key.get_pressed()<br><br>    last_mouse = current_mouse<br>    current_mouse = pygame.mouse.get_pressed()<br>    </font><span style="color: "><font color="#808080">elapsed_ms </font></span><font color="#000000">= pygame.time.Clock().tick(</font><span style="color: "><font color="#0000ff">30</font></span><font color="#000000">)</font></font></pre>
+
+            <h3>Draw</h3>
+
+            <p>This function constructs and draws our screen. As you 
+create more sophisticated game loops, you will find that you will 
+usually call the update and draw functions at different rates so keeping
+ this work logically separate is a good habit to get into.</p>
+
+            <h3></h3>
+
+            <h3>Call the functions</h3>
+
+            <p>Finally we need to actually call these functions 
+(remember, they are only defined so far and so won’t actually run), so 
+at the bottom of your file add your calls.</p>
+
+            <pre style="font-family: ; background-color: #ffffff"><span><font style="background-color: #e4e4ff"><font style="font-size: 9pt" color="#000000">Init</font></font></span><font style="font-size: 9pt" color="#000000">()<br>Reset()<br>GameLoop()</font></pre>
+
+            <pre style="font-family: ; background-color: #ffffff"><font color="#000000"></font></pre>
+
+            <p><font color="#000000">Now you should be able to F5 and 
+see your window created according to the background image and the loop 
+should run until you close the window. Essentially, this set of code is 
+the basis of any game you may wish to start, so it might be a good idea 
+to keep a copy of it somewhere so you can reuse it easily in the future.
+ Next week we’ll discuss how to structure and begin adding our game 
+logic to this framework.</font></p>
+
+
+<div class="item-separator"></div>
+	</div>
+						<span class="row-separator"></span>
+				</div>
+
+						<div class="items-row cols-1 row-3">
+		<div class="item column-1">
+		
+	<h2>
+					<a href="https://web.archive.org/web/20161026121708/http://raspberrypilot.com/index.php/tutorials/22-minecraft-modding-in-java">
+			Minecraft Modding in Java</a>
+			</h2>
+
+
+
+
+
+ <dl class="article-info">
+ <dt class="article-info-term">Details</dt>
+		<dd class="published">
+		Published on Wednesday, 04 December 2013 23:13		</dd>
+	<dd class="createdby">
+				
+							Written by Andrew Hague				</dd>
+		<dd class="hits">
+		Hits: 972		</dd>
+ 	</dl>
+<h2>What is needed?</h2>
+<ul>
+<li>JRE</li>
+<li>JDK</li>
+<li>IDE (Netbeans)</li>
+<li>MINECRAFT FORGE (for 1.5.2)</li>
+<li>FML libs for 1.5</li>
+<li>Some know-how…</li>
+</ul>
+<h2>Install</h2>
+<ul>
+<li>Install JRE, JDK, IDE</li>
+<li>Set PATH to include JRE &amp; JDK</li>
+<li>Unzip Minecraft Forge</li>
+<li>Run Install.cmd while online</li>
+<ul>
+<li>Downloads more stuff</li>
+<li>Creates MCP (Mod Coder Pack)</li>
+<li>Creates FML (Forge Mod Loader)</li>
+<li>Decompiles and patches minecraft</li>
+</ul>
+</ul>
+<p>• Unzip fml libs (into mcp\lib) [on 1.5.2]</p>
+<p>• Run Install.cmd again! [on 1.5.2]</p>
+<h2>Prepare to program</h2>
+<ul>
+<li>Set up IDE</li>
+<ul>
+<li>Edit project workspace settings (MCP_LOC)</li>
+<li>Import project workspace</li>
+<li>Shuffle which libs are used in preference in project</li>
+<li>Tell game where to find native libs</li>
+</ul>
+</ul>
+<h2>Setup Boilerplate for Mod</h2>
+<ul>
+<li>Each mod needs to be in a package</li>
+<li>Each mod package needs a main class</li>
+<li>Main class needs an instance, a server proxy, preinit, load and postinit.</li>
+<li>Proxy classes provide shared code between server and client (we won’t use these)</li>
+<li>Each new ‘thing’ lives in a new class and derives from a similar ‘thing’</li>
+</ul>
+<h2>A new ‘thing’ : a block</h2>
+<ul>
+<li>Block needs a look</li>
+<ul>
+<li>Texture in mods.MODNAME.textures.blocks</li>
+</ul>
+<li>Respond to being placed by the player</li>
+<ul>
+<li>Set more blocks</li>
+</ul>
+<li>Create instance of a block, and set it up some default features of that block.</li>
+<li>Register block, its name and block harvest level</li>
+<li>Build and test</li>
+</ul>
+<p>anything can happen, including crashes, lag, glitches: i.e. BUGS!</p>
+<h2>Package the mod</h2>
+<ul>
+<li>Recompile.bat</li>
+<li>Reobfuscate.bat</li>
+<li>Code</li>
+<ul>
+<li>‘mcp\reobf\minecraft\modname’ -&gt; mod.zip\modfolder\modname</li>
+</ul>
+<li>Textures</li>
+<ul>
+<li>‘mcp\src\minecraft\mods’ -&gt; mod.zip\modfolder\mods</li>
+</ul>
+</ul>
+<p>Email it to your friends that have FML installed for 1.5.2</p>
+<p>Find my mod and source code <a href="https://web.archive.org/web/20161026121708/https://www.dropbox.com/sh/sed5u2htattehw7/HbHtq-pri4">here </a>on Dropbox.</p>
+
+
+<div class="item-separator"></div>
+	</div>
+						<span class="row-separator"></span>
+				</div>
+
+				
+
+
+
+	
+
+<div class="items-more">
+
+<h3>More Articles...</h3>
+<ol>
+	<li>
+		<a href="https://web.archive.org/web/20161026121708/http://raspberrypilot.com/index.php/tutorials/15-unity-tutorials">
+			Unity Tutorials</a>
+	</li>
+</ol>
+</div>
+
+
+
+	
+		<div class="pagination">
+												<p class="counter">
+								Page 1 of 2						</p>
+
+								<ul><li class="pagination-start"><span class="pagenav">Start</span></li><li class="pagination-prev"><span class="pagenav">Prev</span></li><li><span class="pagenav">1</span></li><li><a title="2" href="https://web.archive.org/web/20161026121708/http://raspberrypilot.com/index.php/tutorials?start=5" class="pagenav">2</a></li><li class="pagination-next"><a title="Next" href="https://web.archive.org/web/20161026121708/http://raspberrypilot.com/index.php/tutorials?start=5" class="pagenav">Next</a></li><li class="pagination-end"><a title="End" href="https://web.archive.org/web/20161026121708/http://raspberrypilot.com/index.php/tutorials?start=5" class="pagenav">End</a></li></ul>		</div>
+
+</div>
+
+
+                                                </div><!-- end main -->
+
+                                        </div><!-- end wrapper -->
+
+                                
+                        
+                                <div class="wrap"></div>
+
+                                </div> <!-- end contentarea -->
+
+                        </div><!-- back -->
+
+                </div><!-- all -->
+
+                <div id="footer-outer">
+                        
+                        <div id="footer-sub">
+
+
+                                <div id="footer">
+
+                                        
+                                        <p>
+                                                Powered by <a href="https://web.archive.org/web/20161026121708/http://www.joomla.org/">Joomla!®</a>
+                                        </p>
+
+
+                                </div><!-- end footer -->
+
+                        </div>
+
+                </div>
+				
+        
+
+</body></html>
