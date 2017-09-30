@@ -197,6 +197,7 @@ lang="{{ lang }}">
     <li class="withripple"><a href="/categories/articles/">Articles</a></li>
     <li class="withripple"><a href="/categories/tutorials/">Tutorials</a></li>
     <li class="withripple"><a href="/categories/games/">Games!</a></li>
+    <li><hr></li>
     {% for url, text in navigation_links[lang] %}
         {% if isinstance(url, tuple) %}
             <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ text|e }}<b class="caret"></b></a>
