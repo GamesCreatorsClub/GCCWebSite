@@ -4,14 +4,6 @@
 .. date: 27 April 2016 10:57
 .. author: Edward Powell
 
-	<h2>
-					<a href="https://web.archive.org/web/20161026121708/http://raspberrypilot.com/index.php/tutorials/80-what-a-state-to-get-into">
-			What a state to get into…</a>
-			</h2>
-
-
-
-
 
 <p><img style="float: left; margin: 6px; display: inline" src="../../../images/old/finitestatemachines-logo.jpg" align="left" height="131" width="205">This
  week we are going to be adding our game state code to the basic (and 
@@ -23,7 +15,7 @@ state to a new one if necessary. Essentially all of our game logic will
 be captured in this function – although we will create some other 
 ‘helper’ functions to complete repetitive tasks without having to copy 
 and paste code (if you find yourself doing this, it is a sure sign that 
-your code needs a better structure – time to ‘refactor’).</p>  <p>The <font face="Courier New"><strong>Draw</strong></font> code can now be extremely simple. It will just dumbly draw items according to the current game state.</p>  <p><a href="https://web.archive.org/web/20161026121708/http://www.raspberrypilot.com/images/image_2_8ff39faf27dccd8cc617e1707a6a04c8.png"><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" alt="image" src="../../../images/old/image_thumb_ce85e2133d615eabdea59a25f3eec26a.png" border="0" height="261" width="580"></a></p>    <p>The
+your code needs a better structure – time to ‘refactor’).</p>  <p>The <font face="Courier New"><strong>Draw</strong></font> code can now be extremely simple. It will just dumbly draw items according to the current game state.</p>  <p><img title="image" style="border-top: 0px; border-right: 0px; background-image: none; border-bottom: 0px; padding-top: 0px; padding-left: 0px; border-left: 0px; display: inline; padding-right: 0px" alt="image" src="../../../images/old/image_thumb_ce85e2133d615eabdea59a25f3eec26a.png" border="0" height="261" width="580"></p>    <p>The
  diagram above shows a simple design of the 7 new game states we need 
 (not including the existing ‘Quit’ state) and the events we will be 
 looking for in the Update function to trigger transitions between the 
